@@ -1,0 +1,129 @@
+/************************** 
+* Border radius
+***************************/
+
+@mixin borderRadius($br) {
+    -webkit-border-radius: $br;
+    -moz-border-radius: $br;
+    border-radius: $br;
+}
+
+
+/************************** 
+* Transition Delay
+***************************/
+
+@mixin transitionDelay($tD) {
+    -webkit-transition-delay: $tD;
+    -moz-transition-delay: $tD;
+    -o-transition-delay: $tD;
+    transition-delay: $tD;
+}
+
+
+/************************** 
+* Text Transform
+***************************/
+
+@mixin textTransform($tT) {
+    text-transform: $tT;
+}
+
+
+/************************** 
+* Border T R B L
+***************************/
+
+@mixin borderTop($bT) {
+    border-top: $bT;
+}
+
+@mixin borderLeft($bL) {
+    border-left: $bL;
+}
+
+@mixin borderRight($bR) {
+    border-right: $bR;
+}
+
+@mixin borderBottom($bB) {
+    border-bottom: $bB;
+}
+
+
+/************************** 
+* Media Query
+***************************/
+
+@mixin respond($breackpoint) {
+    @if($breackpoint=="mini-phone") {
+        @media only screen and (max-width: 320px) {
+            @content;
+        }
+    }
+    @if($breackpoint=="iphone") {
+        @media only screen and (max-width: 375px) {
+            @content;
+        }
+    }
+    @if($breackpoint=="iphone-6-plus") {
+        @media only screen and (max-width: 414px) {
+            @content;
+        }
+    }
+    @if($breackpoint=="a-kindle") {
+        @media only screen and (max-width: 480px) {
+            @content;
+        }
+    }
+    @if($breackpoint=="phone") {
+        @media only screen and (max-width: 575px) {
+            @content;
+        }
+    }
+    @if($breackpoint=="small-tablet") {
+        @media only screen and (max-width: 600px) {
+            @content;
+        }
+    }
+    @if($breackpoint=="phone-land") {
+        @media only screen and (max-width: 767px) {
+            @content;
+        }
+    }
+    @if($breackpoint=="min-tab") {
+        @media only screen and (max-width: 768px) {
+            @content;
+        }
+    }
+    @if($breackpoint=="tab-port") {
+        @media only screen and (max-width: 991px) {
+            @content;
+        }
+    }
+    @if($breackpoint=="tab-land") {
+        @media only screen and (max-width: 1199px) {
+            @content;
+        }
+    }
+    @if ($breackpoint=="laptop") {
+        @media only screen and (max-width: 1400px) {
+            @content;
+        }
+    }
+    @if ($breackpoint=="desktop") {
+        @media only screen and (min-width: 1200px) {
+            @content;
+        }
+    }
+    @if($breackpoint=="mid-desktop") {
+        @media only screen and (max-width: 1600px) {
+            @content;
+        }
+    }
+    @if($breackpoint=="big-desktop") {
+        @media only screen and (min-width: 1800px) {
+            @content;
+        }
+    }
+}

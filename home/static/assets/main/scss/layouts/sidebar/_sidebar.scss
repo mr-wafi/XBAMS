@@ -1,0 +1,108 @@
+[data-sidebar-style="full"].sidebar-toggled .nav-header {
+    width: 5rem;
+    z-index: 999;
+}
+
+.sidebar-toggled {
+    .sidebar-widgets {
+        display: none;
+    }
+}
+
+
+/*****************************
+Left Panel (aside navigation)
+*****************************/
+
+.left-panel {
+    left: 0px;
+    z-index: 5;
+    width: $fixed-with-layout;
+    padding-bottom: 0;
+    height: 100vh;
+    top: 6rem;
+    padding-top: 0;
+    padding-bottom: 100px;
+    background-color: $background-white;
+    overflow-y: scroll;
+    @extend .shadow-header;
+    @extend .transition-layouts;
+    &.collapsed {
+        width: 5rem;
+        overflow: scroll;
+    }
+}
+
+
+/************************** 
+    * Resize Full
+***************************/
+
+[data-sidebar-position="fixed"] .left-panel {
+    position: fixed;
+    &.collapsed {
+        overflow: initial;
+    }
+}
+
+
+/************************** 
+    * Resize Mini
+***************************/
+
+[data-sidebar-style="mini"] .left-panel {
+    width: 6.25rem;
+    overflow: visible;
+    position: absolute;
+    z-index: 2;
+    top: 5rem;
+    height: calc(100% - 80px);
+}
+
+
+/************************** 
+    * Resize Overlay
+***************************/
+
+[data-sidebar-style="overlay"] .left-panel {
+    left: -100%;
+    top: 5rem;
+    @extend .transition-layouts;
+    &.collapsed {
+        left: 0px !important;
+        width: 17rem;
+        top: 5rem;
+        overflow: scroll;
+        @extend .transition-layouts;
+        @include respond('iphone') {
+            top: 10rem;
+        }
+    }
+    @include respond('iphone') {
+        top: 10rem;
+    }
+}
+
+@media (max-width: 450px) {
+    .dropdown-menu {
+        min-width: 280px !important;
+    }
+    .messages-dropdown {
+        right: -80px !important;
+    }
+    .messages-dropdown.arrow.arrow-top-right:after {
+        right: 85px;
+    }
+    .messages-dropdown.arrow.arrow-top-right:before {
+        right: 84px;
+    }
+    .notifications {
+        right: -40px !important;
+    }
+    .notifications.arrow.arrow-top-right:after {
+        right: 45px;
+    }
+    .notifications.arrow.arrow-top-right:before {
+        right: 44px;
+    }
+}

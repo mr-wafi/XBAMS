@@ -1,0 +1,196 @@
+/*****************************
+Content Area (right)
+*****************************/
+
+#main-wrapper {
+    overflow: hidden;
+    position: relative;
+}
+
+.content-body {
+    margin-left: $fixed-with-layout;
+    z-index: 0;
+    padding-top: 6rem;
+    @extend .transition-layouts;
+    .container-fluid {
+        padding-top: 30px;
+        padding-right: 20px;
+        padding-left: 20px;
+        @include respond("phone-land") {
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+    }
+    @include respond("tab-land") {
+        padding-top: 0;
+    }
+    @include respond("a-kindle") {
+        padding-top: 5rem;
+    }
+    @include respond("iphone-6-plus") {
+        padding-top: 5rem;
+    }
+    @include respond("iphone") {
+        padding-top: 10rem;
+    }
+}
+
+.menu-toggle {
+    .content-body {
+        margin-left: 5rem;
+        @extend .transition-layouts;
+    }
+}
+
+
+/***************************** 
+    * Resize mini - overlay
+******************************/
+
+[data-sidebar-style="mini"] .content-body {
+    margin-left: 6.25rem;
+}
+
+[data-sidebar-style="overlay"] .content-body {
+    margin-left: 0;
+}
+
+
+/*****************************
+Authentification
+*****************************/
+
+.login-tabib {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    background-position: center;
+    padding: 30px 12px;
+    background-image: url("https://via.placeholder.com/3000/f8f8f8/2b2b2b");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    .logo {
+        display: block;
+        margin-bottom: 30px;
+        text-align: center;
+        width: 98px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .login-main {
+        width: 450px;
+        padding: 40px;
+        border-radius: 10px;
+        -webkit-box-shadow: 0 0 37px rgba(8, 21, 66, 5%);
+        box-shadow: 0 0 37px rgba(8, 21, 66, 5%);
+        margin: 0 auto;
+        background-color: #fff;
+        @include respond("phone") {
+            width: auto;
+            padding: 20px;
+        }
+        .theme-form {
+            h4 {
+                font-size: 24px;
+                font-weight: 500;
+                margin-bottom: 5px;
+                color: #2b2b2b;
+            }
+            p {
+                margin-bottom: 25px;
+                font-size: 14px;
+                color: #898989;
+            }
+            .form-group {
+                position: relative;
+                @include respond("phone") {
+                    margin-bottom: 5px !important;
+                }
+                label {
+                    font-size: 14px;
+                    letter-spacing: 0.4px;
+                    position: relative;
+                }
+                input {
+                    background-color: #f3f3ff;
+                    -webkit-transition: all 0.3s ease;
+                    transition: all 0.3s ease;
+                }
+                .checkbox {
+                    input[type="checkbox"] {
+                        opacity: 0;
+                    }
+                    label {
+                        padding-left: 10px;
+                        margin-top: 10px;
+                        font-size: 14px;
+                    }
+                }
+            }
+            .link {
+                position: absolute;
+                top: 10px;
+                right: 0;
+                font-size: 14px;
+                @include respond("phone") {
+                    position: unset;
+                }
+            }
+        }
+    }
+}
+
+.checkbox {
+    label {
+        &::before {
+            content: "";
+            display: inline-block;
+            position: absolute;
+            width: 19px;
+            height: 19px;
+            left: 0;
+            margin-left: -16px;
+            border-radius: 3px;
+            background-color: #f9f9fa;
+            border: 1px solid #dfdfdf;
+        }
+        &::after {
+            content: "";
+            width: 9px;
+            height: 9px;
+            top: 0;
+            left: 0;
+            border-radius: 0.05em;
+            background-color: var(--accent-color);
+            position: absolute;
+            transform: scale(0);
+            transition: 0.5s transform ease;
+        }
+    }
+    input {
+        &:checked+label {
+            &::after {
+                transform: scale(1);
+                width: 9px;
+                height: 9px;
+                background: $primary;
+                left: -11px;
+                top: 6px;
+                border-radius: 3px;
+            }
+        }
+    }
+}
+
+.auth-404 {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url("https://via.placeholder.com/3000/f8f8f8/2b2b2b");
+    .page-content {
+        h1 {
+            font-size: 10em;
+            font-weight: 700;
+        }
+    }
+}

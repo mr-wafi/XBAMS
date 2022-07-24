@@ -1,0 +1,529 @@
+/************************** 
+* Top Header
+***************************/
+
+[data-header-position="fixed"] .header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    @include respond('iphone') {
+        position: fixed;
+        padding-left: 0 !important;
+        top: 5rem;
+    }
+    @include respond('mini-phone') {
+        position: fixed;
+        padding-left: 0 !important;
+        top: 5rem;
+    }
+}
+
+
+/************************** 
+* Top Header
+***************************/
+
+.header {
+    height: 6rem;
+    position: relative;
+    padding: 0rem;
+    background-color: $background-white;
+    z-index: 3;
+    padding-left: $fixed-with-layout;
+    @extend .transition-layouts;
+    @include respond('tab-land') {
+        height: 5rem;
+        padding-left: 5rem;
+    }
+    .top-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+        padding: 22px 30px;
+        @extend .shadow-header;
+        @extend .transition-layouts;
+        @include respond('phone-land') {
+            padding-left: 3.75rem;
+            padding-right: 0.938rem;
+        }
+        .nav-control {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            text-align: $text-center;
+            z-index: 9999;
+            font-size: 1.4rem;
+            padding: 0;
+            @include borderRadius(5px);
+            .hamburger {
+                display: inline-block;
+                left: 0px;
+                position: relative;
+                top: 0;
+                width: 26px;
+                z-index: 999;
+                margin-right: 20px;
+                @extend .transition;
+                .line {
+                    background: $primary;
+                    display: block;
+                    height: 3px;
+                    margin-top: 6px;
+                    margin-bottom: 6px;
+                    margin-left: auto;
+                    @include borderRadius(3px);
+                    @extend .transition;
+                    &:nth-child(1) {
+                        width: 20px;
+                        margin-top: 0;
+                    }
+                    &:nth-child(2) {
+                        width: 26px;
+                    }
+                    &:nth-child(3) {
+                        width: 22px;
+                        margin-bottom: 0;
+                    }
+                }
+                &:hover {
+                    .line {
+                        width: 26px;
+                    }
+                }
+            }
+            .left-header {
+                ul {
+                    .nav-link {
+                        padding: 10px 12px;
+                        float: left;
+                        margin-right: 10px;
+                        @include borderRadius(5px);
+                        @include respond('phone-land') {
+                            padding: 0 !important;
+                            height: 40px;
+                            width: 40px;
+                            line-height: 40px !important;
+                            text-align: center;
+                            border-radius: 5px;
+                        }
+                        @include respond('phone-land') {
+                            padding: 10px;
+                            line-height: initial;
+                            border: none;
+                            font-size: initial;
+                        }
+                        a {
+                            i {
+                                margin-right: 5px;
+                                @include respond('phone-land') {
+                                    margin-right: 0px;
+                                }
+                            }
+                            span {
+                                @include respond('phone-land') {
+                                    display: none;
+                                }
+                            }
+                        }
+                        &:first-child {
+                            background-color: rgba(115, 102, 255, 0.15);
+                            a {
+                                color: $primary;
+                            }
+                        }
+                        &:last-child {
+                            background-color: rgba(247, 49, 100, 0.15);
+                            margin-right: 0px;
+                            a {
+                                color: $secondary
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .header-right {
+            display: flex;
+            align-items: center;
+            .fullscreen {
+                position: relative;
+                display: flex;
+                align-items: center;
+                .full {
+                    a {
+                        position: relative;
+                        color: $primary;
+                        background: $background;
+                        padding: 15px;
+                        font-size: 14px;
+                        -webkit-border-radius: 5px;
+                        -moz-border-radius: 5px;
+                        border-radius: 5px;
+                        @include respond('tab-land') {
+                            padding: 15px;
+                        }
+                    }
+                }
+                @include respond('tab-port') {
+                    display: none !important;
+                }
+                @include respond('mini-phone') {
+                    display: none !important;
+                }
+            }
+            .notification_dropdown {
+                position: relative;
+                display: flex;
+                align-items: center;
+                @include respond('phone-land') {
+                    position: static;
+                }
+                .cart-wrapper {
+                    .cart-dropdown-form {
+                        position: absolute;
+                        top: 47px;
+                        right: 0;
+                        min-width: 310px;
+                        min-height: 100px;
+                        padding: 0 0px 16px 0px;
+                        z-index: 99999;
+                        cursor: pointer;
+                        opacity: 0;
+                        visibility: hidden;
+                        transform: translateY(30px);
+                        @extend .transition;
+                        @include respond('mini-phone') {
+                            margin-right: 0 !important;
+                        }
+                        @include respond('tab-land') {
+                            top: 58px;
+                        }
+                        @include respond('phone-land') {
+                            right: 0px !important;
+                            left: auto;
+                            top: 100% !important;
+                            margin-right: 0.938rem;
+                        }
+                        &:before {
+                            content: "";
+                            position: absolute;
+                            left: 0;
+                            right: 0;
+                            top: 27px;
+                            bottom: 0;
+                            content: "";
+                            z-index: -1;
+                            display: block;
+                            background: $background-white;
+                            @extend .transition;
+                        }
+                        .form-content {
+                            text-align: $text-center;
+                            padding-top: 25px;
+                            @include respond('tab-land') {
+                                padding-top: 12px;
+                            }
+                            @include respond('phone-land') {
+                                padding-top: 0px;
+                            }
+                        }
+                    }
+                    &:hover {
+                        .cart-dropdown-form {
+                            visibility: visible;
+                            opacity: 1;
+                            // display: inherit;
+                            transform: translateY(0px);
+                            @extend .transition;
+                        }
+                    }
+                    .cart-icon {
+                        position: relative;
+                        color: $primary;
+                        background: $background;
+                        padding: 15px;
+                        line-height: 1;
+                        font-size: 18px;
+                        @include borderRadius(5px);
+                        @include respond('tab-port') {
+                            padding: 0 !important;
+                            height: 40px;
+                            width: 40px;
+                            line-height: 40px !important;
+                            text-align: center;
+                            border-radius: 5px;
+                        }
+                        .cart-control {
+                            i {
+                                font-size: 15px;
+                                color: $notification-color;
+                            }
+                        }
+                    }
+                }
+            }
+            .my-account-wrapper {
+                background-color: $background-white;
+                padding: 10px 12px;
+                position: relative;
+                @extend .shadow-header;
+                @include borderRadius(5px);
+                .account-control {
+                    .header-profile {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        .header-info {
+                            padding-right: 20px;
+                            text-align: $text-right;
+                            @include respond('tab-land') {
+                                padding-right: 10px;
+                            }
+                            span {
+                                font-weight: $font-500;
+                                line-height: 24px;
+                                color: $default-color-full;
+                            }
+                            small {
+                                display: block;
+                                font-weight: $font-400;
+                                font-size: 12px;
+                                line-height: 1;
+                                font-family: $font-roboto;
+                            }
+                            @include respond('small-tablet') {
+                                display: none;
+                            }
+                        }
+                        img {
+                            width: 37px;
+                            height: 37px;
+                            background-color: $background;
+                            @include borderRadius(5px);
+                            @include respond('tab-land') {
+                                width: 39px;
+                                height: 39px;
+                            }
+                        }
+                    }
+                    .account-dropdown-form {
+                        position: absolute;
+                        top: 40px;
+                        right: 0;
+                        min-width: 10.8rem;
+                        min-height: 100px;
+                        padding: 15px 0;
+                        padding-top: 36px;
+                        padding-bottom: 0;
+                        z-index: 99999;
+                        cursor: pointer;
+                        opacity: 0;
+                        visibility: hidden;
+                        transform: translateY(30px);
+                        @include borderRadius(5px !important);
+                        @extend .transition;
+                        @include respond('tab-land') {
+                            top: 33px;
+                        }
+                        &:before {
+                            content: "";
+                            position: absolute;
+                            left: 0;
+                            right: 0;
+                            top: 18px;
+                            bottom: 0;
+                            content: "";
+                            z-index: -1;
+                            display: block;
+                            @extend .transition;
+                            @include borderRadius(5px);
+                        }
+                        .form-content {
+                            padding: 5px 0;
+                            padding-top: 8px;
+                            background: $background-white;
+                            @extend .shadow-header;
+                            @include borderRadius(5px);
+                            a {
+                                padding: 8px 24px;
+                                color: $default-color;
+                                display: inherit;
+                                border-top: $border-width $border-style-solid $border-color;
+                                margin-left: 5px;
+                                margin-right: 5px;
+                                @extend .transition-layouts;
+                                &:hover {
+                                    background-color: $background;
+                                    @extend .transition-layouts;
+                                    span {
+                                        color: $primary;
+                                        @extend .transition-layouts;
+                                    }
+                                    i {
+                                        &:before {
+                                            color: $primary;
+                                            @extend .transition-layouts;
+                                        }
+                                    }
+                                }
+                                &:first-child {
+                                    border: none;
+                                }
+                                i {
+                                    &:before {
+                                        margin-right: 10px;
+                                        color: $dark-color;
+                                        @extend .transition-layouts;
+                                    }
+                                }
+                                span {
+                                    color: $dark-color;
+                                    @extend .transition-layouts;
+                                }
+                            }
+                        }
+                    }
+                    &:hover {
+                        .account-dropdown-form {
+                            visibility: visible;
+                            opacity: 1;
+                            display: inherit;
+                            transform: translateY(0px);
+                            @extend .transition;
+                        }
+                    }
+                }
+            }
+        }
+        .navbar {
+            display: inline-block !important;
+            width: auto !important;
+            padding: 0;
+        }
+    }
+}
+
+.menu-toggle {
+    .header {
+        padding-left: 5rem;
+        .top-head {
+            @extend .transition-layouts;
+        }
+    }
+    .hamburger {
+        .line {
+            &:nth-child(1) {
+                -webkit-transform: translateY(4px) translateX(12px) rotate( 45deg);
+                transform: translateY(4px) translateX(0px) rotate( 45deg);
+            }
+            &:nth-child(3) {
+                -webkit-transform: translateY(-4px) translateX(12px) rotate( -45deg);
+                transform: translateY(-4px) translateX(0px) rotate( -45deg);
+            }
+            &:nth-child(1),
+            &:nth-child(3) {
+                width: 0.625rem !important;
+                height: 3px !important;
+            }
+        }
+    }
+}
+
+.header-right>div {
+    float: right;
+    margin-left: 10px;
+    @include respond('tab-land') {
+        margin-left: 0.5rem;
+    }
+}
+
+@-webkit-keyframes pulse-me {
+    0% {
+        -webkit-transform: scale(0.3);
+        transform: scale(0.3);
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.1;
+    }
+    70% {
+        opacity: 0.09;
+    }
+    100% {
+        -webkit-transform: scale(3);
+        transform: scale(3);
+        opacity: 0;
+    }
+}
+
+@keyframes pulse-me {
+    0% {
+        -webkit-transform: scale(0.3);
+        transform: scale(0.3);
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.1;
+    }
+    70% {
+        opacity: 0.09;
+    }
+    100% {
+        -webkit-transform: scale(3);
+        transform: scale(3);
+        opacity: 0;
+    }
+}
+
+
+/******************************* 
+    * Resize -  mini - overlay
+********************************/
+
+[data-sidebar-style="mini"] .header {
+    padding-left: 6.25rem;
+    .top-head {
+        .nav-control {
+            .hamburger {
+                display: none;
+            }
+        }
+    }
+}
+
+[data-sidebar-style="overlay"] .header {
+    .top-head {
+        padding-left: 0.75rem;
+    }
+}
+
+.pulse-css {
+    width: .4rem;
+    height: .4rem;
+    position: absolute;
+    background-color: $notification-bg;
+    right: 5px;
+    top: .6rem;
+    @include borderRadius(0.5rem);
+    &:after,
+    &:before {
+        content: '';
+        width: 1rem;
+        height: 1rem;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: -.2rem;
+        background-color: $notification-bg;
+        margin: auto;
+        -webkit-transform: scale(0.3);
+        transform: scale(0.3);
+        -webkit-transform-origin: center center;
+        transform-origin: center center;
+        -webkit-animation: pulse-me 3s linear infinite;
+        animation: pulse-me 3s linear infinite;
+        @include borderRadius(0.5rem);
+    }
+}

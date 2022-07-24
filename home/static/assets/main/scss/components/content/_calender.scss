@@ -1,0 +1,149 @@
+/************************** 
+* Calender Sidebar
+***************************/
+
+.draggable-events {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    .box-title {
+        font-size: 14px;
+        color: $default-color-full;
+        margin-bottom: 25px;
+        padding-top: 10px;
+    }
+    .bottom-event {
+        .external-events {
+            .external-event {
+                padding-left: 10px;
+                margin-bottom: 8px;
+                cursor: move;
+                color: $white;
+                text-transform: capitalize;
+                height: auto !important;
+                @include borderRadius(5px);
+            }
+            .checkbox {
+                margin-top: 10px;
+                label {
+                    margin-bottom: 0;
+                    display: flex;
+                    align-items: center;
+                    position: relative;
+                    &::before {
+                        margin-left: 0;
+                    }
+                }
+                input {
+                    margin-right: 13px;
+                }
+            }
+        }
+    }
+}
+
+.create-event {
+    padding-bottom: 16px;
+    .event-header {
+        .box-title {
+            font-size: 14px;
+            color: $default-color-full;
+            padding-top: 10px;
+        }
+    }
+    .event-body {
+        .fc-color-picker {
+            li {
+                float: left;
+                font-size: 30px;
+                margin-right: 5px;
+            }
+        }
+        .add-event {
+            .form-control {
+                height: auto;
+            }
+        }
+    }
+}
+
+.fc-button-group {
+    button {
+        margin-left: 5px !important;
+        margin-right: 5px !important;
+        background: transparent;
+        height: auto;
+        box-shadow: none;
+        border-radius: 5px !important;
+    }
+}
+
+
+/************************** 
+* Calender
+***************************/
+
+#calendar {
+    // header calendar
+    .fc-header-toolbar {
+        margin-bottom: 0;
+        padding: 16px 0;
+        .fc-left {
+            .fc-button-group {
+                button {
+                    border: $border;
+                    padding: 5px 10px;
+                    &:first-child {
+                        margin-left: 0 !important;
+                    }
+                    .fc-icon {
+                        margin: 0;
+                    }
+                }
+            }
+            .fc-today-button {
+                border: $border;
+                padding: 0.375rem 1.75rem;
+                color: $black;
+                font-size: 12px;
+                height: auto;
+                background: transparent;
+            }
+        }
+        .fc-right {
+            .fc-button-group {
+                button {
+                    border: $border;
+                    padding: 0.375rem 1.75rem;
+                    color: $black;
+                    font-size: 12px;
+                    height: auto;
+                    text-transform: capitalize;
+                    z-index: 2;
+                    &:last-child {
+                        margin-right: 0 !important;
+                    }
+                }
+            }
+        }
+        .fc-center {
+            h2 {
+                font-size: 18px;
+                color: $default-color-full;
+            }
+        }
+    }
+    // Content calendar
+    .fc-view-container {
+        a {
+            padding: 5px 3px;
+            text-align: center;
+            border-radius: 5px;
+        }
+        .fc-content {
+            .fc-time,
+            .fc-title {
+                opacity: 1;
+            }
+        }
+    }
+}

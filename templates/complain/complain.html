@@ -1,0 +1,757 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block content %}
+<div class="card">
+    <div class="card-header fix-card">
+        <div class="row">
+            <div class="col-8">
+                <center><h4 style="color:red; margin-left: 300px;">Note: For Multiple Complain First Assign Employee Then Update Complain Status</h4></center>
+                <br>
+                <h4 class="card-title"> <i class="fa fa-building"></i> Complain List </h4>
+            </div>
+            <div class="col-4 float-end">
+                <a href="/new-patient.html" class="btn btn-primary float-end" data-bs-toggle="modal"
+                    data-bs-target="#newAppointment"><i class="fa fa-plus"></i> New Complain</a>
+            </div>
+        </div>
+    </div>
+    <div class="modal selectRefresh" id="newAppointment" tabindex="-1" aria-labelledby="exampleModalLabelOne">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fa fa-plus"> </i>&nbsp; New Complain </h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST" action="{% url 'complain' %}">
+                        {% csrf_token %}
+                        <form>
+                            <div class="form-row">
+                                <div class="col-12">
+                                    <label for="">Title:</label>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="title" placeholder="Enter Title">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <label for="">Description:</label>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="description"
+                                            placeholder="Enter Description">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <label for="">Date:</label>
+                                    <div class="form-group">
+                                        <input type="date" class="form-control" name="date">
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="float-end">
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn badge-primary">Save</button>
+                            </div>
+                        </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table id="example1" class="display nowrap">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Title</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Solution</th>
+                        <th>Assigned Complain</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for segment in complain %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ segment.title }}</td>
+                        <td>{{ segment.date }}</td>
+                        <td>
+                        
+                        <select name="status" onchange="getStatus1({{segment.id}},{{segment.employee_id}})" class="form-control" id="status{{segment.id}}">
+
+                            
+                            {% if segment.status == null %}     
+                            <option value="">--Select Status--</option>
+                            {% else %}
+                            <option selected value="{{segment.status}}" >{{segment.status}}</option>
+                            {% endif %}
+                            <option value="pending" >Pending</option>
+                            <option value="in_progress">In Progress</option>
+                            <option value="on_hold">On Hold</option>
+                            <option value="completed">Completed</option>
+                        </select>
+
+                        </td>
+                        <td>{{ segment.solution }}</td>
+
+                        <td id="employ">
+                            
+                            {% if segment.employee_id == null %}
+                            <a href="#" onclick="$('#complain_view_36{{segment.id}}').modal('show');">Assign Employee</a>
+                                {% else %}
+                                {{ segment.employee.name }}                            
+                            
+                                {% endif %}
+                                
+                        </td>
+                        
+
+                        <td> 
+                            
+                            <a class="btn btn-primary ams_btn_special" data-toggle="tooltip" href="javascript:;"
+                                onclick="$('#complain_view_36{{segment.id}}').modal('show');"
+                                data-original-title="Assigned Complain"><i class="fa fa-user"></i></a> 
+
+
+
+                                <div id="complain_view_36{{segment.id}}" class="modal" tabindex="-1" role="dialog"
+                                    aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                    <div class="modal-dialog modal-m">
+                                        <div class="modal-content">
+                                            <div class="modal-header green_header">
+                                                <button aria-label="Close" data-dismiss="modal" class="close"
+                                                    type="button"><span aria-hidden="true"><i
+                                                            class="fa fa-close"></i></span></button>
+                                                <h3 class="modal-title" style="margin-right:120px">Assigned Complain</h3>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form>
+                                                    <div>
+                                                        <input type="hidden" name="id" value="{{ segment.id}}" id="id">
+                                                        <select name="employee" onchange="getEmployee1({{ segment.id }})" class="form-control" id="employee{{ segment.id}}" style="width:100%;">
+                                                             
+                                                             {% if segment.employee_id == null %}
+                                                             
+                                                                    
+                                                            <option value="">--Select Employee--</option>
+                                                            {% for i in employee %}
+                                                            
+                                                            {% if segment.employee.id  != i.id %}
+                                                            <option value="{{ i.id }}">{{ i.name }}
+                                                                &nbsp;({{ i.designation }})</option>
+                                                                {% endif %}
+
+                                                                {% endfor %}
+
+                                                            {% else %}
+                                                            <option selected value="{{ segment.employee.id }} ">{{ segment.employee.name }} ({{ segment.employee.designation }})</option>
+
+                                                            {% for i in employee %}
+                                                            
+                                                            {% if segment.employee.id  != i.id %}
+                                                            <option value="{{ i.id }}">{{ i.name }}
+                                                                &nbsp;({{ i.designation }})</option>
+                                                                {% endif %}
+
+                                                                {% endfor %}
+                                                                {% endif %}
+                                                            
+                                                        </select>
+                                                    </div>
+                                                    <br>
+                                                    {% comment %} <div align="right">
+                                                        <button name="submit" id="btn_job_assign"
+                                                            class="btn btn-success">Assign
+                                                            Job</button>
+                                                    </div> {% endcomment %}
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <!-- /.modal-content -->
+                                    </div>
+                                </div>
+
+                                {% comment %} <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal"
+                                    data-bs-target="#edit{{ segment.id }}"><i class="fa fa-pen"></i></button>
+                                <div class="modal  selectRefresh" id="edit{{ segment.id }}" tabindex="-1"
+                                    aria-labelledby="exampleModalLabelOne">
+                                    <div class="modal-dialog modal-m" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabelOne"><b></b>Edit
+                                                    segment
+                                                    {{ segment.id }}</h5>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form class="row align-items-start" action="" method="POST"
+                                                    enctype="multipart/form-data">
+                                                    {% csrf_token %}
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <label><b>Name</b></label>
+                                                            <input type="text" name="name" class="form-control"
+                                                                value="{{ segment.name }}">
+                                                            <input type="hidden" name="input" value="update_segment"
+                                                                id="">
+                                                            <input type="hidden" name="id" value="{{ segment.id }}">
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-danger"
+                                                            data-bs-dismiss="modal">Close</button>
+                                                        <button type="submit" class="btn badge-primary">Update
+                                                            segment</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div> {% endcomment %}
+
+                                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                                    data-bs-target="#delete{{ segment.id }}"><i class="fa fa-trash"></i></button>
+                                <div class="modal  selectRefresh" id="delete{{ segment.id }}" tabindex="-1"
+                                    aria-labelledby="exampleModalLabelOne">
+                                    <div class="modal-dialog modal-lg" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabelOne"><b></b>Delete
+                                                    {{ segment.id }}</h5>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form class="row align-items-start" action="{% url 'delete_complain' segment.id %}" method="POST"
+                                                    enctype="multipart/form-data">
+                                                    {% csrf_token %}
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            Do you want to delete this?
+                                                        </div>
+                                                        <input type="hidden" name="input" value="delete_segment" id="">
+                                                        <input type="hidden" name="id" value="{{ segment.id }}">
+
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-danger"
+                                                            data-bs-dismiss="modal">Close</button>
+                                                        <button type="submit" class="btn badge-primary">Delete
+                                                            segment</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+
+                                <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal"
+                                    data-bs-target="#add{{ segment.id }}"><i class="fa fa-thumbs-up"></i></button>
+                                <div class="modal  selectRefresh" id="add{{ segment.id }}" tabindex="-1"
+                                    aria-labelledby="exampleModalLabelOne">
+                                    <div class="modal-dialog modal-lg" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header green_header">
+                                                <button aria-label="Close" data-dismiss="modal" class="close"
+                                                    type="button"><span aria-hidden="true"><i
+                                                            class="fa fa-close"></i></span></button>
+                                                <h3 class="modal-title">Add Your Solution</h3>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form action="{% url 'update_solution' segment.id %}" method="post">
+                                                    {% csrf_token %}
+                                                <br>
+                                                <div>
+                                                    <label>Add Solution</label><br>
+                                                    <textarea style="width:100%;"class="form-control"name="solution"></textarea>
+                                                </div>
+                                                <br>
+                                                <div class="float-end">
+                                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn badge-primary">Add Solution</button>
+                                                 </div>
+                                              </form>
+                                            </div>
+
+
+
+
+                                        </div>
+                                        <!-- /.modal-content -->
+                                    </div>
+                                </div>
+
+
+                        </td>
+
+
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block js %}
+<script src="{% static 'assets/plugins/datatables/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'assets/js/init-tdatatable.js' %}"></script>
+<script src="{% static 'assets/js/ajax.js' %}"></script>
+<script src="{% static 'assets/js/swal.js' %}"></script>
+<script>
+function getStatus1(id,emp){
+    var id =id;
+    var emp = $('#status'+id).val();
+
+        if (emp != '') {
+            $.ajax({
+                url: '{% url 'status_ajax' %}',
+                type: 'POST',
+                data: {
+                    emp: emp,
+                    id: id
+                },
+                headers: { //<==
+                    "X-CSRFTOKEN": "{{ csrf_token }}" //<==
+                },
+                success: function (resp) {
+
+                        Swal.fire({
+                        title: 'success!',
+                        text: 'Status Updated Successfully',
+                        icon: 'success',
+                        timer: 2000,
+                        confirmButtonText: 'OK'
+                      }).then(function() {
+                        window.location.reload();
+                    })
+
+                }
+
+            })
+        }
+    }
+</script>
+<script>
+    
+   function getEmployee1(id){
+        var emp = $("#employee"+id).val();
+        var id = id;
+
+        if (emp != '') {
+            $.ajax({
+                url: '{% url 'assign_ajax' %}',
+                type: 'POST',
+                data: {
+                    emp: emp,
+                    id: id
+                },
+                headers: { //<==
+                    "X-CSRFTOKEN": "{{ csrf_token }}" //<==
+                },
+                success: function (resp) {
+
+                    Swal.fire({
+                        title: 'success!',
+                        text: 'Job Assigned Successfully',
+                        icon: 'success',
+                        timer: 2000,
+                        confirmButtonText: 'OK'
+                      }).then(function() {
+                        window.location.reload();
+                    })
+                }
+
+            })
+        }
+        }
+</script>
+{% endblock %}
+{% block employee %}
+<div class="card">
+    <div class="card-header fix-card">
+        <div class="row">
+            <div class="col-8">
+                <h4 class="card-title"> <i class="fa fa-building"></i> Complain List </h4>
+            </div>
+            <div class="col-4 float-end">
+                <a href="/new-patient.html" class="btn btn-primary float-end" data-bs-toggle="modal"
+                    data-bs-target="#newAppointment"><i class="fa fa-plus"></i> New Complain</a>
+            </div>
+        </div>
+    </div>
+    <div class="modal selectRefresh" id="newAppointment" tabindex="-1" aria-labelledby="exampleModalLabelOne">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fa fa-plus"> </i>&nbsp; New Complain </h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST" action="{% url 'complain' %}">
+                        {% csrf_token %}
+                        <form>
+                            <div class="form-row">
+                                <div class="col-12">
+                                    <label for="">Title:</label>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="title" placeholder="Enter Title">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <label for="">Description:</label>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="description"
+                                            placeholder="Enter Description">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <label for="">Date:</label>
+                                    <div class="form-group">
+                                        <input type="date" class="form-control" name="date">
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="float-end">
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn badge-primary">Save</button>
+                            </div>
+                        </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table id="example1" class="display nowrap">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Title</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Solution</th>
+                        <th>Assigned Complain</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for segment in complain %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ segment.title }}</td>
+                        <td>{{ segment.date }}</td>
+                        <td>
+                        
+                        <select name="status" onchange="getStatus({{segment.id}},{{segment.employee_id}})" class="form-control" id="status{{segment.id}}">
+
+                            
+                            {% if segment.status == null %}     
+                            <option value="">--Select Status--</option>
+                            {% else %}
+                            <option selected value="{{segment.status}}" >{{segment.status}}</option>
+                            {% endif %}
+                            <option value="pending" >Pending</option>
+                            <option value="in_progress">In Progress</option>
+                            <option value="on_hold">On Hold</option>
+                            <option value="completed">Completed</option>
+                        </select>
+
+                        </td>
+                        <td>{{ segment.solution }}</td>
+
+                        <td id="employ">
+                            
+                            {% if segment.employee_id == null %}
+                            <a href="#" onclick="$('#complain_view_36{{segment.id}}').modal('show');">Assign Employee</a>
+                                {% else %}
+                                {{ segment.employee.name }}                            
+                            
+                                {% endif %}
+                                
+                        </td>
+                        
+
+                        <td> 
+
+
+
+                                <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal"
+                                    data-bs-target="#add{{ segment.id }}"><i class="fa fa-thumbs-up"></i></button>
+                                <div class="modal  selectRefresh" id="add{{ segment.id }}" tabindex="-1"
+                                    aria-labelledby="exampleModalLabelOne">
+                                    <div class="modal-dialog modal-lg" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header green_header">
+                                                <button aria-label="Close" data-dismiss="modal" class="close"
+                                                    type="button"><span aria-hidden="true"><i
+                                                            class="fa fa-close"></i></span></button>
+                                                <h3 class="modal-title">Add Your Solution</h3>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form action="{% url 'update_solution' segment.id %}" method="post">
+                                                    {% csrf_token %}
+                                                <br>
+                                                <div>
+                                                    <label>Add Solution</label><br>
+                                                    <textarea style="width:100%;"class="form-control"name="solution"></textarea>
+                                                </div>
+                                                <br>
+                                                <div class="float-end">
+                                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn badge-primary">Add Solution</button>
+                                                 </div>
+                                              </form>
+                                            </div>
+
+
+
+
+                                        </div>
+                                        <!-- /.modal-content -->
+                                    </div>
+                                </div>
+
+
+                        </td>
+
+
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock employee %}
+{% block js_employee %}
+<script src="{% static 'assets/plugins/datatables/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'assets/js/init-tdatatable.js' %}"></script>
+<script src="{% static 'assets/js/ajax.js' %}"></script>
+<script src="{% static 'assets/js/swal.js' %}"></script>
+<script>
+function getStatus(id,emp){
+    var id =id;
+    var emp = $('#status'+id).val();
+
+        if (emp != '') {
+            $.ajax({
+                url: '{% url 'status_ajax' %}',
+                type: 'POST',
+                data: {
+                    emp: emp,
+                    id: id
+                },
+                headers: { //<==
+                    "X-CSRFTOKEN": "{{ csrf_token }}" //<==
+                },
+                success: function (resp) {
+
+                        Swal.fire({
+                        title: 'success!',
+                        text: 'Status Updated Successfully',
+                        icon: 'success',
+                        timer: 2000,
+                        confirmButtonText: 'OK'
+                      }).then(function() {
+                        window.location.reload();
+                    })
+
+                }
+
+            })
+        }
+    }
+</script>
+<script>
+    
+   function getEmployee(id){
+        var emp = $("#employee"+id).val();
+        var id = id;
+
+        if (emp != '') {
+            $.ajax({
+                url: '{% url 'assign_ajax' %}',
+                type: 'POST',
+                data: {
+                    emp: emp,
+                    id: id
+                },
+                headers: { //<==
+                    "X-CSRFTOKEN": "{{ csrf_token }}" //<==
+                },
+                success: function (resp) {
+
+                    Swal.fire({
+                        title: 'success!',
+                        text: 'Job Assigned Successfully',
+                        icon: 'success',
+                        timer: 2000,
+                        confirmButtonText: 'OK'
+                      }).then(function() {
+                        window.location.reload();
+                    })
+                }
+
+            })
+        }
+        }
+</script>
+{% endblock js_employee %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %}
+#################################################################################################################
+{% endcomment %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% if request.user.user_type == 'Tenant' %}
+
+
+
+{% block tenant %}
+<div class="card">
+    <div class="card-header fix-card">
+        <div class="row">
+            <div class="col-8">
+                <h4 class="card-title"> <i class="fa fa-building"></i> Complain List </h4>
+            </div>
+            <div class="col-4 float-end">
+                <a href="/new-patient.html" class="btn btn-primary float-end" data-bs-toggle="modal"
+                    data-bs-target="#newAppointment"><i class="fa fa-plus"></i> New Complain</a>
+            </div>
+        </div>
+    </div>
+    <div class="modal selectRefresh" id="newAppointment" tabindex="-1" aria-labelledby="exampleModalLabelOne">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fa fa-plus"> </i>&nbsp; New Complain </h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST" action="{% url 'complain' %}">
+                        {% csrf_token %}
+                        <form>
+                            <div class="form-row">
+                                <div class="col-12">
+                                    <label for="">Title:</label>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="title" placeholder="Enter Title">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <label for="">Description:</label>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="description"
+                                            placeholder="Enter Description">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <label for="">Date:</label>
+                                    <div class="form-group">
+                                        <input type="date" class="form-control" name="date">
+                                    </div>
+                                    <input type="hidden" name="tenant_id" value="{{ request.user.tenant_id }}" id="">
+                                </div>
+
+                            </div>
+
+                            <div class="float-end">
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn badge-primary">Save</button>
+                            </div>
+                        </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table id="example1" class="display nowrap">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Title</th>
+                        <th>Date</th>
+                        <th>Renter Name</th>
+                        <th>Status</th>
+                        <th>Solution</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for segment in complain %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ segment.title }}</td>
+                        <td>{{ segment.date }}</td>
+                        <td>{{ request.user.full_name }}</td>
+                        <td>{{ segment.status }}</td>
+                        <td>{{ segment.solution }}</td>
+
+
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock tenant %}
+{% block js_tenant %}
+<script src="{% static 'assets/plugins/datatables/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'assets/js/init-tdatatable.js' %}"></script>
+
+{% endblock js_tenant %}
+
+{% endif %}

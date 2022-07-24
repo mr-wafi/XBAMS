@@ -1,0 +1,279 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="card">
+  <div class="card-header fix-card">
+    <div class="row">
+      <section class="content">
+        <!-- Full Width boxes (Stat box) -->
+        <div class="row">
+          <div class="col-md-12">
+            <div align="right" style="margin-bottom:1%;"> </div>
+            <div class="box box-success">
+              <div class="box-header">
+                <h3 class="box-title">Rent Entry Form</h3>
+              </div>
+              <form action="{% url 'rent' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="box-body row">
+                  <div class="form-group col-md-6">
+                    <label for="ddlFloorNo"><span class="errorStar">*</span> Floor No :</label>
+                    <select class="form-control" name="floor" id="FloorNo">
+                      <option value="">--Select Floor--</option>
+                      {% for floor in floors %}
+                      <option value="{{ floor.id }}">{{ floor.name }}</option>
+                      {% endfor %}
+                    </select>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label ><span class="errorStar">*</span> Unit No :</label>
+                    <select name="unit" id="UnitNo" class="form-control">
+                      
+                    </select>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="txtRent">Renter Name :</label>
+                    <input readonly="readonly" type="text" value="" id="RentName"
+                      class="form-control">
+                      <input type="hidden" id="hidden_tenant" value="" name="tenant_id">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="txtRent">Rent :</label>
+                    <div class="input-group">
+                      <input readonly="readonly" type="text" name="rent" onkeyup="calculateFairTotal();" value="0.00"
+                        id="txtRent" class="form-control">
+                    </div>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="ddlMonth"><span class="errorStar">*</span> Select Rent Month :</label>
+                    <select name="rent_month" id="ddlMonth" class="form-control">
+                      <option value="">--Select Month--</option>
+                      <option value="January">January</option>
+                      <option value="February">February</option>
+                      <option value="March">March</option>
+                      <option value="April">April</option>
+                      <option value="May">May</option>
+                      <option value="June">June</option>
+                      <option value="July">July</option>
+                      <option value="August">August</option>
+                      <option value="September">September</option>
+                      <option value="October">October</option>
+                      <option value="November">November</option>
+                      <option value="December">December</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="ddlYear"><span class="errorStar">*</span> Select Rent Year :</label>
+                    <select id="ddlYear" name="rent_year" class="form-control">
+                      <option value="">--Select Year--</option>
+                      <option value="2022">2022</option>
+                      <option value="2023">2023</option>
+                      <option value="2024">2024</option>
+                      <option value="2025">2025</option>
+                      <option value="2026">2026</option>
+                      <option value="2027">2027</option>
+                      <option value="2028">2028</option>
+                      <option value="2029">2029</option>
+                      <option value="2030">2030</option>
+                      <option value="2031">2031</option>
+                      <option value="2032">2032</option>
+                    </select>
+                  </div>
+                 
+                  <div class="form-group col-md-6">
+                    <label for="txtWaterBill">Water Bill :</label>
+                    <div class="input-group">
+                      <input type="text" name="water_bill" onkeyup="calculateFairTotal();" value="0.00"
+                        id="water_bill" class="form-control">
+                    </div>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="txtElectricBill">Electric Bill :</label>
+                    <div class="input-group">
+                      <input type="text" name="electric_bill" onkeyup="calculateFairTotal();" value="0.00"
+                        id="electric_bill" class="form-control">
+
+                    </div>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="txtGasBill">Gas Bill :</label>
+                    <div class="input-group">
+                      <input type="text" name="gas_bill" onkeyup="calculateFairTotal();" value="0.00" id="gas_bill"
+                        class="form-control">
+
+                    </div>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="txtSecurityBill">Security Bill :</label>
+                    <div class="input-group">
+                      <input type="text" name="security_bill" onkeyup="calculateFairTotal();" value="0.00"
+                        id="security_bill" class="form-control">
+
+                    </div>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="txtUtilityBill">Utility Bill :</label>
+                    <div class="input-group">
+                      <input type="text" name="utility_bill" onkeyup="calculateFairTotal();" value="0.00"
+                        id="utility_bill" class="form-control">
+
+                    </div>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="txtOtherBill">Other Bill :</label>
+                    <div class="input-group">
+                      <input type="text" name="other_bill" onkeyup="calculateFairTotal();" value="0.00"
+                        id="other_bill" class="form-control">
+
+                    </div>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="txtTotalRent">Total Rent :</label>
+                    <div class="input-group">
+                      <input type="text" readonly="readonly" name="total_rent" id="total_rent"
+                        class="form-control total_rent">
+
+                    </div>
+                  </div>
+
+                  <div class="form-group col-md-6">
+                    <label for="txtPaidDate"> Bill Paid Date :</label>
+                    <input type="date" name="bill_paid_date" value="" id="txtPaidDate" class="form-control datepicker">
+                  </div>
+
+                  <div class="form-group col-md-6">
+                    <label for="ddlBillStatus"> Bill Status :</label>
+                    <select name="status" id="ddlBillStatus" class="form-control">
+                      <option value="due">Due</option>
+                      <option value="paid">Paid</option>
+                    </select>
+                  </div>
+
+                </div>
+                <div class="box-footer">
+                  <div class="form-group pull-right" dir="rtl">
+                    <button type="submit" name="btnSave" class="btn btn-success"><i class="fa fa-floppy-o"></i> Save
+                      Information</button>
+                  </div>
+              </form>
+              <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+          </div>
+        </div>
+        <!-- /.row -->
+        <script type="text/javascript">
+        </script>
+      </section>
+
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block js %}
+<script src="{% static 'assets/plugins/datatables/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'assets/js/init-tdatatable.js' %}"></script>
+{% comment %} <script src="{% static 'assets/js/datapicker.js' %}"></script> {% endcomment %}
+<script src="{% static 'assets/js/ajax.js' %}"></script>
+
+
+
+
+
+<script>
+  $("#FloorNo").on('change',function(){
+    var emp = $("#FloorNo").val();
+    
+    if (emp != ''){
+        $.ajax({
+            url: '{% url 'floor_ajax' %}',
+            type: 'POST',
+            data: {emp:emp},
+            headers: {//<==
+                "X-CSRFTOKEN": "{{ csrf_token }}"//<==
+        },
+        success: function (data) {
+          var $select = $('#UnitNo');
+          $select.find('option').remove();
+          $select.append('<option value="">--Select Flat--</option>');
+
+          $.each(data.data, function(k, v) {
+            
+            $select.append('<option value=' + v.id + '>' + v.unit_no + '</option>');
+          });
+       
+      },
+
+        })
+    }
+});
+
+</script>
+<script>
+  $("#UnitNo").on('change',function(){
+    var emp = $("#UnitNo").val();
+    
+    if (emp != ''){
+        $.ajax({
+            url: '{% url 'unit_ajax' %}',
+            type: 'POST',
+            data: {emp:emp},
+            headers: {//<==
+                "X-CSRFTOKEN": "{{ csrf_token }}"//<==
+        },
+        success: function (resp){
+
+          $('#RentName').val(resp.data[0].name)
+          $('#hidden_tenant').val(resp.data[0].id)
+          $('#txtRent').val(resp.data[0].rent_per_month)
+      }
+
+        })
+    }
+});
+
+</script>
+<script>
+  function calculateFairTotal(){
+    var box_1 = 0.00;
+    var box_2 = 0.00;
+    var box_3 = 0.00;
+    var box_4 = 0.00;
+    var box_5 = 0.00;
+    var box_6 = 0.00;
+    var box_7 = 0.00;
+    if($("#txtRent").val() != ''){
+      box_1 = parseFloat($("#txtRent").val());
+    }
+    if($("#water_bill").val() != ''){
+      box_2 = parseFloat($("#water_bill").val());
+    }
+    if($("#electric_bill").val() != ''){
+      box_3 = parseFloat($("#electric_bill").val());
+    }
+    if($("#gas_bill").val() != ''){
+      box_4 = parseFloat($("#gas_bill").val());
+    }
+    if($("#security_bill").val() != ''){
+      box_5 = parseFloat($("#security_bill").val());
+    }
+    if($("#utility_bill").val() != ''){
+      box_6 = parseFloat($("#utility_bill").val());
+    }
+    if($("#other_bill").val() != ''){
+      box_7 = parseFloat($("#other_bill").val());
+    }
+    var total = parseFloat(box_1 + box_2 + box_3 + box_4 + box_5 + box_6 + box_7);
+    total = total.toFixed(2);
+    $("#total_rent").val(total);
+  }
+
+
+
+
+</script>
+{% endblock %}
+
+{% comment %} var obj = JSON.parse(JSON.stringify(data)) {% endcomment %}
+{% comment %} $select.find('option').remove(); {% endcomment %}

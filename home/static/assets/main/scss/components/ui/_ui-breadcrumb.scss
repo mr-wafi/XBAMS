@@ -1,0 +1,55 @@
+/************************** 
+* Breadcrumb
+***************************/
+
+.page-titles {
+    padding: 0;
+    background: transparent;
+    padding-bottom: 30px;
+    @include borderRadius(5px);
+    p {
+        font-size: 12px;
+        color: $default-color-opacity;
+        margin-top: 0;
+        display: block;
+        letter-spacing: 1px;
+        font-weight: $font-400;
+    }
+    .welcome-text {
+        h4 {
+            font-size: 24px;
+            color: $default-color-full !important;
+            margin-bottom: 0;
+        }
+    }
+}
+
+.breadcrumb {
+    margin-bottom: 0;
+    padding: 0;
+    background: transparent;
+    align-items: center;
+    .breadcrumb-item {
+        margin-top: 0;
+        margin-bottom: 0;
+        a {
+            color: $primary;
+            text-transform: capitalize;
+        }
+        &.active {
+            display: flex;
+            align-items: center;
+            a {
+                color: $active-breadcrumb-link;
+            }
+        }
+    }
+    .breadcrumb-item+.breadcrumb-item {
+        &:before {
+            content: "\e606";
+            font-family: "simple-line-icons";
+            font-weight: $font-400;
+            font-size: 10px;
+        }
+    }
+}

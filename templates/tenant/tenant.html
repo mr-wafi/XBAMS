@@ -1,0 +1,582 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block content %}
+<div class="card">
+   <div class="card-header fix-card">
+      <div class="row">
+         <div class="col-8">
+            <h4 class="card-title"> <i class="fa fa-train"></i> Tenant List</h4>
+         </div>
+         <div class="col-4 float-end">
+            <a href="/new-patient.html" class="btn btn-primary float-end" data-bs-toggle="modal"
+               data-bs-target="#newAppointment"><i class="fa fa-plus"></i> New Tenant</a>
+         </div>
+      </div>
+   </div>
+
+
+
+
+
+
+   <div class="modal selectRefresh" id="newAppointment" tabindex="-1" aria-labelledby="exampleModalLabelOne">
+      <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+         <div class="modal-content">
+            <div class="modal-header">
+               <h5 class="modal-title"><i class="fa fa-plus"> </i>&nbsp; New Tenant </h5>
+               <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span
+                     aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+               <form method="POST" enctype="multipart/form-data">
+                  {% csrf_token %}
+                  <div class="form-row">
+                     <div class="col-4">
+                        <label for="">Tenant Name:</label>
+                        <div class="form-group">
+                           <input type="text" class="form-control" name="name" placeholder="Enter Name">
+                        </div>
+                     </div>
+                     <div class="col-4">
+                        <label for="">Address:</label>
+                        <div class="form-group">
+                           <input type="text" class="form-control" name="address" placeholder="Enter Address">
+                        </div>
+                     </div>
+                     <div class="col-4">
+                        <label for="">NID(Tenant National ID):</label>
+                        <div class="form-group">
+                           <input type="number" class="form-control" name="national_id" placeholder="Enter National ID">
+                        </div>
+                     </div>
+
+
+                  </div>
+                  <div class="form-row">
+                     <div class="form-group col-md-4">
+                        <label for="ddlFloorNo"><span class="errorStar">*</span> Floor No :</label>
+                        <select class="form-control" name="floor" id="FloorNo">
+                          <option value="">--Select Floor--</option>
+                          {% for floor in floors %}
+                          <option value="{{ floor.id }}">{{ floor.name }}</option>
+                          {% endfor %}
+                        </select>
+                      </div>
+                      <div class="form-group col-md-4">
+                        <label for="ddlUnitNo"><span class="errorStar">*</span> Unit No :</label>
+                        <select name="unit" id="UnitNo" class="form-control">
+                          
+                        </select>
+                      </div>
+                     <div class="col-4">
+                        <label for="">Advance Rent:</label>
+                        <div class="form-group">
+                           <input type="number" class="form-control" name="advance_rent">
+                        </div>
+                     </div>
+                  </div>
+                  <div class="form-row">
+                     <div class="col-4">
+                        <label for="">Rent Per Month:</label>
+                        <div class="form-group">
+                           <input type="number" class="form-control" name="rent_per_month">
+                        </div>
+                     </div>
+                     {% comment %} <div class="form-group">
+
+                        <input list="khan" type="text" class="form-control" value="{{ tenant.advance_rent }}"
+                           name="advance_rent">
+                        <datalist id="khan">
+                           <option value="firfox">
+                           <option value="ghin">
+                           <option value="ghar">
+                           <option value="ghor">
+                           <option value="ghar">
+                           <option value="gher">
+                           <option value="khowatty">
+                        </datalist>
+                     </div> {% endcomment %}
+                     <div class="col-4">
+                        <label for="">Issue Date:</label>
+                        <div class="form-group">
+                           <input type="date" class="form-control" name="issue_date" placeholder="Enter Issue Date">
+                        </div>
+                     </div>
+                     <div class="col-4">
+                        <label for="">Rent Month:</label>
+                        <div class="form-group">
+                           <select name="rent_month" class="form-control">
+                              <option value="">--Select Month--</option>
+                              <option value="January">January</option>
+                              <option value="February">February</option>
+                              <option value="March">March</option>
+                              <option value="April">April</option>
+                              <option value="May">May</option>
+                              <option value="June">June</option>
+                              <option value="July">July</option>
+                              <option value="August">August</option>
+                              <option value="September">September</option>
+                              <option value="October">October</option>
+                              <option value="November">November</option>
+                              <option value="December">December</option>
+                           </select>
+                        </div>
+                     </div>
+                     <div class="col-4">
+                        <label for="">Rent Year:</label>
+                        <div class="form-group">
+                           <select name="rent_year" class="form-control">
+                              <option value="">--Select Year--</option>
+                              <option value="2022">2022</option>
+                              <option value="2023">2023</option>
+                              <option value="2024">2024</option>
+                              <option value="2025">2025</option>
+                              <option value="2026">2026</option>
+                              <option value="2027">2027</option>
+                              <option value="2028">2028</option>
+                              <option value="2029">2029</option>
+                              <option value="2030">2030</option>
+                              <option value="2031">2031</option>
+                              <option value="2032">2032</option>
+                           </select>
+                        </div>
+                     </div>
+
+                     <div class="col-4">
+                        <label for="">Status:</label>
+                        <div class="form-group">
+                           <select name="status" class="form-control">
+                              <option value="">--Select Status--</option>
+                              <option value="Active">Active</option>
+                              <option value="Inactive">Inactive</option>
+
+                           </select>
+                        </div>
+                     </div>
+
+                  </div>
+                  <div class="form-row">
+                     <div class="form-group col-md-6">
+                        <label for="img">Tenant Image:</label>
+                        <input type="file" id="img" name="image">
+                     </div>
+
+                  </div>
+
+                  <div class="float-end">
+                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                     <button type="submit" class="btn badge-primary">Save Tenant</button>
+                  </div>
+               </form>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="card-body">
+      <div class="table-responsive">
+         <table id="example1" class="display nowrap">
+            <thead>
+               <tr>
+                  <th>#</th>
+                  <th>Image</th>
+                  <th>Tenant Name</th>
+                  <th>Rented Unit No</th>
+                  <th>Advance Payment</th>
+                  <th>Payment Per Month</th>
+                  <th>Status</th>
+                  <th>Action</th>
+               </tr>
+            </thead>
+            <tbody>
+               {% for tenant in tenants %}
+               <tr>
+                  <td>{{ forloop.counter }}</td>
+                  <td><img style="width:50px;height:50px;" src="{{ tenant.image.url }}"></td>
+                  <td>{{ tenant.name }}</td>
+                  <td>{{ tenant.unit.unit_no}}</td>
+                  <td>{{ tenant.advance_rent}}</td>
+                  <td>{{ tenant.rent_per_month}}</td>
+                  {% if tenant.status == 'Active' %}
+                  <td>
+                     <label class="alert alert-success p-0 m-0">Active</label>
+                  </td>
+                  {% else %}
+                  <td>
+                     <label class="alert alert-danger p-0 m-0">Inactive</label>
+                  </td>
+                  {% endif %}
+
+                  <td>
+
+                     <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                        data-bs-target="#view{{ tenant.id }}"><i class="fa fa-eye"></i></button>
+
+
+                     <div class="modal fade show" id="view{{ tenant.id }}" tabindex="-1"
+                        aria-labelledby="exampleModalLabelOne" aria-modal="true" role="dialog">
+                        <!-- <div > -->
+                        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                           <div class="modal-content">
+                              <div class="modal-header">
+                                 <h5 class="modal-title" id="myModalLabel"><img class="rounded-circle" width="35"
+                                       alt=""> Tenant Details </h5>
+                                 <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span
+                                       aria-hidden="true">×</span></button>
+                              </div>
+                              <div class="modal-body">
+                                 <div class="insertHere">
+                                    <table class="table table-striped table-responsive-sm modalShowTable" width="100%">
+                                       <table class="table table-striped table-responsive-sm modalShowTable"
+                                          width="100%">
+                                          <tbody>
+                                             <tr>
+                                                <td>Tenant Name :</td>
+                                                <td>&nbsp;</td>
+                                                <td>{{ tenant.name }}</td>
+                                             </tr>
+                                             <tr>
+                                                <td>Address</td>
+                                                <td></td>
+                                                <td>{{ tenant.address }}</td>
+                                             </tr>
+                                             <tr>
+                                                <td>NID#</td>
+                                                <td></td>
+                                                <td>{{ tenant.national_id }}</td>
+                                             </tr>
+                                             <tr>
+                                                <td>Floor #</td>
+                                                <td></td>
+                                                <td>{{ tenant.floor.name }}</td>
+                                             </tr>
+                                             <tr>
+                                                <td>Rented Unit #</td>
+                                                <td></td>
+                                                <td>{{ tenant.unit.unit_no }}</td>
+                                             </tr>
+                                             <tr>
+                                                <td>Advance Payment</td>
+                                                <td></td>
+                                                <td>$ {{ tenant.advance_rent }}</td>
+                                             </tr>
+                                             <tr>
+                                                <td>Monthly Payment</td>
+                                                <td></td>
+                                                <td>$ {{ tenant.rent_per_month }}</td>
+                                             </tr>
+                                             <tr>
+                                                <td>Issue Date</td>
+                                                <td></td>
+                                                <td>{{ tenant.issue_date|date:"Y-m-d"}}</td>
+                                             </tr>
+                                             <tr>
+                                                <td>Status</td>
+                                                <td></td>
+                                                <td>{{ tenant.status}}</td>
+                                             </tr>
+                                          </tbody>
+                                       </table>
+                                 </div>
+                              </div>
+                              <div class="modal-footer">
+                                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal"
+                        data-bs-target="#edit{{ tenant.id }}"><i class="fa fa-pen"></i></button>
+
+
+                     <div class="modal  selectRefresh" id="edit{{ tenant.id }}" tabindex="-1"
+                        aria-labelledby="exampleModalLabelOne">
+                        <div class="modal-dialog modal-lg" role="document">
+                           <div class="modal-content">
+                              <div class="modal-header">
+                                 <h5 class="modal-title" id="exampleModalLabelOne"><b></b>Edit
+                                    tenant
+                                    {{ tenant.id }}</h5>
+                              </div>
+                              <div class="modal-body">
+
+                                 <form method="POST" action="{% url 'edit_tenant' tenant.id %}"
+                                    enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <div class="form-row">
+                                       <div class="col-4">
+                                          <label for="">Tenant Name:</label>
+                                          <div class="form-group">
+                                             <input type="text" class="form-control" value="{{ tenant.name }}"
+                                                name="name" placeholder="Enter Name">
+                                          </div>
+                                       </div>
+                                       
+                                       <div class="col-4">
+                                          <label for="">Address:</label>
+                                          <div class="form-group">
+                                             <input type="text" class="form-control" value="{{ tenant.address }}"
+                                                name="address" placeholder="Enter Address">
+                                          </div>
+                                       </div>
+                                       <div class="col-4">
+                                          <label for="">NID(Tenant National ID):</label>
+                                          <div class="form-group">
+                                             <input type="number" class="form-control" value="{{ tenant.national_id }}"
+                                                name="national_id" placeholder="Enter National ID">
+                                          </div>
+                                       </div>
+
+
+                                    </div>
+                                    <div class="form-row">
+                                       <div class="col-4">
+                                          <label for="">Floor No:</label>
+                                          <div class="form-group">
+                                             <select name="floor" class="form-control">
+                                                <option value="{{ tenant.floor.id }}">{{ tenant.floor.name }}</option>
+                                                <option value="">--Select Floor--</option>
+                                                {% for floor in floors %}
+                                                <option value="{{ floor.id }}">{{ floor.name }}</option>
+                                                {% endfor %}
+                                             </select>
+                                          </div>
+                                       </div>
+                                       <div class="col-4">
+                                          <label for="">Available tenant No:</label>
+                                          <div class="form-group">
+                                             <select name="unit" class="form-control">
+                                                <option value="{{ tenant.unit.id }}">{{ tenant.unit.unit_no }}</option>
+                                                <option value="">--Select Unit No--</option>
+                                                {% for unit in units %}
+                                                <option value="{{ unit.id }}">{{ unit.unit_no }}</option>
+                                                {% endfor %}
+                                             </select>
+                                          </div>
+                                       </div>
+                                       <div class="col-4">
+                                          <label for="">Advance Rent:</label>
+                                          <div class="form-group">
+
+                                             <input type="number" class="form-control" value="{{ tenant.advance_rent }}"
+                                                name="advance_rent">
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="form-row">
+                                       <div class="col-4">
+                                          <label for="">Rent Per Month:</label>
+                                          <div class="form-group">
+                                             <input type="number" class="form-control"
+                                                value="{{ tenant.rent_per_month }}" name="rent_per_month">
+                                          </div>
+                                       </div>
+                                       <div class="col-4">
+                                          <label for="">Issue Date:</label>
+                                          <div class="form-group">
+                                             <input type="date" class="form-control" name="issue_date"
+                                                value="{{tenant.issue_date|date:"Y-m-d" }}">
+                                          </div>
+                                       </div>
+                                       <div class="col-4">
+                                          <label for="">Rent Month:</label>
+                                          <div class="form-group">
+                                             <select name="rent_month" class="form-control">
+                                                <option>{{ tenant.rent_month }}</option>
+                                                <option value="">--Select Month--</option>
+                                                <option value="January">January</option>
+                                                <option value="February">February</option>
+                                                <option value="March">March</option>
+                                                <option value="April">April</option>
+                                                <option value="May">May</option>
+                                                <option value="June">June</option>
+                                                <option value="July">July</option>
+                                                <option value="August">August</option>
+                                                <option value="September">September</option>
+                                                <option value="October">October</option>
+                                                <option value="November">November</option>
+                                                <option value="December">December</option>
+                                             </select>
+                                          </div>
+                                       </div>
+                                       <div class="col-4">
+                                          <label for="">Rent Year:</label>
+                                          <div class="form-group">
+                                             <select name="rent_year" class="form-control">
+                                                <option>{{ tenant.rent_year }}</option>
+                                                <option value="">--Select Year--</option>
+                                                <option value="2022">2022</option>
+                                                <option value="2023">2023</option>
+                                                <option value="2024">2024</option>
+                                                <option value="2025">2025</option>
+                                                <option value="2026">2026</option>
+                                                <option value="2027">2027</option>
+                                                <option value="2028">2028</option>
+                                                <option value="2029">2029</option>
+                                                <option value="2030">2030</option>
+                                                <option value="2031">2031</option>
+                                                <option value="2032">2032</option>
+                                             </select>
+                                          </div>
+                                       </div>
+
+                                       <div class="col-4">
+                                          <label for="">Status:</label>
+                                          <div class="form-group">
+                                             <select name="status" class="form-control">
+                                                <option>{{ tenant.status }}</option>
+                                                <option value="">--Select Status--</option>
+                                                <option value="Active">Active</option>
+                                                <option value="Inactive">Inactive</option>
+                                             </select>
+                                          </div>
+                                       </div>
+
+                                    </div>
+                                    <div class="form-row">
+
+                                       <div class="form-group col-md-6">
+                                          <label for="formFile" class="form-label">Tenant Image</label>
+                                          <input class="form-control" name="image" type="file" id="formFile">
+                                       </div>
+                                       <div class="form-group col-md-6">
+                                          <img src="{{ tenant.image.url }}" height="100px;">
+                                       </div>
+
+
+                                    </div>
+
+                                    <div class="float-end">
+                                       <button type="button" class="btn btn-danger"
+                                          data-bs-dismiss="modal">Close</button>
+                                       <button type="submit" class="btn badge-primary">Update Tenant</button>
+                                    </div>
+                                 </form>
+
+
+                              </div>
+
+                           </div>
+                        </div>
+                     </div>
+
+                     <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                        data-bs-target="#delete{{ tenant.id }}"><i class="fa fa-trash"></i></button>
+                     <div class="modal  selectRefresh" id="delete{{ tenant.id }}" tabindex="-1"
+                        aria-labelledby="exampleModalLabelOne">
+                        <div class="modal-dialog modal-lg" role="document">
+                           <div class="modal-content">
+                              <div class="modal-header">
+                                 <h5 class="modal-title" id="exampleModalLabelOne"><b></b>Delete
+                                    {{ tenant.id }}</h5>
+                              </div>
+                              <div class="modal-body">
+                                 <form class="row align-items-start" action="{% url 'delete_tenant' tenant.id %}"
+                                    method="POST" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <div class="row">
+                                       <div class="col-md-12">
+                                          Do you want to delete this?
+                                       </div>
+                                       <input type="hidden" name="input" value="delete_tenant" id="">
+                                       <input type="hidden" name="id" value="{{ tenant.id }}">
+
+                                    </div>
+                                    <div class="modal-footer">
+                                       <button type="button" class="btn btn-danger"
+                                          data-bs-dismiss="modal">Close</button>
+                                       <button type="submit" class="btn badge-primary">Delete
+                                          tenant</button>
+                                    </div>
+                                 </form>
+                              </div>
+
+                           </div>
+                        </div>
+                     </div>
+
+
+                  </td>
+               </tr>
+               {% endfor %}
+            </tbody>
+         </table>
+      </div>
+   </div>
+</div>
+{% endblock %}
+{% block js %}
+<script src="{% static 'assets/plugins/datatables/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'assets/js/init-tdatatable.js' %}"></script>
+<script src="{% static 'assets/js/ajax.js' %}"></script>
+
+
+<script>
+   $("#FloorNo").on('change',function(){
+     var emp = $("#FloorNo").val();
+     
+     if (emp != ''){
+         $.ajax({
+             url: '{% url 'floor_ajax' %}',
+             type: 'POST',
+             data: {emp:emp},
+             headers: {//<==
+                 "X-CSRFTOKEN": "{{ csrf_token }}"//<==
+         },
+         success: function (data) {
+           var $select = $('#UnitNo');
+           $select.find('option').remove();
+           $select.append('<option value="">--Select Flat--</option>');
+ 
+           $.each(data.data, function(k, v) {
+             
+             $select.append('<option value=' + v.id + '>' + v.unit_no + '</option>');
+           });
+        
+       },
+ 
+         })
+     }
+ });
+</script>
+
+ <script>
+   $("#UnitNo").on('change',function(){
+     var emp = $("#UnitNo").val();
+     
+     if (emp != ''){
+         $.ajax({
+             url: '{% url 'unit_ajax' %}',
+             type: 'POST',
+             data: {emp:emp},
+             headers: {//<==
+                 "X-CSRFTOKEN": "{{ csrf_token }}"//<==
+         },
+         success: function (resp){
+ 
+         //  $('#RentName').val(resp.data[0].list_name)
+          // $('#hidden_list').val(resp.data[0].id)
+          // $('#txtRent').val(resp.data[0].rent_per_month)
+       }
+ 
+         })
+     }
+ });
+ 
+ </script>
+
+
+{% endblock %}
+
+{% comment %} autocomplete for input text {% endcomment %}
+{% comment %} <div class="form-group">
+
+   <input list="khan" type="text" class="form-control" value="{{ tenant.advance_rent }}" name="advance_rent">
+   <datalist id="khan">
+      <option value="firfox">
+      <option value="ghin">
+      <option value="ghar">
+      <option value="ghor">
+      <option value="ghar">
+      <option value="gher">
+      <option value="khowatty">
+   </datalist </div> {% endcomment %}

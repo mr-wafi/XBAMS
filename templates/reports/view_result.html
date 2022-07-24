@@ -1,0 +1,78 @@
+{% extends 'layouts/base1.html' %}
+{% load static %}
+{% block content %}
+{% load mathfilters %}
+
+<body>
+    <section class="content">
+    <!-- Main content -->
+    <div id="printable">
+      <div align="center" style="margin:20px 50px 50px 50px;">
+        <div class="row">
+          <div class="col-xs-12">
+                  {% comment %} <div><img class="img-thumbnail" height="150" width="100" src=""></div> {% endcomment %}
+        <div><h2>XB TOWER</h2></div>
+        <div>Kabul Afghanistan</div>
+        <div>xbwafi@gmail.com</div>
+        <div>0093788730001</div>
+        <br>
+            <div class="box box-success">
+              <div class="box-header">
+                <h3 style="text-decoration:underline;font-weight:bold;color:#000" class="box-title">Rent Collection Report</h3>
+              </div>
+              <div class="box-body">
+                <div style="overflow:auto;">
+                <table style="font-size:13px;" class="table sakotable table-bordered table-striped dt-responsive">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Floor</th>
+                      <th>Unit</th>
+                      <th>Month</th>
+                      <th>Year</th>
+                      <th>Rent</th>
+                      <th>Gas Bill</th>
+                      <th>Electric Bill</th>
+                      <th>Water Bill</th>
+                      <th>Security Bill</th>
+                      <th>Utility Bill</th>
+                      <th>Other Bill</th>
+                      <th>Total</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                </tbody>
+                  <tfoot>
+                    {% for i in totalAll %}
+                    <tr>
+                      <th>{{ i.tenant.name }}</th>
+                      <th>{{ i.floor.name }}</th>
+                      <th>{{ i.unit.unit_no }}</th>
+                      <th>{{ i.rent_month }}</th>
+                      <th>{{ i.rent_year }}</th>
+                      <th style="color:red;">$ {{ i.rent }}</th>
+                      <th style="color:red;">$ {{ i.gas_bill }}</th>
+                      <th style="color:red;">$ {{ i.electric_bill }}</th>
+                      <th style="color:red;">$ {{ i.water_bill }}</th>
+                      <th style="color:red;">$ {{ i.security_bill }}</th>
+                      <th style="color:red;">$ {{ i.utility_bill }}</th>
+                      <th style="color:red;">$ {{ i.other_bill }}</th>
+                      <th style="color:red;">$ {{ i.rent|add:i.gas_bill|add:i.electric_bill|add:i.water_bill|add:i.security_bill|add:i.utility_bill|add:i.other_bill }}</th>
+                    </tr>
+                    {% endfor %}
+                  </tfoot>
+                </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.row -->
+    <div align="center" style="position:fixed;top:0;right:0;margin:10px;"><a title="Print Information" class="btn btn-success btn_save" onclick=window.print(this)><i class="fa fa-print"></i> </a></div>
+    
+    
+    </section></body>
+
+{% endblock %}

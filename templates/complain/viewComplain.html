@@ -1,0 +1,65 @@
+{% extends 'layouts/base.html' %} {% load static %} 
+{% block head %}
+    <link rel="stylesheet" href="{% static 'assets/main/css/dataTables.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/plugins/datatables/css/buttons.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/plugins/datatables/css/dateTime.css' %}">
+{% endblock %}
+{% block content %}
+<div class="card">
+   <div class="card-header fix-card">
+      <div class="row">
+         <div class="col-8">
+            <h4 class="card-title"><i class="fa fa-book"></i> Complain List</h4>
+         </div>
+      </div>
+   </div>
+
+   <div class="card-body">
+      <div class="table-responsive">
+        <table id="myTable111" class="display nowrap">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Title</th>
+					<th>Date</th>
+					<th>Status</th>
+                    <th>Assigned Complain</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody></tbody>
+		</table>
+      </div>
+   </div>
+</div>
+{% endblock %}
+
+{% block js %}
+
+<script language="javascript">
+    $(document).ready(function () {
+        $('#myTable111').dataTable({
+            serverSide: true,
+            processing: true,
+            sAjaxSource: "http://127.0.0.1:8000/complainData/",  // new url
+            columns: [
+                {name: "title", data: 0},
+                {name: "date", data: 1},
+                {name: "status", data: 2},
+                {name: "employee_id", data: 3},
+            ],
+        });
+    });
+</script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="{% static 'assets/plugins/datatables/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'assets/plugins/datatables/print.js' %}"></script>
+<script src="{% static 'assets/plugins/datatables/buttons.js' %}"></script>
+<script src="{% static 'assets/plugins/datatables/jszip.min.js' %}"></script>
+<script src="{% static 'assets/plugins/datatables/pdfmake.min.js' %}"></script>
+<script src="{% static 'assets/plugins/datatables/pdfmake2.js' %}"></script>
+<script src="{% static 'assets/plugins/datatables/buttons.html5.min.js' %}"></script>
+<script src="{% static 'assets/plugins/datatables/moment.min.js' %}"></script>
+<script src="{% static 'assets/plugins/datatables/dataTables.dateTime.min.js' %}"></script>
+<script src="{% static 'assets/js/init-tdatatable.js' %}"></script>
+{% endblock %}

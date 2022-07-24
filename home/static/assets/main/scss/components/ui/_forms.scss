@@ -1,0 +1,64 @@
+/************************** 
+* Forms
+***************************/
+
+.form-control {
+    padding: 6px 12px;
+    border: $border;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    font-weight: $font-400;
+    height: 45px;
+    color: $default-color !important;
+    font-size: 14px !important;
+    @include borderRadius(5px);
+    &:hover,
+    &:focus {
+        box-shadow: none;
+    }
+    &:focus {
+        color: $default-color;
+        border-color: $primary;
+    }
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-label {
+    padding-left: 0;
+}
+
+.input-group-text {
+    background: #e9ecef;
+    border: $border;
+    min-width: 50px;
+    justify-content: center;
+    padding: 0.532rem 0.75rem;
+    height: 100%;
+    color: #212529;
+    i {
+        font-size: 16px;
+    }
+}
+
+textarea {
+    &.form-control {
+        min-height: calc(1.5em + .75rem + 50px);
+    }
+}
+
+.form-row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -5px;
+    margin-left: -5px;
+}
+
+.form-row>.col,
+.form-row>[class*=col-] {
+    padding-right: 5px;
+    padding-left: 5px;
+}

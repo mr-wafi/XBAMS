@@ -1,0 +1,46 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block content %}
+
+<section class="content">
+    <!-- Full Width boxes (Stat box) -->
+    <div class="row">
+      <div class="col-md-12">
+        <div align="right" style="margin-bottom:1%;"> </div>
+        <div class="box box-success">
+          <div class="box-header">
+            <h3 class="box-title">Complain Report Form</h3>
+          </div>
+          <form action="{% url 'complain_result' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="box-body">
+              <div class="form-group">
+                <label for="ddlRStatus">Select Complain Status :</label>
+                <select name="status" id="ddlRStatus" class="form-control">
+                    <option value="">--Select Status--</option>
+                    <option value="pending" >Pending</option>
+                    <option value="in_progress">In Progress</option>
+                    <option value="on_hold">On Hold</option>
+                    <option value="completed">Completed</option>
+                </select>
+              </div>
+              <div class="form-group pull-right">
+                <input type="submit" value="Submit" class="btn btn-success">
+              </div>
+            </div>
+          <!-- /.box-body -->
+        </form></div>
+        <!-- /.box -->
+      </div>
+    </div>
+    <!-- /.row -->
+    
+    <script type="text/javascript">
+        function getRentedInfo(){
+            window.open('{% url 'tenant_result' %}' + $("#ddlRStatus").val(),'_blank');
+        }
+    </script>
+    
+    </section>
+
+{% endblock %}

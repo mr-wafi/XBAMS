@@ -1,0 +1,330 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block content %}
+<div class="card">
+    <div class="card-header fix-card">
+        <div class="row">
+            <div class="col-8">
+                <h4 class="card-title"> <i class="fa fa-train"></i> visitor List</h4>
+            </div>
+            <div class="col-4 float-end">
+                <a href="/new-patient.html" class="btn btn-primary float-end" data-bs-toggle="modal"
+                    data-bs-target="#newAppointment"><i class="fa fa-plus"></i> New visitor</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal selectRefresh" id="newAppointment" tabindex="-1" aria-labelledby="exampleModalLabelOne">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fa fa-plus"> </i>&nbsp; New visitor </h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+                        <section class="content">
+                            <!-- Full Width boxes (Stat box) -->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="box box-success">
+
+                                        <form action="{% url 'visitor' %}" method="post" enctype="multipart/form-data">
+                                            <div class="box-body row">
+                                                <div class="form-group col-md-12">
+                                                    <label><span style="color:red;">*</span> Entry Date :</label>
+                                                    <input type="date" name="entry_date" class="form-control ">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label><span style="color:red;">*</span> Name :</label>
+                                                    <input type="text" name="name" class="form-control">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label><span style="color:red;">*</span> Mobile :</label>
+                                                    <input type="text" name="number" class="form-control">
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    <label><span style="color:red;">*</span> Address :</label>
+                                                    <textarea name="address" class="form-control"></textarea>
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label><span style="color:red;">*</span> Floor No :</label>
+                                                    <select class="form-control" name="floor" id="FloorNo">
+                                                        <option value="">--Select Floor--</option>
+                                                        {% for floor in floors %}
+                                                        <option value="{{ floor.id }}">{{ floor.name }}</option>
+                                                        {% endfor %}
+                                                      </select>
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <div class="form-group">
+                                                        <label ><span class="errorStar">*</span> Unit No :</label>
+                                                        <select name="unit" id="UnitNo" class="form-control">
+              
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label><span style="color:red;">*</span> In Time:</label>
+                                                    <input type="time" name="in_time" class="form-control">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label for="txtOutTime"><span style="color:red;">*</span> Out
+                                                        Time:</label>
+                                                    <input type="time" name="out_time" class="form-control">
+                                                </div>
+                                            </div>
+                                    </div>
+                                    <!-- /.box -->
+                                </div>
+                            </div>
+
+                        </section>
+
+                        <div class="float-end">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn badge-primary">Save visitor</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table id="example1" class="display nowrap">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Entry Date</th>
+                        <th>Name</th>
+                        <th>Mobile</th>
+                        <th>Address</th>
+                        <th>Floor No</th>
+                        <th>Unit No</th>
+                        <th>In Time</th>
+                        <th>Out Time</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for visitor in visitors %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ visitor.entry_date }}</td>
+                        <td>{{ visitor.name }}</td>
+                        <td>{{ visitor.number}}</td>
+                        <td>{{ visitor.address}}</td>
+                        <td>{{ visitor.floor.name}}</td>
+                        <td>{{ visitor.unit.unit_no}}</td>
+                        <td>{{ visitor.in_time }}</td>
+                        <td>{{ visitor.out_time }}</td>
+                        
+                        <td>
+                          
+
+
+                            <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal"
+                                data-bs-target="#edit{{ visitor.id }}"><i class="fa fa-pen"></i></button>
+
+                            <div class="modal  selectRefresh" id="edit{{ visitor.id }}" tabindex="-1"
+                                aria-labelledby="exampleModalLabelOne">
+                                <div class="modal-dialog modal-lg" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabelOne"><b></b>Edit
+                                                visitor
+                                                {{ visitor.id }}</h5>
+                                        </div>
+                                        <div class="modal-body">
+
+                                            <form method="POST" action="{% url 'edit_visitor' visitor.id %}" enctype="multipart/form-data">
+                                                {% csrf_token %}
+                        
+                                                <section class="content">
+                                                    <!-- Full Width boxes (Stat box) -->
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="box box-success">
+                                                                    <div class="box-body row">
+                                                                        <div class="form-group col-md-12">
+                                                                            <label><span style="color:red;">*</span> Entry Date :</label>
+                                                                            <input type="date" name="entry_date" value="{{ visitor.entry_date|date:"Y-m-d" }}" class="form-control ">
+                                                                        </div>
+                                                                        <div class="form-group col-md-6">
+                                                                            <label><span style="color:red;">*</span> Name :</label>
+                                                                            <input type="text" name="name" value="{{ visitor.name }}" class="form-control">
+                                                                        </div>
+                                                                        <div class="form-group col-md-6">
+                                                                            <label><span style="color:red;">*</span> Mobile :</label>
+                                                                            <input type="text" name="number" value="{{ visitor.number }}" class="form-control">
+                                                                        </div>
+                                                                        <div class="form-group col-md-12">
+                                                                            <label><span style="color:red;">*</span> Address :</label>
+                                                                            <textarea name="address" class="form-control">{{ visitor.address }}</textarea>
+                                                                        </div>
+                                                                        <div class="form-group col-md-6">
+                                                                            <label><span style="color:red;">*</span> Floor No :</label>
+                                                                            <select class="form-control" name="floor" id="FloorNo1">
+                                                                                <option value="{{ visitor.floor.id }}">{{ visitor.floor.name }}</option>
+                                                                                <option value="">--Select Floor--</option>
+                                                                                {% for floor in floors %}
+                                                                                <option value="{{ floor.id }}">{{ floor.name }}</option>
+                                                                                {% endfor %}
+                                                                              </select>
+                                                                        </div>
+                                                                        <div class="form-group col-md-6">
+                                                                            <div class="form-group">
+                                                                                <label ><span class="errorStar">*</span> Unit No :</label>
+
+                                                                                <select name="unit" id="UnitNo1" class="form-control">
+                                                                                    <option value="{{ visitor.unit.id }}">{{ visitor.unit.unit_no }}</option>
+                                      
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group col-md-6">
+                                                                            <label><span style="color:red;">*</span> In Time:</label>
+                                                                            <input type="time" name="in_time" value="{{ visitor.in_time|time:"H:i" }}" class="form-control">
+                                                                        </div>
+                                                                        <div class="form-group col-md-6">
+                                                                            <label for="txtOutTime"><span style="color:red;">*</span> Out
+                                                                                Time:</label>
+                                                                            <input type="time" name="out_time" value="{{ visitor.out_time|time:"H:i" }}" class="form-control">
+                                                                        </div>
+                                                                    </div>
+                                                            </div>
+                                                            <!-- /.box -->
+                                                        </div>
+                                                    </div>
+                        
+                                                </section>
+                        
+                                                <div class="float-end">
+                                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn badge-primary">Update visitor</button>
+                                                </div>
+                                            </form>
+
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                                data-bs-target="#delete{{ visitor.id }}"><i class="fa fa-trash"></i></button>
+                            <div class="modal  selectRefresh" id="delete{{ visitor.id }}" tabindex="-1"
+                                aria-labelledby="exampleModalLabelOne">
+                                <div class="modal-dialog modal-lg" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabelOne"><b></b>Delete
+                                                {{ visitor.id }}</h5>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form class="row align-items-start" method="POST"
+                                                action="{% url 'delete_visitor' visitor.id %}"
+                                                enctype="multipart/form-data">
+                                                {% csrf_token %}
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        Do you want to delete this?
+                                                    </div>
+                                                    <input type="hidden" name="input" value="delete_visitor" id="">
+                                                    <input type="hidden" name="id" value="{{ visitor.id }}">
+
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-danger"
+                                                        data-bs-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn badge-primary">Delete
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </td>
+
+
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block js %}
+<script src="{% static 'assets/plugins/datatables/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'assets/js/init-tdatatable.js' %}"></script>
+<script src="{% static 'assets/js/ajax.js' %}"></script>
+
+    <script>
+        $("#FloorNo").on('change',function(){
+          var emp = $("#FloorNo").val();
+          
+          if (emp != ''){
+              $.ajax({
+                  url: '{% url 'floor_ajax' %}',
+                  type: 'POST',
+                  data: {emp:emp},
+                  headers: {//<==
+                      "X-CSRFTOKEN": "{{ csrf_token }}"//<==
+              },
+              success: function (data) {
+                var $select = $('#UnitNo');
+                $select.find('option').remove();
+                $select.append('<option value="">--Select Flat--</option>');
+      
+                $.each(data.data, function(k, v) {
+                  
+                  $select.append('<option value=' + v.id + '>' + v.unit_no + '</option>');
+                });
+             
+            },
+      
+              })
+          }
+      });
+      
+      </script>
+    <script>
+        $("#FloorNo1").on('change',function(){
+          var emp = $("#FloorNo1").val();
+          
+          if (emp != ''){
+              $.ajax({
+                  url: '{% url 'floor_ajax' %}',
+                  type: 'POST',
+                  data: {emp:emp},
+                  headers: {//<==
+                      "X-CSRFTOKEN": "{{ csrf_token }}"//<==
+              },
+              success: function (data) {
+                var $select = $('#UnitNo1');
+                $select.find('option').remove();
+                $select.append('<option value="">--Select Flat--</option>');
+      
+                $.each(data.data, function(k, v) {
+                  
+                  $select.append('<option value=' + v.id + '>' + v.unit_no + '</option>');
+                });
+             
+            },
+      
+              })
+          }
+      });
+      
+      </script>
+{% endblock %}

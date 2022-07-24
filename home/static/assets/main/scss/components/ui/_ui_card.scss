@@ -1,0 +1,105 @@
+/************************** 
+* Card
+***************************/
+
+.card {
+    margin-bottom: 1.875rem;
+    background-color: $background-white;
+    position: relative;
+    border: 0px solid transparent;
+    letter-spacing: 0.5px;
+    @include borderRadius(5px);
+    @extend .transition-layouts;
+    @extend .shadow;
+    @media #{custommq} {
+        margin-bottom: 0.938rem;
+        height: calc(100% - 0.938rem);
+    }
+    &-header {
+        border-color: $border-color;
+        position: relative;
+        background: transparent;
+        padding: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .card-title {
+            margin-bottom: 0px;
+            text-transform: capitalize;
+            color: $default-color-full;
+            font-size: 22px;
+        }
+        .subtitle {
+            font-size: 12px;
+            line-height: 1px;
+            color: $default-color-opacity;
+            margin-top: 0;
+            display: block;
+            letter-spacing: 1px;
+            font-weight: $font-400;
+        }
+        @include respond('phone-land') {
+            padding: 1rem;
+        }
+    }
+    &-body {
+        padding: 30px;
+        @include respond('phone-land') {
+            padding: 20px;
+        }
+    }
+}
+
+.col-form-label {
+    padding-top: calc(.375rem + 1px);
+    padding-bottom: calc(.375rem + 1px);
+    margin-bottom: 0;
+    font-size: inherit;
+    line-height: 1.5;
+    color: $default-color;
+}
+
+
+/*****************************
+Card Palettes
+*****************************/
+
+.card-primary {
+    color: $white;
+    background-color: $card-primary;
+}
+
+.card-secondary {
+    color: $white;
+    background-color: $card-secondary;
+}
+
+.card-success {
+    color: $white;
+    background-color: $card-success;
+}
+
+.card-danger {
+    color: $white;
+    background-color: $card-danger;
+}
+
+.card-warning {
+    color: $white;
+    background-color: $card-warning;
+}
+
+.card-info {
+    color: $white;
+    background-color: $card-info;
+}
+
+.card-light {
+    color: $white;
+    background-color: $card-light;
+}
+
+.card-dark {
+    color: $white;
+    background-color: $card-dark;
+}

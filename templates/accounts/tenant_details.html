@@ -1,0 +1,62 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% if request.user.user_type == 'Tenant'%}
+{% block tenant %}
+
+
+<section class="content">
+    <!-- Full Width boxes (Stat box) -->
+    <div class="row">
+        <div class="col-xs-12">
+            <div align="right" style="margin-bottom:1%;"></div>
+            <div class="box box-success">
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <div class="modal-content">
+                        <div class="modal-header green_header">
+                            <h3 class="modal-title">Tenant Details</h3>
+                        </div>
+                        {% for i in total %}
+                        <div class="modal-body model_view" align="center">&nbsp;
+                            <div><img class="photo_img_round" style="width:100px;height:100px;"
+                                    src="{{ i.tenant.image.url }}">
+                            </div>
+                            <div class="model_title">{{ i.tenant.name }}</div>
+                        </div>
+                        <div class="modal-body">
+
+                            <h3 style="text-decoration:underline;">Details Infromation</h3>
+                            <table width="100%">
+                                <tr>
+                                    <td> <b>Name :</b> {{ i.tenant.name }}<br>
+                                        <b>Email :</b> {{ i.email }}<br>
+                                        <b>Contact :</b> {{ i.phone_number }}<br>
+                                        <b>Address :</b> {{ i.tenant.address }}<br>
+                                        <b>NID :</b> {{ i.tenant.national_id }}<br>
+                                    </td>
+
+                                    <td> <b>Floor No :</b> {{ i.tenant.floor.name }}<br>
+                                        <b>Rented Unit No :</b> {{ i.tenant.unit.unit_no }}<br>
+                                        <b>Advance Payment :</b> $ {{ i.tenant.advance_rent }}<br>
+                                        <b>Rent Per Month :</b> $ {{ i.tenant.rent_per_month }}<br>
+                                        <b>Rent Date :</b> {{ i.tenant.issue_date }}<br>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </table>
+
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</section>
+
+{% endblock tenant %}
+{% endif %}

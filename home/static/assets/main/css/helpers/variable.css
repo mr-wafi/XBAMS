@@ -1,0 +1,219 @@
+/************************** 
+* Main Color
+***************************/
+/************************** 
+* Main Color
+***************************/
+/************************** 
+* Timeline
+***************************/
+/*****************************
+Badge
+*****************************/
+/************************** 
+* Main Color
+***************************/
+/************************** 
+* Border
+***************************/
+/************************** 
+* Heading colors
+***************************/
+/************************** 
+* Button
+***************************/
+/************************** 
+* Top Head
+***************************/
+/************************** 
+* Navbar
+***************************/
+/*****************************
+Buttons
+*****************************/
+/************************** 
+* breadcrumb
+***************************/
+/************************** 
+* Crad 
+***************************/
+/************************** 
+* Custome classes Bootstrap
+***************************/
+.bg-primary {
+  background-color: #7366ff !important; }
+
+.bg-success {
+  background-color: #51bb25 !important; }
+
+.bg-info {
+  background-color: #a927f9 !important; }
+
+.bg-warning {
+  background-color: #f8d62b !important; }
+
+.bg-danger {
+  background-color: #dc3545 !important; }
+
+.bg-secondary {
+  background-color: #f73164 !important; }
+
+/************************** 
+* Calander Pallete 
+***************************/
+.bg-calander-1 {
+  background-color: #9e5fff; }
+
+.bg-calander-2 {
+  background-color: #00a9ff; }
+
+.bg-calander-3 {
+  background-color: #ff5583; }
+
+.bg-calander-4 {
+  background-color: #03bd9e; }
+
+.bg-calander-5 {
+  background-color: #bbdc00; }
+
+.bg-calander-6 {
+  background-color: #9d9d9d; }
+
+.bg-calander-7 {
+  background-color: #ffbb3b; }
+
+.bg-calander-8 {
+  background-color: #ff4040; }
+
+.bg-yellow {
+  background-color: #f39c12 !important; }
+
+.bg-aqua {
+  background-color: #04c1c4 !important; }
+
+.bg-light-blue {
+  background-color: #3c8dbc !important; }
+
+.bg-red {
+  background-color: #dd4b39 !important; }
+
+.text-aqua {
+  color: #008cd3 !important; }
+
+.text-light-blue {
+  color: #3c8dbc !important; }
+
+.text-teal {
+  color: #39cccc !important; }
+
+.text-yellow {
+  color: #f39c12 !important; }
+
+.text-blue {
+  color: #0077d3 !important; }
+
+.text-orange {
+  color: #ff851b !important; }
+
+.text-green {
+  color: #00a65a !important; }
+
+.text-lime {
+  color: #01ff70 !important; }
+
+/************************** 
+* Font-weight
+***************************/
+/************************** 
+* Main Fonts
+***************************/
+/************************** 
+* shadow variables
+***************************/
+/************************** 
+* Heading
+***************************/
+/************************** 
+* Heading
+***************************/
+/************************** 
+* Modal
+***************************/
+/************************** 
+* Float fixing
+***************************/
+/************************** 
+* Text Align
+***************************/
+/************************** 
+* Transition
+***************************/
+.transition {
+  -webkit-transition: all 0.5s ease-in-out !important;
+  -o-transition: all 0.5s ease-in-out !important;
+  transition: all 0.5s ease-in-out !important; }
+
+.transition-layouts {
+  -webkit-transition: all .2s ease !important;
+  -o-transition: all .2s ease !important;
+  transition: all .2s ease !important; }
+
+/************************** 
+* Button
+***************************/
+/************************** 
+* Box Shadow
+***************************/
+.shadow {
+  -webkit-box-shadow: 0 0 40px rgba(8, 21, 66, 0.05) !important;
+  box-shadow: 0 0 40px rgba(8, 21, 66, 0.05) !important; }
+
+.shadow-header {
+  -webkit-box-shadow: 0 0 20px rgba(89, 102, 122, 0.1) !important;
+  box-shadow: 0 0 20px rgba(89, 102, 122, 0.1) !important; }
+
+.box-shadow-none {
+  box-shadow: none !important; }
+
+/************************** 
+* Box Sizing
+***************************/
+.box-sizing {
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+/************************** 
+* Padding
+***************************/
+.padding {
+  padding: 30px 20px; }
+
+/************************** 
+* Boreder None
+***************************/
+.border-none {
+  border: none; }
+
+/************************** 
+*Fonts 
+***************************/
+.text-primary {
+  color: #7366ff !important; }
+
+.text-warning {
+  color: #f8d62b !important; }
+
+.text-success {
+  color: #51bb25 !important; }
+
+.text-dark-gray {
+  color: #2b2b2b; }
+
+/************************** 
+* Media Queries
+***************************/
+
+/*# sourceMappingURL=variable.css.map */

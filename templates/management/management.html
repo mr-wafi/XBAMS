@@ -1,0 +1,430 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header fix-card">
+        <div class="row">
+            <div class="col-8">
+                <h4 class="card-title"><i class="fa fa-users"></i> Member</h4>
+            </div>
+            <div class="col-4 float-end">
+                <a href="/new-patient.html" class="btn btn-primary float-end" data-bs-toggle="modal"
+                    data-bs-target="#newAppointment"><i class="fa fa-plus"></i> New Member</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal selectRefresh" id="newAppointment" tabindex="-1" aria-labelledby="exampleModalLabelOne">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fa fa-plus"> </i>&nbsp; New Member </h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+
+                    <form action="{% url 'management' %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="box-body row">
+                            <div class="form-group col-md-6">
+                                <label for="txtMCName"><span class="errorStar">*</span> Member Name :</label>
+                                <input type="text" name="name" value="" id="txtMCName" class="form-control">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="txtMCEmail"><span class="errorStar">*</span> Email :</label>
+                                <input type="email" name="email" value="" id="txtMCEmail" class="form-control"
+                                    required="">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="txtMCPassword"><span class="errorStar">*</span> Password :</label>
+                                <input type="text" name="password" value="" id="txtMCPassword" class="form-control">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="txtMCContact"><span class="errorStar">*</span> Phone :</label>
+                                <input type="text" name="contact" value="" id="txtMCContact" class="form-control">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="txtMCPreAddress"><span class="errorStar">*</span> Address :</label>
+                                <input type="text" name="address" id="" class="form-control">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="txtMCNID"><span class="errorStar">*</span> NID :</label>
+                                <input type="text" name="national_id" value="" id="txtMCNID" class="form-control">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="ddlMemberType"><span class="errorStar">*</span> Designation :</label>
+                                <select name="designation" id="ddlMemberType" class="form-control">
+                                    <option value="">--Select--</option>
+                                    <option value="moderator">Moderator</option>
+                                    <option value="Secretary General">Secretary General</option>
+                                    <option value="member">Member</option>
+                                    <option value="pion">Pion</option>
+                                    <option value="security gard">Security Gard</option>
+                                    <option value="caretaker">Caretaker</option>
+                                    <option value="maker">Maker</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="txtMCJoiningDate"><span class="errorStar">*</span> Joining Date :</label>
+                                <input type="date" name="join_date" value="" id="txtMCJoiningDate"
+                                    class="form-control datepicker">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="txtMCEndingDate">Ending Date :</label>
+                                <input type="date" name="end_date" value="" id="txtMCEndingDate"
+                                    class="form-control datepicker">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="chkRStaus">Status :</label>
+                                <select name="status" id="chkRStaus" class="form-control">
+                                    <option selected="" value="Active">Active</option>
+                                    <option value="Expired">Expired</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="img">Image:</label>
+                                <input type="file" id="img" name="image">
+                            </div>
+
+                        </div>
+                        <div class="float-end">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn badge-primary">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table id="example1" class="display nowrap">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Image</th>
+                        <th>Member Name</th>
+                        <th>Email</th>
+                        <th>Contact</th>
+                        <th>Designation</th>
+                        <th>Joining Date</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for segment in management %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td><img style="width:50px;height:50px;" src="{{ segment.image.url }}"></td>
+                        <td>
+                            {{ segment.name }}
+                            {% comment %} <a href="{% url 'view_salary' segment.id %}"
+                                style="color: #7366ff">{{ segment.name }}</a> {% endcomment %}
+                        </td>
+                        <td>{{ segment.email }}</td>
+
+                        <td>{{ segment.contact }}</td>
+                        <td>{{ segment.designation }}</td>
+                        <td>{{ segment.join_date|date:"Y-m-d" }}</td>
+                        {% if segment.status == 'Active' %}
+
+                        <td>
+                            <label class="alert alert-success p-0 m-0">Active</label>
+                        </td>
+                        {% else %}
+                        <td>
+                            <label class="alert alert-danger p-0 m-0">Expired</label>
+                        </td>
+                        {% endif %}
+
+
+                        <td>
+
+                            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                data-bs-target="#view{{ segment.id }}"><i class="fa fa-eye"></i></button>
+
+
+                            <div class="modal fade show" id="view{{ segment.id }}" tabindex="-1"
+                                aria-labelledby="exampleModalLabelOne" aria-modal="true" role="dialog">
+                                <!-- <div > -->
+                                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="myModalLabel"><img class="rounded-circle"
+                                                    width="35">
+                                                segment Details </h5>
+                                            <button type="button" class="close" data-bs-dismiss="modal"
+                                                aria-label="Close"><span aria-hidden="true">×</span></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="insertHere">
+                                                <table class="table table-striped table-responsive-sm modalShowTable"
+                                                    width="100%">
+                                                    <table
+                                                        class="table table-striped table-responsive-sm modalShowTable"
+                                                        width="100%">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>Member Name :</td>
+                                                                <td>&nbsp;</td>
+                                                                <td>{{ segment.name }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Email</td>
+                                                                <td></td>
+                                                                <td>{{ segment.email }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Password</td>
+                                                                <td></td>
+                                                                <td>{{ segment.password }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Contact</td>
+                                                                <td></td>
+                                                                <td>{{ segment.contact }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Address</td>
+                                                                <td></td>
+                                                                <td>{{ segment.address }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>NID#</td>
+                                                                <td></td>
+                                                                <td>{{ segment.national_id }}</td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td>Join Date</td>
+                                                                <td></td>
+                                                                <td>{{ segment.join_date|date:"Y-m-d"}}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>End Date</td>
+                                                                <td></td>
+                                                                <td>{{ segment.end_date|date:"Y-m-d"}}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Status</td>
+                                                                <td></td>
+                                                                <td>{{ segment.status}}</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-danger"
+                                                data-bs-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal"
+                                data-bs-target="#edit{{ segment.id }}"><i class="fa fa-pen"></i></button>
+
+
+                            <div class="modal  selectRefresh" id="edit{{ segment.id }}" tabindex="-1"
+                                aria-labelledby="exampleModalLabelOne">
+                                <div class="modal-dialog modal-lg" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabelOne"><b></b>Edit
+                                                segment
+                                                {{ segment.id }}</h5>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form method="POST" action="{% url 'edit_management' segment.id %}"
+                                                enctype="multipart/form-data">
+                                                {% csrf_token %}
+
+                                                <div class="form-row">
+                                                    <div class="col-4">
+                                                        <label for="">Member Name:</label>
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control"
+                                                                value="{{ segment.name }}" name="name"
+                                                                placeholder="Enter Name">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <label for="">Email:</label>
+                                                        <div class="form-group">
+                                                            <input type="email" class="form-control"
+                                                                value="{{ segment.email }}" name="email"
+                                                                placeholder="Enter Email">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <label for="">Password:</label>
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control"
+                                                                value="{{ segment.password }}" name="password">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="col-4">
+                                                        <label for="">Contact:</label>
+                                                        <div class="form-group">
+                                                            <input type="number" class="form-control"
+                                                                value="{{ segment.contact }}" name="contact"
+                                                                placeholder="Enter Contact">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <label for="">Address:</label>
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control"
+                                                                value="{{ segment.address }}" name="address"
+                                                                placeholder="Enter Address">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <label for="">NID(Member National ID):</label>
+                                                        <div class="form-group">
+                                                            <input type="number" class="form-control"
+                                                                value="{{ segment.national_id }}" name="national_id"
+                                                                placeholder="Enter National ID">
+                                                        </div>
+                                                    </div>
+
+
+                                                </div>
+                                                <div class="form-row">
+
+                                                    <div class="col-4">
+                                                        <label for="">Designation:</label>
+                                                        <div class="form-group">
+                                                            <select name="designation" class="form-control">
+                                                                <option value="{{ segment.designation }}">
+                                                                    {{ segment.designation }}
+                                                                </option>
+                                                                <option value="">--Select--</option>
+                                                                <option value="moderator">Moderator</option>
+                                                                <option value="Secretary General">Secretary General
+                                                                </option>
+                                                                <option value="member">Member</option>
+                                                                <option value="pion">Pion</option>
+                                                                <option value="security gard">Security Gard</option>
+                                                                <option value="caretaker">Caretaker</option>
+                                                                <option value="maker">Maker</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <label for="">Join Date:</label>
+                                                        <div class="form-group">
+                                                            <input type="date" class="form-control"
+                                                                value="{{ segment.join_date|date:"Y-m-d" }}"
+                                                                name="join_date" placeholder="Enter Join Date">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <label for="">End Date:</label>
+                                                        <div class="form-group">
+                                                            <input type="date" class="form-control"
+                                                                value="{{ segment.end_date|date:"Y-m-d" }}"
+                                                                name="end_date" placeholder="Enter Ending Date">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="col-4">
+                                                        <label for="">Status:</label>
+                                                        <div class="form-group">
+                                                            <select name="status" class="form-control">
+                                                                <option value="{{ segment.status }}">
+                                                                    {{ segment.status }}</option>
+                                                                <option value="">--Select Status--</option>
+                                                                <option value="Active">Active</option>
+                                                                <option value="Inactive">Inactive</option>
+
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="form-row">
+
+                                                    <div class="form-group col-md-6">
+                                                        <label for="formFile" class="form-label">Image</label>
+                                                        <input class="form-control" name="image" type="file"
+                                                            id="formFile">
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <img src="{{ segment.image.url }}" height="100px;">
+                                                    </div>
+
+
+                                                </div>
+
+                                                <div class="float-end">
+                                                    <button type="button" class="btn btn-danger"
+                                                        data-bs-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn badge-primary">Save</button>
+                                                </div>
+                                            </form>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                                data-bs-target="#delete{{ segment.id }}"><i class="fa fa-trash"></i></button>
+                            <div class="modal  selectRefresh" id="delete{{ segment.id }}" tabindex="-1"
+                                aria-labelledby="exampleModalLabelOne">
+                                <div class="modal-dialog modal-lg" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabelOne"><b></b>Delete
+                                                {{ segment.id }}</h5>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form class="row align-items-start" method="POST"
+                                                action="{% url 'delete_management' segment.id %}"
+                                                enctype="multipart/form-data">
+                                                {% csrf_token %}
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        Do you want to delete this?
+                                                    </div>
+                                                    <input type="hidden" name="input" value="delete_segment" id="">
+                                                    <input type="hidden" name="id" value="{{ segment.id }}">
+
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-danger"
+                                                        data-bs-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn badge-primary">Delete
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </td>
+
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block js %}
+<script src="{% static 'assets/plugins/datatables/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'assets/js/init-tdatatable.js' %}"></script>
+{% endblock %}

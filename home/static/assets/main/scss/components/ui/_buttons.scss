@@ -1,0 +1,174 @@
+/*****************************
+Buttons
+*****************************/
+
+.btn {
+    display: inline-block;
+    text-align: $text-center;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 6px 28px;
+    font-weight: $font-400;
+    font-size: 14px;
+    line-height: 21px;
+    &:hover {
+        text-decoration: none;
+        color: $white;
+    }
+    &:focus {
+        outline: 0;
+        box-shadow: none;
+    }
+    &:disabled {
+        opacity: $btn-disabled-opacity;
+    }
+    &:hover,
+    &:focus,
+    &:active {
+        outline: 0 !important;
+    }
+    @media #{$laptop} {
+        padding: 0.625rem 1rem;
+        font-size: 0.813rem;
+    }
+}
+
+
+/*****************************
+Default button style
+*****************************/
+
+.btn-primary {
+    color: $btn-color;
+    background-color: $btn-primary;
+    border-color: $btn-primary;
+    text-transform: capitalize;
+    &:focus,
+    &:hover {
+        color: $btn-color;
+        background-color: $btn-primary;
+        border-color: $btn-primary;
+    }
+}
+
+.btn-secondary {
+    color: $btn-color;
+    background-color: $btn-secondary;
+    border-color: $btn-secondary;
+    &:focus,
+    &:hover {
+        color: $btn-color;
+        background-color: $btn-secondary;
+        border-color: $btn-secondary;
+    }
+}
+
+.btn-success {
+    color: $btn-color;
+    background-color: $btn-success;
+    border-color: $btn-success;
+    &:focus,
+    &:hover {
+        color: $btn-color;
+        background-color: $btn-success;
+        border-color: $btn-success;
+    }
+}
+
+.btn-danger {
+    color: $btn-color;
+    background-color: $btn-danger;
+    border-color: $btn-danger;
+    &:focus,
+    &:hover {
+        color: $btn-color;
+        background-color: $btn-danger;
+        border-color: $btn-danger;
+    }
+}
+
+.btn-warning {
+    color: $btn-color;
+    background-color: $btn-warning;
+    border-color: $btn-warning;
+    &:focus,
+    &:hover {
+        color: $btn-color;
+        background-color: $btn-warning;
+        border-color: $btn-warning;
+    }
+}
+
+.btn-info {
+    color: $btn-color;
+    background-color: $btn-info;
+    border-color: $btn-info;
+    &:focus,
+    &:hover {
+        color: $btn-color;
+        background-color: $btn-info;
+        border-color: $btn-info;
+    }
+}
+
+.btn-light {
+    background: $btn-light;
+    border-color: $btn-light;
+    &:active,
+    &:focus,
+    &:hover {
+        background: $btn-light;
+        border-color: $btn-light;
+    }
+}
+
+.btn-dark {
+    color: $btn-color;
+    background: $btn-dark;
+    border-color: $btn-dark;
+    &:active,
+    &:focus,
+    &:hover {
+        color: $btn-color;
+        background: $btn-dark;
+        border-color: $btn-dark;
+    }
+}
+
+.btn-check:active+.btn-secondary:focus,
+.btn-check:checked+.btn-secondary:focus,
+.btn-secondary.active:focus,
+.btn-secondary:active:focus,
+.show>.btn-secondary.dropdown-toggle:focus {
+    box-shadow: none;
+}
+
+.btn-check:active+.btn-primary:focus,
+.btn-check:checked+.btn-primary:focus,
+.btn-primary.active:focus,
+.btn-primary:active:focus,
+.show>.btn-primary.dropdown-toggle:focus {
+    box-shadow: none;
+}
+
+
+/*****************************
+Button Size
+*****************************/
+
+.h-56 {
+    height: 56px;
+}
+
+.sm-btn {
+    @include respond('phone-land') {
+        padding: 0 !important;
+        height: 40px;
+        width: 40px;
+        line-height: 40px !important;
+        text-align: center;
+        background: $background;
+        border-radius: 5px;
+    }
+}

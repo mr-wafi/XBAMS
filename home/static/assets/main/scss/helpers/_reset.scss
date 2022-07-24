@@ -1,0 +1,467 @@
+/************************** 
+* Generale reset
+***************************/
+
+@import "variable";
+@import "mixins";
+
+/************************** 
+* Generale reset
+***************************/
+
+* {
+    outline: none;
+    padding: 0;
+    &::after {
+        margin: 0;
+        padding: 0;
+    }
+    &::before {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+body {
+    overflow-x: hidden;
+    height: 100%;
+    position: relative;
+    max-width: 100%;
+    font-size: 14px;
+    background-color: $background;
+    color: $default-color-full;
+}
+
+@media only screen and (max-width: 991px) {
+    body {
+        font-size: 0.875rem;
+    }
+}
+
+
+/************************** 
+* Heading
+***************************/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    margin-bottom: $headings-margin-bottom;
+    font-weight: $headings-font-weight;
+    line-height: $headings-line-height;
+    color: $headings-color;
+}
+
+h1,
+.h1 {
+    font-size: $h1-font-size;
+}
+
+h2,
+.h2 {
+    font-size: $h2-font-size;
+}
+
+h3,
+.h3 {
+    font-size: $h3-font-size;
+}
+
+h4,
+.h4 {
+    font-size: $h4-font-size;
+}
+
+h5,
+.h5 {
+    font-size: $h5-font-size;
+}
+
+h6,
+.h6 {
+    font-size: $h6-font-size;
+}
+
+
+/************************** 
+* Modal Dialog Scrollable
+***************************/
+
+a {
+    color: $default-color;
+    text-decoration: none;
+    &:hover,
+    &:focus,
+    &.active {
+        text-decoration: none !important;
+    }
+    &:hover {
+        color: $primary;
+        text-decoration: none;
+    }
+    &:focus {
+        outline: none;
+    }
+}
+
+p {
+    line-height: 1.7;
+    font-size: 13px;
+    letter-spacing: .7px;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    li {
+        list-style: none;
+    }
+}
+
+label {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+small,
+.small {
+    font-size: $small-font-size;
+    font-weight: $font-400;
+}
+
+::selection {
+    color: $white;
+    background: $primary;
+}
+
+.text-white {
+    color: $white !important;
+}
+
+.text-right {
+    text-align: right !important;
+}
+
+.text-orange {
+    color: #ffcc40;
+}
+
+.text-gray {
+    color: $default-color-opacity;
+}
+
+.rounded-circle {
+    border: $border-width $border-style-solid $border-color;
+    padding: 2px;
+    border-radius: $border-radius !important;
+}
+
+
+/******************************** 
+* Margin => padding => Font-size
+*********************************/
+
+.fs-14 {
+    font-size: 14px;
+}
+
+.fs-20 {
+    font-size: 20px;
+}
+
+.mr-4,
+.mx-4 {
+    margin-right: 1.5rem !important;
+}
+
+.mr-2,
+.mx-2 {
+    margin-right: 0.5rem !important;
+}
+
+.m-rl {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.m-l-0 {
+    margin-left: 0;
+}
+
+.m-r-0 {
+    margin-right: 0;
+}
+
+.mb-30 {
+    margin-bottom: 30px;
+}
+
+.m-b-10 {
+    margin-bottom: 10px !important;
+}
+
+.m-t-30 {
+    margin-top: 30px !important;
+}
+
+.p-b-20 {
+    padding-bottom: 20px !important;
+}
+
+.p-5 {
+    padding: 5px !important;
+}
+
+.mx-25 {
+    margin-left: 25px !important;
+    margin-right: 25px !important;
+}
+
+
+/************************** 
+* 
+***************************/
+
+hr:not([size]) {
+    height: auto;
+}
+
+hr {
+    margin-top: $hr-margin-y;
+    margin-bottom: $hr-margin-y;
+    border: 0;
+    border-top: $hr-border-width $border-style-solid $hr-border-color;
+    background-color: $border-color !important;
+}
+
+
+/************************** 
+* 1. Custom Class
+***************************/
+
+.page-titles {
+    padding: 0.9375rem 1.875rem;
+}
+
+.fix-card {
+    display: inline-block !important;
+    .row {
+        align-items: center;
+    }
+}
+
+.all_appointments>div,
+.new_appointment>div {
+    @include respond("tab-port") {
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+
+.m-rl>div {
+    @include respond("tab-port") {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+.m-rl>div {
+    padding-left: 0;
+}
+
+.m-rl>div:last-child {
+    padding-right: 0;
+}
+
+table.dataTable.row-border tbody th,
+table.dataTable.row-border tbody td,
+table.dataTable.display tbody th,
+table.dataTable.display tbody td {
+    border-top: 1px solid #ddd;
+}
+
+
+/************************** 
+* Doctors
+***************************/
+
+.list-doctors {
+    .timeline {
+        .timeline-panel {
+            display: inline-block;
+            text-align: $text-center;
+            width: 100%;
+            .media {
+                margin-left: auto;
+                margin-right: auto;
+                text-align: $text-center;
+                display: inherit;
+                margin-bottom: 10px;
+                height: 90px;
+                width: 90px;
+                img {
+                    width: 100%;
+                }
+            }
+            .media-body {
+                a {
+                    h4 {
+                        color: $default-color-full;
+                        font-size: 15px;
+                        letter-spacing: 1px;
+                    }
+                }
+                p {
+                    opacity: 0.7;
+                }
+            }
+        }
+    }
+}
+
+.star-review {
+    i {
+        font-size: 12px;
+        &.text-gray {
+            color: rgba(43, 43, 43, 0.3);
+        }
+    }
+}
+
+
+/************************** 
+* Doctor profile
+***************************/
+
+.doctor-info-details {
+    .left-content {
+        .media {
+            position: relative;
+            .pulse-css {
+                background-color: $success;
+                width: .6rem;
+                height: .6rem;
+                top: -3px;
+                right: -3px;
+                &:after,
+                &:before {
+                    background-color: $success;
+                }
+            }
+        }
+        .media-body {
+            padding-left: 30px;
+            h2 {
+                font-weight: $font-500;
+                text-transform: capitalize;
+                color: $default-color-full;
+                font-size: 22px;
+                line-height: 26.4px;
+            }
+            p {
+                color: $default-color-full;
+                font-weight: $font-400;
+                font-size: 13px;
+                letter-spacing: 0.7px;
+                opacity: 0.7;
+            }
+        }
+    }
+}
+
+.doctor-info-content {
+    .nav-tabs {
+        border-bottom-color: #efefef;
+        background: $background-white;
+        .nav-item {
+            @include respond('phone') {
+                width: 100%;
+            }
+            .nav-link {
+                border: none;
+                border-radius: 15px 0 0 15px;
+                padding: 20px 15px;
+                text-align: $text-center;
+                width: 100%;
+                &.active {
+                    color: $white;
+                    background-color: $primary;
+                    border-color: $primary;
+                    margin-bottom: 0;
+                    border-radius: 2px !important;
+                }
+            }
+        }
+    }
+}
+
+.items {
+    border: $border-width $border-style-solid $border-color;
+    position: relative;
+    .bootstrap-media {
+        .media {
+            .media-body {
+                padding-left: 15px;
+                h4 {
+                    color: $default-color-full;
+                    line-height: 18px;
+                    font-size: 15px;
+                    font-weight: $font-500;
+                    letter-spacing: 1px;
+                }
+                p {
+                    opacity: 0.7;
+                }
+            }
+        }
+    }
+}
+
+
+/************************** 
+* Placeholder
+***************************/
+
+::-webkit-input-placeholder {
+    color: $default-color !important;
+}
+
+::-moz-placeholder {
+    color: $default-color !important;
+}
+
+:-ms-input-placeholder {
+    color: $default-color !important;
+}
+
+:-moz-placeholder {
+    color: $default-color !important;
+}
+
+
+/************************** 
+* Scrollbar Reset
+***************************/
+
+.left-panel {
+    &::-webkit-scrollbar {
+        width: 5px;
+    }
+    &::-webkit-scrollbar-track {
+        background: $background-white;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: $scrollbar-bg;
+        border: $border-width $border-style-solid $border-color-withe;
+        @include borderRadius(20px);
+    }
+}

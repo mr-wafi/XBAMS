@@ -1,0 +1,41 @@
+{% extends 'layouts/base1.html' %}
+{% load static %}
+{% block content %}
+<div class="card">
+   <div class="card-body">
+      <div class="table-responsive">
+         <table id="example1" class="display nowrap">
+            <thead>
+               <tr>
+                  <th>#</th>
+                  <th>Title</th>
+                  <th>Description</th>
+                  <th>Date</th>
+                  <th>Status</th>
+                  <th>Solution</th>
+                  <th>Assigned To</th>
+                  <th>Tenant</th>
+                  {% comment %} <th>Action</th> {% endcomment %}
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <td>{{ forloop.counter }}</td>
+                  <td>{{ comp.title }}</td>
+                  <td>{{ comp.description }}</td>
+                  <td>{{ comp.date }}</td>
+                  <td>{{ comp.status }}</td>
+                  <td>{{ comp.solution }}</td>
+                  <td>{{ comp.employee.name }}</td>
+                  <td>{{ comp.tenant.name }}</td>
+                </tr>
+            </tbody>
+         </table>
+      </div>
+   </div>
+</div>
+{% endblock %}
+{% block js %}
+<script src="{% static 'assets/plugins/datatables/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'assets/js/init-tdatatable.js' %}"></script>
+{% endblock %}

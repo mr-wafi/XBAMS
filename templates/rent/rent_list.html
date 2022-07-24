@@ -1,0 +1,513 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block content %}
+<div class="card">
+    <div class="card-header fix-card">
+        <div class="row">
+            <div class="col-8">
+                <h4 class="card-title"> <i class="fa fa-train"></i> Rent List </h4>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="card-body">
+        <div class="table-responsive">
+            <table id="example1" class="display nowrap">
+                <thead>
+                    <tr role="row">
+                        <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                            aria-sort="ascending" aria-label="#Invoice: activate to sort column descending">#Invoice
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                            aria-label="Renter Name: activate to sort column ascending">Renter Name</th>
+                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                            aria-label="Floor No: activate to sort column ascending">Floor No</th>
+                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                            aria-label="Unit No: activate to sort column ascending">Unit No</th>
+                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                            aria-label="Rent Month: activate to sort column ascending">Rent Month</th>
+                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                            aria-label="Rent Year: activate to sort column ascending">Rent Year</th>
+                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                            aria-label="Bill Status: activate to sort column ascending">Bill Status</th>
+                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                            aria-label="Total Rent : activate to sort column ascending">Total Rent </th>
+                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                            aria-label="Action: activate to sort column ascending">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for list in rentList %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ list.tenant.name }}</td>
+                        <td>{{ list.floor.name }}</td>
+                        <td>{{ list.unit.unit_no }}</td>
+                        <td>{{ list.rent_month }}</td>
+                        <td>{{ list.rent_year }}</td>
+                        {% if list.status == 'paid' %}
+                        <td>
+                            <label class="alert alert-success p-0 m-0">PAID</label>
+                        </td>
+                        {% else %}
+                        <td>
+                            <label class="alert alert-danger p-0 m-0">DUE</label>
+                        </td>
+                        {% endif %}
+                        <td>{{ list.total_rent }}</td>
+
+                        <td>
+                            <a target="_blank" class="btn btn-primary ams_btn_special" data-original-title="#Invoice"
+                                data-toggle="tooltip" href="{% url 'print_invoice' list.id %}"><i
+                                    class="fa fa-file"></i></a>
+
+                            <a class="btn btn-success ams_btn_special" data-toggle="tooltip" href="javascript:;"
+                                onclick="$('#nurse_view_43').modal('show');" data-original-title="View Details"><i
+                                    class="fa fa-eye"></i></a>
+                            <div id="nurse_view_43" class="modal" tabindex="-1" role="dialog"
+                                aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                <div class="modal-dialog model">
+                                    <div class="modal-content">
+                                        <div class="modal-header" style="background-color: orange;">
+                                            
+                                            <h3 class="modal-title">Rent Details</h3>
+                                        </div>
+                                       
+                                         <div class="modal-body">
+                                            <div class="insertHere">
+                                               <table class="table table-striped table-responsive-sm modalShowTable" width="100%">
+                                                  <table class="table table-striped table-responsive-sm modalShowTable"
+                                                     width="100%">
+                                                     <tbody>
+                                                        <tr>
+                                                           <td>Renter Name :</td>
+                                                           <td>&nbsp;</td>
+                                                           <td>{{ list.tenant.tenant_name }}</td>
+                                                        </tr>
+                                                        <tr>
+                                                           <td>Floor No :</td>
+                                                           <td></td>
+                                                           <td>{{ list.floor.name }}</td>
+                                                        </tr>
+                                                        <tr>
+                                                           <td>Unit No :</td>
+                                                           <td></td>
+                                                           <td>{{ list.unit.unit_no }}</td>
+                                                        </tr>
+                                                        <tr>
+                                                           <td>Rent Month :</td>
+                                                           <td></td>
+                                                           <td>{{ list.rent_month }}</td>
+                                                        </tr>
+                                                        <tr>
+                                                           <td>Rent Year :</td>
+                                                           <td></td>
+                                                           <td>{{ list.rent_year }}</td>
+                                                        </tr>
+                                                        <tr>
+                                                           <td>Rent</td>
+                                                           <td></td>
+                                                           <td>$ {{ list.rent}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                           <td>Water Bill</td>
+                                                           <td></td>
+                                                           <td>$ {{ list.water_bill}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                           <td>Electric Bill</td>
+                                                           <td></td>
+                                                           <td>$ {{ list.electric_bill}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                           <td>Gas Bill</td>
+                                                           <td></td>
+                                                           <td>$ {{ list.gas_bill}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                           <td>Security Bill</td>
+                                                           <td></td>
+                                                           <td>$ {{ list.security_bill}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                           <td>Utility Bill</td>
+                                                           <td></td>
+                                                           <td>$ {{ list.utility_bill}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                           <td>Other Bill</td>
+                                                           <td></td>
+                                                           <td>$ {{ list.other_bill}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                           <td>Total Rent</td>
+                                                           <td></td>
+                                                           <td>$ {{ list.total_rent}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                           <td>Paid Date</td>
+                                                           <td></td>
+                                                           <td>{{ list.bill_paid_date}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                           <td>Bill Status</td>
+                                                           <td></td>
+                                                           <td> <span style="background-color:#00FFFF; font-size:20px; font-color:white;">{{ list.status}}</span></td>
+                                                        </tr>
+
+
+                                                     </tbody>
+                                                  </table>
+                                            </div>
+                                         </div> 
+                                         <div class="modal-footer">
+                                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                                         </div>
+
+                                    </div>
+                                    <!-- /.modal-content -->
+                                </div>
+                            </div>
+
+                            <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal"
+                        data-bs-target="#edit{{ list.id }}"><i class="fa fa-pen"></i></button>
+
+
+                     <div class="modal  selectRefresh" id="edit{{ list.id }}" tabindex="-1"
+                        aria-labelledby="exampleModalLabelOne">
+                        <div class="modal-dialog modal-lg" role="document">
+                           <div class="modal-content">
+                              <div class="modal-header">
+                                 <h5 class="modal-title" id="exampleModalLabelOne"><b></b>Edit
+                                    list
+                                    {{ list.id }}</h5>
+                              </div>
+                              <div class="modal-body">
+
+                                 <form method="POST" action="{% url 'update_rent' list.id %}"
+                                    enctype="multipart/form-data">
+                                    {% csrf_token %}
+
+                                    <div class="form-row">
+                                       
+                                        <div class="form-group col-md-4">
+                                            <label for="ddlFloorNo"><span class="errorStar">*</span> Floor No :</label>
+                                            <select class="form-control" name="floor" id="FloorNo">
+
+                                              <option value="{{ list.floor.id }}">{{ list.floor.name }}</option>
+                                              <option value="">--Select Floor--</option>
+                                              {% for floor in floors %}
+                                              <option value="{{ floor.id }}">{{ floor.name }}</option>
+                                              {% endfor %}
+                                            </select>
+                                          </div>
+                                          <div class="form-group col-md-4">
+                                            <label for="ddlUnitNo"><span class="errorStar">*</span> Unit No :</label>
+                                            <select name="unit" id="UnitNo" class="form-control">
+                                              <option value="{{ list.unit.id }}">{{ list.unit.unit_no }}</option>
+                                              
+                                            </select>
+                                          </div>
+                                          <div class="form-group col-md-4">
+                                            <label for="txtRent">Renter Name :</label>
+                                            <input readonly="readonly" type="text" value="{{ list.tenant.tenant_name }}" id="RentName"
+                                              class="form-control">
+                                              <input type="hidden" id="hidden_list" value="{{ list.tenant.id }}"  name="tenant_id">
+                                          </div>
+                                    </div>
+                                    <div class="form-row">
+                                       
+                                        <div class="form-group col-md-4">
+                                            <label for="txtRent">Rent :</label>
+                                            <div class="input-group">
+                                              <input readonly="readonly" type="text" name="rent" onkeyup="calculateFairTotal();" value="{{ list.rent }}"
+                                                id="txtRent" class="form-control">
+                                            </div>
+                                          </div>
+                                          <div class="form-group col-md-4">
+                                            <label for="ddlMonth"><span class="errorStar">*</span> Select Rent Month :</label>
+
+                                            <select name="rent_month" id="ddlMonth" class="form-control">
+
+                                            <option value="{{ list.rent_month }}">{{ list.rent_month }}</option>
+                                              <option value="">--Select Month--</option>
+                                              <option value="January">January</option>
+                                              <option value="February">February</option>
+                                              <option value="March">March</option>
+                                              <option value="April">April</option>
+                                              <option value="May">May</option>
+                                              <option value="June">June</option>
+                                              <option value="July">July</option>
+                                              <option value="August">August</option>
+                                              <option value="September">September</option>
+                                              <option value="October">October</option>
+                                              <option value="November">November</option>
+                                              <option value="December">December</option>
+                                            </select>
+                                          </div>
+                                          <div class="form-group col-md-4">
+                                            <label for="ddlYear"><span class="errorStar">*</span> Select Rent Year :</label>
+                                            <select id="ddlYear" name="rent_year" class="form-control">
+
+                                            <option value="{{ list.rent_year }}">{{ list.rent_year }}</option>
+                                              <option value="">--Select Year--</option>
+                                              <option value="2022">2022</option>
+                                              <option value="2023">2023</option>
+                                              <option value="2024">2024</option>
+                                              <option value="2025">2025</option>
+                                              <option value="2026">2026</option>
+                                              <option value="2027">2027</option>
+                                              <option value="2028">2028</option>
+                                              <option value="2029">2029</option>
+                                              <option value="2030">2030</option>
+                                              <option value="2031">2031</option>
+                                              <option value="2032">2032</option>
+                                            </select>
+                                          </div>
+                                    </div>
+                                    <div class="form-row">
+                                       
+                                        <div class="form-group col-md-4">
+                                            <label for="txtWaterBill">Water Bill :</label>
+                                            <div class="input-group">
+                                              <input type="text" name="water_bill" onkeyup="calculateFairTotal();" value="{{ list.water_bill }}"
+                                                id="water_bill" class="form-control">
+                                            </div>
+                                          </div>
+                                          <div class="form-group col-md-4">
+                                            <label for="txtElectricBill">Electric Bill :</label>
+                                            <div class="input-group">
+                                              <input type="text" name="electric_bill" onkeyup="calculateFairTotal();" value="{{ list.electric_bill }}"
+                                                id="electric_bill" class="form-control">
+                        
+                                            </div>
+                                          </div>
+                                          <div class="form-group col-md-4">
+                                            <label for="txtGasBill">Gas Bill :</label>
+                                            <div class="input-group">
+                                              <input type="text" name="gas_bill" onkeyup="calculateFairTotal();" value="{{ list.gas_bill }}" id="gas_bill"
+                                                class="form-control">
+                        
+                                            </div>
+                                          </div>
+                                    </div>
+
+
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-4">
+                                            <label for="txtSecurityBill">Security Bill :</label>
+                                            <div class="input-group">
+                                              <input type="text" name="security_bill" onkeyup="calculateFairTotal();" value="{{ list.security_bill }}"
+                                                id="security_bill" class="form-control">
+                        
+                                            </div>
+                                          </div>
+                                          <div class="form-group col-md-4">
+                                            <label for="txtUtilityBill">Utility Bill :</label>
+                                            <div class="input-group">
+                                              <input type="text" name="utility_bill" onkeyup="calculateFairTotal();" value="{{ list.utility_bill }}"
+                                                id="utility_bill" class="form-control">
+                        
+                                            </div>
+                                          </div>
+                                          <div class="form-group col-md-4">
+                                            <label for="txtOtherBill">Other Bill :</label>
+                                            <div class="input-group">
+                                              <input type="text" name="other_bill" onkeyup="calculateFairTotal();" value="{{ list.other_bill }}"
+                                                id="other_bill" class="form-control">
+                        
+                                            </div>
+                                          </div>
+
+
+                                    </div>
+
+
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-4">
+                                            <label for="txtTotalRent">Total Rent :</label>
+                                            <div class="input-group">
+                                              <input type="text" readonly="readonly" name="total_rent" id="total_rent" value="{{ list.total_rent }}"
+                                                class="form-control total_rent">
+                        
+                                            </div>
+                                          </div>
+                        
+                                          <div class="form-group col-md-4">
+                                            <label for="txtPaidDate"> Bill Paid Date :</label>
+                                            <input type="date" name="bill_paid_date" value="{{ list.bill_paid_date|date:"Y-m-d" }}" id="txtPaidDate" class="form-control datepicker">
+                                          </div>
+                        
+                                          <div class="form-group col-md-4">
+                                            <label for="ddlBillStatus"> Bill Status :</label>
+                                            <select name="status" id="ddlBillStatus" class="form-control">
+                                            <option value="{{ list.status }}">{{ list.status }}</option>
+                                              <option value="">--Select Status--</option>
+                                              <option value="due">Due</option>
+                                              <option value="paid">Paid</option>
+                                            </select>
+                                          </div>
+                                    </div>
+                                    <div class="float-end">
+                                       <button type="button" class="btn btn-danger"
+                                          data-bs-dismiss="modal">Close</button>
+                                       <button type="submit" class="btn badge-primary">Update Rent</button>
+                                    </div>
+                                 </form>
+
+
+                              </div>
+
+                           </div>
+                        </div>
+                     </div>
+
+                     <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                        data-bs-target="#delete{{ list.id }}"><i class="fa fa-trash"></i></button>
+                     <div class="modal  selectRefresh" id="delete{{ list.id }}" tabindex="-1"
+                        aria-labelledby="exampleModalLabelOne">
+                        <div class="modal-dialog modal-m" role="document">
+                           <div class="modal-content">
+                              <div class="modal-header">
+                                 <h5 class="modal-title" id="exampleModalLabelOne"><b></b>Delete
+                                    {{ list.id }}</h5>
+                              </div>
+                              <div class="modal-body">
+                                 <form class="row align-items-start" action="{% url 'delete_rent' list.id %}"
+                                    method="POST" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <div class="row">
+                                       <div class="col-md-12">
+                                          Do you want to delete this?
+                                       </div>
+                                       <input type="hidden" name="input" value="delete_list" id="">
+                                       <input type="hidden" name="id" value="{{ list.id }}">
+
+                                    </div>
+                                    <div class="modal-footer">
+                                       <button type="button" class="btn btn-danger"
+                                          data-bs-dismiss="modal">Close</button>
+                                       <button type="submit" class="btn badge-primary">Delete
+                                          </button>
+                                    </div>
+                                 </form>
+                              </div>
+
+                           </div>
+                        </div>
+                     </div>
+                        </td>
+
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block js %}
+<script src="{% static 'assets/plugins/datatables/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'assets/js/init-tdatatable.js' %}"></script>
+<script src="{% static 'assets/js/ajax.js' %}"></script>
+
+
+
+
+
+<script>
+  $("#FloorNo").on('change',function(){
+    var emp = $("#FloorNo").val();
+    
+    if (emp != ''){
+        $.ajax({
+            url: '{% url 'floor_ajax' %}',
+            type: 'POST',
+            data: {emp:emp},
+            headers: {//<==
+                "X-CSRFTOKEN": "{{ csrf_token }}"//<==
+        },
+        success: function (data) {
+          var $select = $('#UnitNo');
+          $select.find('option').remove();
+          $select.append('<option value="">--Select Flat--</option>');
+
+          $.each(data.data, function(k, v) {
+            
+            $select.append('<option value=' + v.id + '>' + v.unit_no + '</option>');
+          });
+       
+      },
+
+        })
+    }
+});
+
+</script>
+<script>
+  $("#UnitNo").on('change',function(){
+    var emp = $("#UnitNo").val();
+    
+    if (emp != ''){
+        $.ajax({
+            url: '{% url 'unit_ajax' %}',
+            type: 'POST',
+            data: {emp:emp},
+            headers: {//<==
+                "X-CSRFTOKEN": "{{ csrf_token }}"//<==
+        },
+        success: function (resp){
+
+          $('#RentName').val(resp.data[0].list_name)
+          $('#hidden_list').val(resp.data[0].id)
+          $('#txtRent').val(resp.data[0].rent_per_month)
+      }
+
+        })
+    }
+});
+
+</script>
+<script>
+  function calculateFairTotal(){
+    var box_1 = 0.00;
+    var box_2 = 0.00;
+    var box_3 = 0.00;
+    var box_4 = 0.00;
+    var box_5 = 0.00;
+    var box_6 = 0.00;
+    var box_7 = 0.00;
+    if($("#txtRent").val() != ''){
+      box_1 = parseFloat($("#txtRent").val());
+    }
+    if($("#water_bill").val() != ''){
+      box_2 = parseFloat($("#water_bill").val());
+    }
+    if($("#electric_bill").val() != ''){
+      box_3 = parseFloat($("#electric_bill").val());
+    }
+    if($("#gas_bill").val() != ''){
+      box_4 = parseFloat($("#gas_bill").val());
+    }
+    if($("#security_bill").val() != ''){
+      box_5 = parseFloat($("#security_bill").val());
+    }
+    if($("#utility_bill").val() != ''){
+      box_6 = parseFloat($("#utility_bill").val());
+    }
+    if($("#other_bill").val() != ''){
+      box_7 = parseFloat($("#other_bill").val());
+    }
+    var total = parseFloat(box_1 + box_2 + box_3 + box_4 + box_5 + box_6 + box_7);
+    total = total.toFixed(2);
+    $("#total_rent").val(total);
+  }
+
+
+
+
+</script>
+{% endblock %}

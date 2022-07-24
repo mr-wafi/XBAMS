@@ -1,0 +1,198 @@
+@import"colors";
+
+/************************** 
+* Font-weight
+***************************/
+
+$font-100: 100;
+$font-200: 200;
+$font-300: 300;
+$font-400: 400;
+$font-500: 500;
+$font-600: 600;
+$font-700: 700;
+
+/************************** 
+* Main Fonts
+***************************/
+
+$font-Poppins: 'Poppins',
+sans-serif;
+$btn-font-family: "poppins,sans-serif";
+$font-rubik: Rubik,
+sans-serif;
+$font-roboto: 'Roboto',
+sans-serif;
+
+/************************** 
+* shadow variables
+***************************/
+
+$shadow:0 5px 15px 5px rgba(80, 102, 224, 0.08);
+$shadow-1: 0 0 10px rgba(0, 0, 0, 10%);
+
+/************************** 
+* Heading
+***************************/
+
+$opacity: 0.5;
+
+/************************** 
+* Heading
+***************************/
+
+$h1-font-size: 2.25rem;
+$h2-font-size: 1.875rem;
+$h3-font-size: 1.5rem;
+$h4-font-size: 1.125rem;
+$h5-font-size: 1rem;
+$h6-font-size: 0.938rem;
+$headings-margin-bottom: 0.5rem;
+$headings-font-weight: 500;
+$headings-line-height: 1.2;
+$hr-margin-y:1rem;
+$hr-border-width:1px;
+$hr-border-color: rgba(0, 0, 0, 0.1);
+$small-font-size:80%;
+
+/************************** 
+* Modal
+***************************/
+
+$modal-dialog-margin:0.5rem;
+$modal-backdrop-opacity:0.5;
+$modal-header-padding:1rem 1.875rem;
+$modal-header-border-width:$btn-border-width;
+$modal-header-border-color:$border-color;
+$modal-inner-padding:1.875rem;
+$modal-footer-border-width: $btn-border-width;
+$modal-footer-border-color:$border-color;
+
+/************************** 
+* Float fixing
+***************************/
+
+$flot-left: left;
+$flot-right: right;
+
+/************************** 
+* Text Align
+***************************/
+
+$text-left: left;
+$text-center: center;
+$text-right: right;
+
+/************************** 
+* Transition
+***************************/
+
+.transition {
+    -webkit-transition: all 0.5s ease-in-out !important;
+    -o-transition: all 0.5s ease-in-out !important;
+    transition: all 0.5s ease-in-out !important;
+}
+
+.transition-layouts {
+    -webkit-transition: all .2s ease !important;
+    -o-transition: all .2s ease !important;
+    transition: all .2s ease !important;
+}
+
+
+/************************** 
+* Button
+***************************/
+
+$btn-disabled-opacity: 0.65;
+
+/************************** 
+* Box Shadow
+***************************/
+
+.shadow {
+    -webkit-box-shadow: 0 0 40px rgba(8, 21, 66, 5%) !important;
+    box-shadow: 0 0 40px rgba(8, 21, 66, 5%) !important;
+}
+
+.shadow-header {
+    -webkit-box-shadow: 0 0 20px rgba(89, 102, 122, 10%) !important;
+    box-shadow: 0 0 20px rgba(89, 102, 122, 10%) !important;
+}
+
+.box-shadow-none {
+    box-shadow: none !important;
+}
+
+
+/************************** 
+* Box Sizing
+***************************/
+
+.box-sizing {
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+/************************** 
+* Padding
+***************************/
+
+.padding {
+    padding: 30px 20px;
+}
+
+
+/************************** 
+* Boreder None
+***************************/
+
+.border-none {
+    border: none;
+}
+
+
+/************************** 
+*Fonts 
+***************************/
+
+.text-primary {
+    color: $primary !important;
+}
+
+.text-warning {
+    color: $warning !important;
+}
+
+.text-success {
+    color: $success !important;
+}
+
+.text-dark-gray {
+    color: $default-color-full;
+}
+
+
+/************************** 
+* Media Queries
+***************************/
+
+$minMobile: '(max-width: 320px)';
+$galMobile: '(max-width: 480px)';
+$kindlefire: '(max-width: 600px)';
+$maxMobile: '(max-width: 767px)';
+$ipSmall: '(min-width: 768px)';
+$maxSmall: '(max-width: 991px)';
+$maxMedieum: '(max-width: 992px)';
+$minlarge: '(min-width: 1200px)';
+$minmax: '(min-width: 768px) and (max-width: 991px)';
+$mediaThre: '(min-width: 768px) and (max-width: 1024px)';
+$mediaTwo: '(min-width: 481px) and (max-width: 767px)';
+$mediaOne: '(min-width: 320px) and (max-width: 480px)';
+$laptop:'only screen and (max-width: 1400px)';
+$phone:'only screen and (max-width: 575px)';
+$respond: 'only screen and (max-width: 1400px)';

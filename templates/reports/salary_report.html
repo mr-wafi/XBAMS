@@ -1,0 +1,168 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block content %}
+
+<section class="content">
+    <!-- Full Width boxes (Stat box) -->
+    <div class="row">
+        <div class="col-md-12">
+            <div align="right" style="margin-bottom:1%;"> </div>
+            <div class="box box-success">
+                <div class="box-header">
+                    <h3 class="box-title">Rental Collection Report Form</h3>
+                </div>
+                <form action="{% url 'salary_result' %}" method="post">
+                    {% csrf_token %}
+                <div class="box-body row">
+                    <div class="form-group col-md-12">
+                        <label for="">Employee Selection:</label>
+                        <select name="employee" id="ddlPaymentStatus" class="form-control">
+                            <option value="">--Select--</option>
+                            {% for i in employee %}
+                            <option value="{{ i.id }}">{{ i.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="ddlMonth">Select Month :</label>
+                        <select name="month" id="ddlMonth" class="form-control">
+                            <option value="">--Select Month--</option>
+                            <option value="January">January</option>
+                            <option value="February">February</option>
+                            <option value="March">March</option>
+                            <option value="April">April</option>
+                            <option value="May">May</option>
+                            <option value="June">June</option>
+                            <option value="July">July</option>
+                            <option value="August">August</option>
+                            <option value="September">September</option>
+                            <option value="October">October</option>
+                            <option value="November">November</option>
+                            <option value="December">December</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="ddlYear">Select Year :</label>
+                        <select name="year" id="ddlYear" class="form-control">
+                            <option value="">--Select Year--</option>
+                            <option value="2022">2022</option>
+                            <option value="2023">2023</option>
+                            <option value="2024">2024</option>
+                            <option value="2025">2025</option>
+                            <option value="2026">2026</option>
+                            <option value="2027">2027</option>
+                            <option value="2028">2028</option>
+                            <option value="2029">2029</option>
+                            <option value="2030">2030</option>
+                            <option value="2031">2031</option>
+                            <option value="2032">2032</option>
+                        </select>
+                    </div>
+
+                </div>
+                <div class="box-footer">
+                    <div class="form-group pull-right">
+                        <input type="submit" onclick="getInfo()" value="Submit" class="btn btn-success" target="_blank">
+                    </div>
+
+                    {% comment %} <div class="box-footer">
+                        <button class="btn btn-success"type="submit" class="btn btn-success">Submit</button>
+                    </div> {% endcomment %}
+                </div>
+            </form>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+    </div>
+    <!-- /.row -->
+  
+
+
+    
+</section>
+
+{% block js %}
+<script src="{% static 'assets/js/ajax.js' %}"></script>
+<script src="{% static 'assets/js/swal.js' %}"></script>
+
+<script type="text/javascript">
+    function getInfo() {
+        var floor_id = $("#FloorNo").val();
+        var unit_id = $("#UnitNo").val();
+        var month_id = $("#ddlMonth").val();
+        var year_id = $("#ddlYear").val();
+        var status = $("#ddlPaymentStatus").val();
+        if (floor_id == '' || unit_id == '' || month_id == '' || year_id == '') {
+            Swal.fire(
+                'Error',
+                "Please Select at Least one or more fields",
+                "warning"
+        );
+        }
+
+       
+    }
+</script>
+
+
+
+
+<script>
+    $("#FloorNo").on('change',function(){
+      var emp = $("#FloorNo").val();
+      
+      if (emp != ''){
+          $.ajax({
+              url: '{% url 'floor_ajax' %}',
+              type: 'POST',
+              data: {emp:emp},
+              headers: {//<==
+                  "X-CSRFTOKEN": "{{ csrf_token }}"//<==
+          },
+          success: function (data) {
+            var $select = $('#UnitNo');
+            $select.find('option').remove();
+            $select.append('<option value="">--Select Flat--</option>');
+  
+            $.each(data.data, function(k, v) {
+              
+              $select.append('<option value=' + v.id + '>' + v.unit_no + '</option>');
+            });
+         
+        },
+  
+          })
+      }
+  });
+</script>
+
+  <script>
+    $("#UnitNo").on('change',function(){
+      var emp = $("#UnitNo").val();
+      
+      if (emp != ''){
+          $.ajax({
+              url: '{% url 'unit_ajax' %}',
+              type: 'POST',
+              data: {emp:emp},
+              headers: {//<==
+                  "X-CSRFTOKEN": "{{ csrf_token }}"//<==
+          },
+          success: function (resp){
+  
+          //  $('#RentName').val(resp.data[0].list_name)
+           // $('#hidden_list').val(resp.data[0].id)
+           // $('#txtRent').val(resp.data[0].rent_per_month)
+        }
+  
+          })
+      }
+  });
+  
+  </script>
+
+
+{% endblock js %}
+
+{% endblock %}

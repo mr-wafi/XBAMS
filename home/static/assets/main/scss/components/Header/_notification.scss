@@ -1,0 +1,118 @@
+/************************** 
+* Timeline
+***************************/
+
+.main-scroll {
+    position: relative;
+    overflow-y: scroll;
+    height: 380px;
+    padding: 1rem !important;
+    padding-top: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    @extend .shadow;
+}
+
+.timeline {
+    li {
+        &:first-child {
+            padding: 20px;
+            background-color: $background;
+            text-align: $text-left;
+            h6 {
+                font-size: 18px;
+            }
+        }
+    }
+    .timeline-panel {
+        display: flex;
+        align-items: center;
+        border-bottom: $border-width $border-style-solid $border-color;
+        padding-bottom: 15px;
+        padding-top: 15px;
+        padding-left: 20px;
+        margin-bottom: 0;
+        text-align: $text-left;
+        .media {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            align-self: start;
+            width: 45px;
+            height: 45px;
+            font-size: 18px;
+            background: $background;
+            overflow: hidden;
+            text-align: $text-center;
+            font-weight: $font-700;
+            @include borderRadius(5px);
+            img {
+                width: 50px;
+            }
+        }
+        .media-body {
+            h6 {
+                font-size: 14px;
+                letter-spacing: 0.8px;
+                font-weight: $font-400;
+                color: $default-color-full;
+            }
+            small {
+                color: $default-color-opacity;
+                font-size: 13px;
+                margin-top: 0;
+                letter-spacing: 0.7px;
+            }
+        }
+        .media-info {
+            background: $media-info-bg;
+            color: $media-info-color;
+        }
+        .media-success {
+            background: $media-success-bg;
+            color: $media-success-color;
+        }
+        .media-danger {
+            background: $media-danger-bg;
+            color: $media-danger-color;
+        }
+        .media-primary {
+            background: $media-primary-bg;
+            color: $primary;
+        }
+    }
+    li {
+        &:last-child {
+            .timeline-panel {
+                margin-bottom: 0;
+                border-bottom: 0;
+                padding-bottom: 0;
+            }
+        }
+    }
+}
+
+.all-notification {
+    display: block;
+    padding: 15px 30px 0;
+    text-align: $text-center;
+    border-top: $border-width $border-style-solid $border-color;
+    margin-top: 16px;
+}
+
+
+/* Scrollbar */
+
+.widget-media {
+    &::-webkit-scrollbar {
+        width: 5px;
+    }
+    &::-webkit-scrollbar-track {
+        background: $background-white;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: $scrollbar-bg;
+        border: $border-width $border-style-solid $border-color-withe;
+        @include borderRadius(20px)
+    }
+}

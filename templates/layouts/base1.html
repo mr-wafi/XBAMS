@@ -1,0 +1,93 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %} {% endblock %}</title>
+    {% csrf_token %}
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" href="{% static 'assets/images/favicon-32x32.png' %}" />
+    <!-- Base Styling  -->
+    <link rel="stylesheet" href="{% static 'assets/main/css/fonts.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/main/css/style.css' %}" />
+    {% block head %}
+    <style>
+      @media (max-width: 768px) {
+        #sidebar {
+          margin-right: -250px;
+        }
+
+        #sidebar.active {
+          margin-left: 0;
+        }
+
+        #sidebarCollapse span {
+          display: none;
+        }
+      }
+    </style>
+    {% endblock %}
+  </head>
+
+  <body>
+    {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+      <script src="{% static 'assets/js/swal.js' %}"></script>
+      <script>
+        Swal.fire(
+          '{% if message.tags == "warning" %} Problem {% else %} Success {% endif %}',
+          "{{ message }}",
+          "{{ message.tags }}"
+        );
+      </script>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    <div id="main-wrapper" class="show">
+      <!-- start logo components -->
+    
+      </div>
+      <style>
+        @media screen and (max-width: 600px) {
+          .ams {
+            visibility: hidden;
+            clear: both;
+            float: left;
+            margin: 10px auto 5px 20px;
+            width: 28%;
+            display: none;
+          }
+        }
+      </style>
+      <!-- End section header -->
+      
+          {% block content %} 
+          
+          {% endblock content %}
+        
+      
+    </div>
+    <!-- JQuery v3.5.1 -->
+    <script src="{% static 'assets/plugins/jquery/jquery.min.js' %}"></script>
+    <!-- Bootstrap -->
+    <script src="{% static 'assets/plugins/bootstrap/js/bootstrap.js' %}"></script>
+    <!-- Main Custom JQuery -->
+    <script src="{% static 'assets/js/toggleFullScreen.js' %}"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
+    {% block js %}
+    <script>
+      $(document).ready(function () {
+        $("#sidebarCollapse").on("click", function () {
+          $("#sidebar").toggleClass("active");
+        });
+      });
+    </script>
+    {% endblock %}
+  </body>
+
+</html>

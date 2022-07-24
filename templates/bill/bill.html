@@ -1,0 +1,310 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header fix-card">
+        <div class="row">
+            <div class="col-8">
+                <h4 class="card-title"><i class="fa fa-users"></i> Bill Deposit</h4>
+            </div>
+            <div class="col-4 float-end">
+                <a href="/new-patient.html" class="btn btn-primary float-end" data-bs-toggle="modal"
+                    data-bs-target="#newAppointment"><i class="fa fa-plus"></i> New Bill</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal selectRefresh" id="newAppointment" tabindex="-1" aria-labelledby="exampleModalLabelOne">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fa fa-plus"> </i>&nbsp; New Bill </h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+
+                    <form action="{% url 'bill' %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="box-body row">
+                            <div class="form-group col-md-6">
+                                <label for="ddlBillType"><span class="errorStar">*</span> Bill Type :</label>
+                                <select name="bill_type" id="ddlBillType" class="form-control">
+                                    <option value="">--Select Type--</option>
+                                    <option value="Gas">Gas</option>
+                                    <option value="Water">Water</option>
+                                    <option value="Electric">Electric</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="txtBillDate"><span class="errorStar">*</span> Bill Deposit Date :</label>
+                                <input type="date" name="deposit_date" class="form-control" value="" id="txtBillDate">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="ddlBillMonth"><span class="errorStar">*</span> Bill Month :</label>
+                                <select name="bill_month" id="ddlBillMonth" class="form-control">
+                                    <option value="">--Select Month--</option>
+                                    <option value="1">January</option>
+                                    <option value="2">February</option>
+                                    <option value="3">March</option>
+                                    <option value="4">April</option>
+                                    <option value="5">May</option>
+                                    <option value="6">June</option>
+                                    <option value="7">July</option>
+                                    <option value="8">August</option>
+                                    <option value="9">September</option>
+                                    <option value="10">October</option>
+                                    <option value="11">November</option>
+                                    <option value="12">December</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="ddlBillYear"><span class="errorStar">*</span> Bill Year :</label>
+                                <select name="bill_year" id="ddlBillYear" class="form-control">
+                                    <option value="">--Select Year--</option>
+                                    <option value="2022">2022</option>
+                                    <option value="2023">2023</option>
+                                    <option value="2024">2024</option>
+                                    <option value="2025">2025</option>
+                                    <option value="2026">2026</option>
+                                    <option value="2027">2027</option>
+                                    <option value="2028">2028</option>
+                                    <option value="2029">2029</option>
+                                    <option value="2030">2030</option>
+                                    <option value="2031">2031</option>
+                                    <option value="2032">2032</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="txtTotalAmount"><span class="errorStar">*</span> Total Amount :</label>
+                                <div class="input-group">
+                                    <input type="text" name="total_amount" value="" id="txtTotalAmount"
+                                        class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label><span class="errorStar">*</span> Deposit Method:</label>
+                                <select name="deposit_method" class="form-control">
+                                    <option value="">--Select Method--</option>
+                                    <option value="Cash">Cash</option>
+                                    <option value="Bank">Bank</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="txtBillDetails"><span class="errorStar">*</span> Details :</label>
+                                <textarea name="details" id="txtBillDetails" class="form-control"></textarea>
+                            </div>
+                        </div>
+                        <div class="float-end">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn badge-primary">Save</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table id="example1" class="display nowrap">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Bill Type</th>
+                        <th>Bill Month</th>
+                        <th>Bill Year</th>
+                        <th>Total Amount</th>
+                        <th>Deposit Method</th>
+                        <th>Details</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for segment in bills %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ segment.bill_type}}</td>
+                        <td>{{ segment.bill_month}}</td>
+                        <td>{{ segment.bill_year}}</td>
+                        <td>{{ segment.total_amount}}</td>
+                        <td>{{ segment.deposit_method}}</td>
+                        <td>{{ segment.details}}</td>
+                        <td>
+                            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                data-bs-target="#view{{ segment.id }}"><i class="fa fa-eye"></i></button>
+
+
+                            <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal"
+                                data-bs-target="#edit{{ segment.id }}"><i class="fa fa-pen"></i></button>
+
+                            <div class="modal  selectRefresh" id="edit{{ segment.id }}" tabindex="-1"
+                                aria-labelledby="exampleModalLabelOne">
+                                <div class="modal-dialog modal-lg" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabelOne"><b></b>Edit
+                                                segment
+                                                {{ segment.id }}</h5>
+                                        </div>
+                                        <div class="modal-body">
+
+
+                                            <form action="{% url 'edit_bill' segment.id %}" method="post"
+                                                enctype="multipart/form-data">
+                                                {% csrf_token %}
+                                                <div class="box-body row">
+                                                    <div class="form-group col-md-6">
+                                                        <label for="ddlBillType"><span class="errorStar">*</span> Bill
+                                                            Type :</label>
+                                                        <select name="bill_type" id="ddlBillType" class="form-control">
+                                                            <option value="{{ segment.bill_type }}">
+                                                                {{ segment.bill_type }}</option>
+                                                            <option value="">--Select Type--</option>
+                                                            <option value="Gas">Gas</option>
+                                                            <option value="Water">Water</option>
+                                                            <option value="Electric">Electric</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <label for="txtBillDate"><span class="errorStar">*</span> Bill
+                                                            Deposit Date :</label>
+                                                        <input type="date" name="deposit_date" class="form-control"
+                                                            value="{{ segment.deposit_date|date:"Y-m-d" }}"
+                                                            id="txtBillDate">
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <label for="ddlBillMonth"><span class="errorStar">*</span> Bill
+                                                            Month :</label>
+                                                        <select name="bill_month" id="ddlBillMonth"
+                                                            class="form-control">
+                                                            <option value="{{ segment.bill_month }}">
+                                                                {{ segment.bill_month }}</option>
+                                                            <option value="">--Select Month--</option>
+                                                            <option value="January">January</option>
+                                                            <option value="February">February</option>
+                                                            <option value="March">March</option>
+                                                            <option value="April">April</option>
+                                                            <option value="May">May</option>
+                                                            <option value="June">June</option>
+                                                            <option value="July">July</option>
+                                                            <option value="August">August</option>
+                                                            <option value="September">September</option>
+                                                            <option value="October">October</option>
+                                                            <option value="November">November</option>
+                                                            <option value="December">December</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <label for="ddlBillYear"><span class="errorStar">*</span> Bill
+                                                            Year :</label>
+                                                        <select name="bill_year" id="ddlBillYear" class="form-control">
+                                                            <option value="{{ segment.bill_year }}">
+                                                                {{ segment.bill_year }}</option>
+                                                            <option value="">--Select Year--</option>
+                                                            <option value="2022">2022</option>
+                                                            <option value="2023">2023</option>
+                                                            <option value="2024">2024</option>
+                                                            <option value="2025">2025</option>
+                                                            <option value="2026">2026</option>
+                                                            <option value="2027">2027</option>
+                                                            <option value="2028">2028</option>
+                                                            <option value="2029">2029</option>
+                                                            <option value="2030">2030</option>
+                                                            <option value="2031">2031</option>
+                                                            <option value="2032">2032</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <label for="txtTotalAmount"><span class="errorStar">*</span>
+                                                            Total Amount :</label>
+                                                        <div class="input-group">
+                                                            <input type="text" name="total_amount"
+                                                                value="{{ segment.total_amount }}" id="txtTotalAmount"
+                                                                class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <label><span class="errorStar">*</span> Deposit Method:</label>
+                                                        <select name="deposit_method" class="form-control">
+                                                            <option value="{{ segment.deposit_method }}">
+                                                                {{ segment.deposit_method }}</option>
+                                                            <option value="">--Select Method--</option>
+                                                            <option value="Cash">Cash</option>
+                                                            <option value="Bank">Bank</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group col-md-12">
+                                                        <label for="txtBillDetails"><span class="errorStar">*</span>
+                                                            Details :</label>
+                                                        <textarea name="details" id="txtBillDetails"
+                                                            class="form-control">{{ segment.details }}</textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="float-end">
+                                                    <button type="button" class="btn btn-danger"
+                                                        data-bs-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn badge-primary">Save</button>
+                                                </div>
+                                            </form>
+
+
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                                data-bs-target="#delete{{ segment.id }}"><i class="fa fa-trash"></i></button>
+                            <div class="modal  selectRefresh" id="delete{{ segment.id }}" tabindex="-1"
+                                aria-labelledby="exampleModalLabelOne">
+                                <div class="modal-dialog modal-lg" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabelOne"><b></b>Delete
+                                                {{ segment.id }}</h5>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form class="row align-items-start" method="POST"
+                                                action="{% url 'delete_bill' segment.id %}"
+                                                enctype="multipart/form-data">
+                                                {% csrf_token %}
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        Do you want to delete this?
+                                                    </div>
+                                                    <input type="hidden" name="input" value="delete_segment" id="">
+                                                    <input type="hidden" name="id" value="{{ segment.id }}">
+
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-danger"
+                                                        data-bs-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn badge-primary">Delete
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </td>
+
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block js %}
+<script src="{% static 'assets/plugins/datatables/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'assets/js/init-tdatatable.js' %}"></script>
+{% endblock %}

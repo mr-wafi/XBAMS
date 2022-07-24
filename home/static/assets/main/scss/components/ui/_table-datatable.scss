@@ -1,0 +1,174 @@
+/************************** 
+* Data Table
+***************************/
+
+table {
+    &.dataTable {
+        font-size: 14px;
+        border-collapse: collapse !important;
+        margin-top: 0 !important;
+        thead {
+            th,
+            td {
+                border-bottom: 0;
+                border-top: 0;
+                padding: 20px 10px;
+            }
+            th {
+                color: $default-color-full;
+                font-weight: $font-500;
+                padding: 12px;
+            }
+            .sorting {
+                background-image: url("../../images/datatables/sort_both.png");
+            }
+            .sorting_asc {
+                background-image: url("../../images/datatables/sort_asc.png");
+            }
+            .sorting_desc {
+                background-image: url("../../images/datatables/sort_desc.png");
+            }
+            .sorting,
+            .sorting_asc {
+                &:after {
+                    display: none;
+                }
+            }
+        }
+        tbody {
+            td {
+                padding: 12px 10px;
+            }
+        }
+        &.row-border {
+            tbody {
+                th,
+                td {
+                    border-color: $border-table;
+                    vertical-align: middle;
+                }
+            }
+        }
+        &.display {
+            tbody {
+                th,
+                td {
+                    border-color: $border-table;
+                    vertical-align: middle;
+                }
+            }
+        }
+    }
+    td,
+    th {
+        color: $default-color;
+        vertical-align: top;
+    }
+    thead {
+        tr {
+            background-color: $background;
+        }
+    }
+}
+
+
+/************************** 
+* DataTables Info
+***************************/
+
+.dataTables_wrapper {
+    .dataTables_info {
+        padding-bottom: 0.755em;
+        float: left;
+    }
+    .dataTables_length {
+        color: $default-color;
+    }
+    .dataTables_filter {
+        color: $default-color;
+        float: right;
+        text-align: $text-right;
+        @include respond('phone') {
+            float: right;
+        }
+        @include respond('a-kindle') {
+            float: left;
+        }
+    }
+    .dataTables_info {
+        color: $default-color;
+        padding-top: 0.75em !important;
+        padding-bottom: 0.75em;
+    }
+    .dataTables_processing {
+        color: $default-color;
+    }
+    .dataTables_paginate {
+        color: $default-color;
+        padding-top: 0.75em;
+        padding-bottom: 0.75em;
+        .paginate_button {
+            padding: 0.5em 1em;
+            @include borderRadius(0.2rem);
+            cursor: pointer;
+            &:focus,
+            &:active,
+            &:hover {
+                color: $primary !important;
+                background: $background;
+                border: 0 !important;
+                box-shadow: none;
+            }
+            &.current {
+                color: $primary !important;
+                background: $background;
+                border: 0 !important;
+            }
+            &.current:hover,
+            &.previous:hover,
+            &.next:hover {
+                background: $background;
+                color: $primary !important;
+            }
+        }
+    }
+    input[type="search"],
+    input[type="text"],
+    select {
+        border: $border;
+        padding: .3rem 0.5rem;
+        color: $default-color;
+        @include borderRadius(5px);
+    }
+    .dataTables_length {
+        margin-bottom: 15px;
+        float: left;
+    }
+}
+
+td {
+    span {
+        opacity: $opacity;
+        cursor: pointer;
+        @extend .transition-layouts;
+        &:hover {
+            opacity: 1;
+            @extend .transition-layouts;
+        }
+    }
+}
+
+table.dataTable thead .sorting,
+table.dataTable thead .sorting_asc,
+table.dataTable thead .sorting_desc,
+table.dataTable thead .sorting_asc_disabled,
+table.dataTable thead .sorting_desc_disabled {
+    cursor: pointer;
+    *cursor: hand;
+    background-repeat: no-repeat;
+    background-position: center right;
+}
+
+table.dataTable:not(.fixedHeader-locked):not(.fixedHeader-floating) {
+    width: 100% !important;
+}

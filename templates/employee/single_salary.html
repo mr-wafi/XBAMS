@@ -1,0 +1,348 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+
+<div class="card">
+    <div class="card-header fix-card">
+        <div class="row">
+            <div class="container">
+                <!-- Full Width boxes (Stat box) -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div align="right" style="margin-bottom:1%;"> </div>
+                        <div class="box box-success">
+                           
+                            <!-- /.box-body -->
+                            <!-- Main content -->
+                            <section class="content">
+                                <!-- Full Width boxes (Stat box) -->
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        </div>
+                                        <div class="box box-success">
+                                            <div class="box-header">
+                                                <h3 class="box-title"> <span style="color:red"> Mr {{ emp.employee.name }}'s Salary Details</span></h3>
+                                            </div>
+                                            <!-- /.box-header -->
+                                            <div class="box-body">
+                                                <div class="card-body">
+                                                    <div class="table-responsive">
+                                                        <table id="example1" class="display nowrap">
+                                                            <thead>
+                                                                <tr role="row">
+                                                                    <th class="sorting_asc" tabindex="0"
+                                                                        aria-controls="DataTables_Table_0" rowspan="1"
+                                                                        colspan="1" aria-sort="ascending"
+                                                                        aria-label="Employee Name: activate to sort column descending">
+                                                                        #</th>
+                                                                    <th class="sorting_asc" tabindex="0"
+                                                                        aria-controls="DataTables_Table_0" rowspan="1"
+                                                                        colspan="1" aria-sort="ascending"
+                                                                        aria-label="Employee Name: activate to sort column descending">
+                                                                        Image</th>
+                                                                    <th class="sorting_asc" tabindex="0"
+                                                                        aria-controls="DataTables_Table_0" rowspan="1"
+                                                                        colspan="1" aria-sort="ascending"
+                                                                        aria-label="Employee Name: activate to sort column descending">
+                                                                        Employee Name</th>
+                                                                    <th class="sorting" tabindex="0"
+                                                                        aria-controls="DataTables_Table_0" rowspan="1"
+                                                                        colspan="1"
+                                                                        aria-label="Designation: activate to sort column ascending">
+                                                                        Designation</th>
+                                                                    <th class="sorting" tabindex="0"
+                                                                        aria-controls="DataTables_Table_0" rowspan="1"
+                                                                        colspan="1"
+                                                                        aria-label="Salary Month: activate to sort column ascending">
+                                                                        Salary Month</th>
+                                                                    <th class="sorting" tabindex="0"
+                                                                        aria-controls="DataTables_Table_0" rowspan="1"
+                                                                        colspan="1"
+                                                                        aria-label="Salary Year: activate to sort column ascending">
+                                                                        Salary Year</th>
+                                                                    <th class="sorting" tabindex="0"
+                                                                        aria-controls="DataTables_Table_0" rowspan="1"
+                                                                        colspan="1"
+                                                                        aria-label="Salary Per Month : activate to sort column ascending">
+                                                                        Salary Per Month </th>
+                                                                    <th class="sorting" tabindex="0"
+                                                                        aria-controls="DataTables_Table_0" rowspan="1"
+                                                                        colspan="1"
+                                                                        aria-label="Issue Date: activate to sort column ascending">
+                                                                        Issue
+                                                                        Date</th>
+                                                                    
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                {% for salary in salaries %}
+                                                                <tr>
+                                                                    <td>{{ forloop.counter }}</td>
+                                                                    <td><img style="width:50px;height:50px;" src="{{ salary.employee.image.url }}"></td>
+                                                                    <td>{{ salary.employee.name }}</td>
+                                                                    <td>{{ salary.designation }}</td>
+                                                                    <td>{{ salary.salary_month }}</td>
+                                                                    <td>{{ salary.salary_year }}</td>
+                                                                    <td>{{ salary.salary_per_month }}</td>
+                                                                    <td>{{ salary.issue_date }}</td>
+
+                                                                        {% comment %} <td>
+
+                                                                           
+                                                                            <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal"
+                                                                               data-bs-target="#edit{{ salary.id }}"><i class="fa fa-pen"></i></button>
+                                                       
+                                                       
+                                                                            <div class="modal  selectRefresh" id="edit{{ salary.id }}" tabindex="-1"
+                                                                               aria-labelledby="exampleModalLabelOne">
+                                                                               <div class="modal-dialog modal-lg" role="document">
+                                                                                  <div class="modal-content">
+                                                                                     <div class="modal-header">
+                                                                                        <h5 class="modal-title" id="exampleModalLabelOne"><b></b>Edit
+                                                                                           salary
+                                                                                           {{ salary.id }}</h5>
+                                                                                     </div>
+                                                                                     <div class="modal-body">
+                                                       
+                                                                                        <form method="POST"
+                                                                                           enctype="multipart/form-data">
+                                                                                           {% csrf_token %}
+                                                       
+                                                                                           <div class="box-body row">
+                                                                                            <div class="form-group col-md-6">
+                                                                                                <label for="ddlEmpName"><span class="errorStar">*</span> Employee Name :</label>
+                                                                                                <select name="employee" id="EmpName1" class="form-control">
+                                                                                                    <option value="{{ salary.employee.id }}">{{ salary.employee.name }}</option>
+                                                                                                    <option value="">--Select Name--</option>
+                                                                                                    {% for employee in employees %}
+                                                                                                    <option value="{{ employee.id }}">{{ employee.name }}</option>
+                                                                                                    {% endfor %}
+                                                                                                </select>
+                                                                                            </div>
+                                                                                            <div class="form-group col-md-6">
+                                                                                                <label for="txtEmpDesignation">Designation :</label>
+                                                                                                <input readonly="readonly" type="text" name="designation" value="{{ salary.designation }}"
+                                                                                                    id="EmpDesignation1" class="form-control">
+                                                                                            </div>
+                                                                                            <div class="form-group col-md-6">
+                                                                                                <label for="ddlEmpMonth"><span class="errorStar">*</span> Salary Month :</label>
+                                                                                                <select name="salary_month" id="EmpMonth" class="form-control">
+                                                                                                    <option value="{{ salary.salary_month }}">{{ salary.salary_month }}</option>
+                                                                                                    <option value="">--Salary Month--</option>
+                                                                                                    <option value="January">January</option>
+                                                                                                    <option value="February">February</option>
+                                                                                                    <option value="March">March</option>
+                                                                                                    <option value="April">April</option>
+                                                                                                    <option value="May">May</option>
+                                                                                                    <option value="June">June</option>
+                                                                                                    <option value="July">July</option>
+                                                                                                    <option value="August">August</option>
+                                                                                                    <option value="September">September</option>
+                                                                                                    <option value="October">October</option>
+                                                                                                    <option value="November">November</option>
+                                                                                                    <option value="December">December</option>
+                                                                                                </select>
+                                                                                            </div>
+                                                                                            <div class="form-group col-md-6">
+                                                                                                <label for="ddlYear"><span class="errorStar">*</span> Salary Year :</label>
+                                                                                                <select name="salary_year" id="EmpYear" class="form-control">
+                                                                                                    <option value="{{ salary.salary_year }}">{{ salary.salary_year }}</option>
+                                                                                                    <option value="">--Salary Year--</option>
+                                                                                                    <option value="2022">2022</option>
+                                                                                                    <option value="2023">2023</option>
+                                                                                                    <option value="2024">2024</option>
+                                                                                                    <option value="2025">2025</option>
+                                                                                                    <option value="2026">2026</option>
+                                                                                                    <option value="2027">2027</option>
+                                                                                                    <option value="2028">2028</option>
+                                                                                                    <option value="2029">2029</option>
+                                                                                                    <option value="2030">2030</option>
+                                                                                                    <option value="2031">2031</option>
+                                                                                                    <option value="2032">2032</option>
+                                                                                                </select>
+                                                                                            </div>
+                                                                                            <div class="form-group col-md-6">
+                                                                                                <label for="txtEmpAmount"><span class="errorStar">*</span> Salary Per Month
+                                                                                                    :</label>
+                                                                                                <div class="input-group">
+                                                                                                    <input type="text" name="salary_per_month" value="{{ salary.salary_per_month }}" id="EmpPerMonth"
+                                                                                                        class="form-control">
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="form-group col-md-6">
+                                                                                                <label for="txtEmpIssueDate"><span class="errorStar">*</span> Issue Date
+                                                                                                    :</label>
+                                                                                                <input type="date" name="issue_date" value="{{ salary.issue_date|date:"Y-m-d" }}" id="EmpIssueDate"
+                                                                                                    class="form-control">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                  
+                                                                                           <div class="float-end">
+                                                                                              <button type="button" class="btn btn-danger"
+                                                                                                 data-bs-dismiss="modal">Close</button>
+                                                                                              <button type="submit" class="btn badge-primary">Update salary</button>
+                                                                                           </div>
+                                                                                        </form>
+                                                                                     </div>
+                                                       
+                                                                                  </div>
+                                                                               </div>
+                                                                            </div>
+                                                       
+                                                                            <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                                                                               data-bs-target="#delete{{ salary.id }}"><i class="fa fa-trash"></i></button>
+                                                                            <div class="modal  selectRefresh" id="delete{{ salary.id }}" tabindex="-1"
+                                                                               aria-labelledby="exampleModalLabelOne">
+                                                                               <div class="modal-dialog modal-m" role="document">
+                                                                                  <div class="modal-content">
+                                                                                     <div class="modal-header">
+                                                                                        <h5 class="modal-title" id="exampleModalLabelOne"><b></b>Delete
+                                                                                           {{ salary.id }}</h5>
+                                                                                     </div>
+                                                                                     <div class="modal-body">
+                                                                                        <form class="row align-items-start"
+                                                                                           method="POST" enctype="multipart/form-data">
+                                                                                           {% csrf_token %}
+                                                                                           <div class="row">
+                                                                                              <div class="col-md-12">
+                                                                                                 Do you want to delete this?
+                                                                                              </div>
+                                                                                              <input type="hidden" name="input" value="delete_salary" id="">
+                                                                                              <input type="hidden" name="id" value="{{ salary.id }}">
+                                                       
+                                                                                           </div>
+                                                                                           <div class="modal-footer">
+                                                                                              <button type="button" class="btn btn-danger"
+                                                                                                 data-bs-dismiss="modal">Close</button>
+                                                                                              <button type="submit" class="btn badge-primary">Delete
+                                                                                                 salary</button>
+                                                                                           </div>
+                                                                                        </form>
+                                                                                     </div>
+                                                       
+                                                                                  </div>
+                                                                               </div>
+                                                                            </div>
+                                                       
+                                                       
+                                                                         </td>
+
+                                                                    </td> {% endcomment %}
+                                                                </tr>
+                                                                {% endfor %}
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <!-- /.box-body -->
+                                        </div>
+                                        <!-- /.box -->
+                                    </div>
+                                    <!-- /.col -->
+                                </div>
+                                <!-- /.row -->
+                            </section>
+                        </div>
+                        <!-- /.box -->
+                    </div>
+                </div>
+                <!-- /.row -->
+                <script type="text/javascript">
+                    function validateMe() {
+                        if ($("#EmpName").val() == '') {
+                            alert("Select Employee !!!");
+                            $("#EmpName").focus();
+                            return false;
+                        } else if ($("#EmpMonth").val() == '') {
+                            alert("Select salary month !!!");
+                            $("#EmpMonth").focus();
+                            return false;
+                        } else if ($("#Year").val() == '') {
+                            alert("Select salary year !!!");
+                            $("#Year").focus();
+                            return false;
+                        } else if ($("#EmpPerMonth").val() == '0.00') {
+                            alert("Salary amount required !!!");
+                            $("#EmpPerMonth").focus();
+                            return false;
+                        } else if ($("#EmpIssueDate").val() == '') {
+                            alert("Salary issue date required !!!");
+                            $("#EmpIssueDate").focus();
+                            return false;
+                        } else {
+                            return true;
+                        }
+                    }
+                </script>
+            </div>
+        </div>
+    </div>
+
+
+    {% endblock %}
+    {% block js %}
+    <script src="{% static 'assets/plugins/datatables/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static 'assets/js/init-tdatatable.js' %}"></script>
+    <script src="{% static 'assets/js/ajax.js' %}"></script>
+{% comment %} <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> {% endcomment %}
+
+    <script>
+
+
+        $("#EmpName").on('change',function(){
+            var emp = $("#EmpName").val();
+            
+            if (emp != ''){
+                $.ajax({
+                    url: '{% url 'employee_ajax' %}',
+                    type: 'POST',
+                    data: {emp:emp},
+                    headers: {//<==
+                        "X-CSRFTOKEN": "{{ csrf_token }}"//<==
+                },
+                    success: function (resp){
+
+                        $('#EmpDesignation').val(resp.data[0].designation)
+
+                    }
+
+                })
+            }
+        });
+        $("#EmpName1").on('change',function(){
+            var emp = $("#EmpName1").val();
+            
+            if (emp != ''){
+                $.ajax({
+                    url: '{% url 'employee_ajax' %}',
+                    type: 'POST',
+                    data: {emp:emp},
+                    headers: {//<==
+                        "X-CSRFTOKEN": "{{ csrf_token }}"//<==
+                },
+                    success: function (resp){
+
+                        $('#EmpDesignation1').val(resp.data[0].designation)
+
+                    }
+
+                })
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+    </script>
+    {% endblock %}

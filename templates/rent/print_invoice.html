@@ -1,0 +1,234 @@
+{% extends 'layouts/base1.html' %}
+{% load static %}
+{% block content %}
+<div class="card">
+
+
+
+    <section class="content">
+        <!-- Full Width boxes (Stat box) -->
+
+        <div class="row">
+            <div class="col-md-12">
+                <div align="right" style="margin-bottom:20px;;">
+                    <a data-original-title="Print Invoice"
+                        data-toggle="tooltip" class="btn btn-success btn_save" href="" onclick=window.print()>
+                        <i class="fa fa-print"></i>
+                    </a>
+                </div>
+
+                <h1 align="center"> <u>Rent Invoice</u> </h1>
+                <div class="invoice-box" id="PrintRentInvoice">
+                    <table cellpadding="0" cellspacing="0">
+                        <tbody>
+                            <tr class="top">
+                                <td colspan="2">
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <td class="title"
+                                                    style="text-transform:uppercase;font-weight:bold;overflow:hidden;font-size:32px;">
+                                                    Mr Wafi Tower</td>
+                                                <td>Invoice # {{ invoice.id }}<br>
+                                                    Paid Date: {{ invoice.bill_paid_date|date:"Y-m-d" }}<br>
+                                                    Bill Month: {{ invoice.rent_month }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr class="information">
+                                <td colspan="2">
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <td>Ahmad Shah Baba Maina Kabul Arzan Qimat<br>
+                                                    Phone: +93 (0) 788 730 001<br>
+                                                    Email: xbwafi@gmail.com </td>
+                                                <td> <b>{{ invoice.tenant.tenant_name }}</b><br>
+                                                    Floor: {{ invoice.floor.name }}, Unit:
+                                                    {{ invoice.unit.unit_no }}<br>
+                                                    {{ invoice.tenant.contact }}<br>
+                                                    {{ invoice.tenant.email }} </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr class="heading">
+                                <td>Payment Method </td>
+                                <td>CASH # </td>
+                            </tr>
+                            <tr class="details">
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr class="heading">
+                                <td>Bill Details </td>
+                                <td>Amount </td>
+                            </tr>
+                            <tr class="item">
+                                <td>Home Rent </td>
+                                <td>$ {{ invoice.rent }} </td>
+                            </tr>
+                            <tr class="item">
+                                <td>Water Bill </td>
+                                <td>$ {{ invoice.water_bill }} </td>
+                            </tr>
+                            <tr class="item">
+                                <td>Electric Bill </td>
+                                <td>$ {{ invoice.electric_bill }} </td>
+                            </tr>
+                            <tr class="item">
+                                <td>Gas Bill </td>
+                                <td>$ {{ invoice.gas_bill }} </td>
+                            </tr>
+                            <tr class="item">
+                                <td>Guard Bill </td>
+                                <td>$ {{ invoice.security_bill }} </td>
+                            </tr>
+                            <tr class="item">
+                                <td>Utility Bill </td>
+                                <td>$ {{ invoice.utility_bill }} </td>
+                            </tr>
+                            <tr class="item last">
+                                <td>Other Bill </td>
+                                <td>$ {{ invoice.other_bill }} </td>
+                            </tr>
+                            <tr class="total">
+                                <td></td>
+                                <td>Total: $ {{ invoice.total_rent }} </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="bill-status-logo"> <img style="width:100px;"
+                            src="{% static 'assets/images/paid.png' %}">
+                    </div>
+                    <div class="invoice-signature">
+                        <div>-------------------------</div>
+                        <div class="signature-text">Signature</div>
+                    </div>
+
+                    <style>
+                        .signature-text {
+                            padding-right: 5%;
+                        }
+
+                        .invoice-signature {
+                            text-align: right;
+                            margin-top: 30px;
+                        }
+
+                        .bill-status-logo {
+                            padding-left: 10%;
+                        }
+
+                        .invoice-box {
+                            max-width: 800px;
+                            margin: auto;
+                            padding: 30px !important;
+                            border: 1px solid #eee;
+                            box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+                            font-size: 16px;
+                            line-height: 24px;
+                            color: #555;
+                            background: #fff;
+                            margin-top: 35px;
+                        }
+
+                        .invoice-box table {
+                            width: 100%;
+                            line-height: inherit;
+                            text-align: left;
+                        }
+
+                        .invoice-box table td {
+                            padding: 5px;
+                            vertical-align: top;
+                        }
+
+                        .invoice-box table tr td:nth-child(2) {
+                            text-align: right;
+                        }
+
+                        .invoice-box table tr.top table td {
+                            padding-bottom: 20px;
+                        }
+
+                        .invoice-box table tr.top table td.title {
+                            font-size: 45px;
+                            line-height: 45px;
+                            color: #333;
+                        }
+
+                        .invoice-box table tr.information table td {
+                            padding-bottom: 40px;
+                        }
+
+                        .invoice-box table tr.heading td {
+                            background: #eee;
+                            border-bottom: 1px solid #ddd;
+                            font-weight: bold;
+                        }
+
+                        .invoice-box table tr.details td {
+                            padding-bottom: 20px;
+                        }
+
+                        .invoice-box table tr.item td {
+                            border-bottom: 1px solid #eee;
+                        }
+
+                        .invoice-box table tr.item.last td {
+                            border-bottom: none;
+                        }
+
+                        .invoice-box table tr.total td:nth-child(2) {
+                            border-top: 2px solid #eee;
+                            font-weight: bold;
+                        }
+
+                        @media only screen and (max-width: 600px) {
+                            .invoice-box table tr.top table td {
+                                width: 100%;
+                                display: block;
+                                text-align: center;
+                            }
+
+                            .invoice-box table tr.information table td {
+                                width: 100%;
+                                display: block;
+                                text-align: center;
+                            }
+                        }
+
+                        /** RTL **/
+                        .rtl {
+                            direction: rtl;
+                            font-family: Tahoma, 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+                        }
+
+                        .rtl table {
+                            text-align: right;
+                        }
+
+                        .rtl table tr td:nth-child(2) {
+                            text-align: left;
+                        }
+                    </style>
+
+                </div>
+            </div>
+            <!-- /.box -->
+        </div>
+        <!-- /.row -->
+    </section>
+
+
+
+</div>
+{% endblock %}
+{% block js %}
+<script src="{% static 'assets/plugins/datatables/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'assets/js/init-tdatatable.js' %}"></script>
+{% endblock %}

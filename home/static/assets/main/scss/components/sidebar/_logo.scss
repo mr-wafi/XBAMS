@@ -1,0 +1,102 @@
+/************************** 
+* Logo
+***************************/
+
+.nav-header {
+    width: $fixed-with-layout;
+    height: 6rem;
+    display: inline-block;
+    text-align: $text-left;
+    left: 0;
+    top: 0;
+    background-color: $background-white;
+    z-index: 13;
+    position: fixed;
+    @extend .shadow-header;
+    @extend .transition-layouts;
+    @include respond('tab-land') {
+        height: 5rem;
+        width: 5rem;
+    }
+    @include respond('phone-land') {
+        height: 5rem;
+        width: 5rem;
+    }
+    @include respond('iphone') {
+        width: 100%;
+    }
+    @include respond('mini-phone') {
+        width: 100%;
+    }
+    .brand-logo {
+        display: flex;
+        height: 100%;
+        width: 100%;
+        justify-content: flex-start;
+        align-items: center;
+        font-size: 1.125rem;
+        color: $white;
+        text-decoration: none;
+        padding-left: 50px;
+        padding-right: 50px;
+        font-weight: $font-700;
+        .logo-tabib {
+            max-width: 45px;
+            @extend .transition-layouts;
+            @include respond('phone-land') {
+                max-width: 35px;
+            }
+        }
+        .brand-title {
+            max-width: 120px;
+            margin-left: 20px;
+            max-width: 120px;
+            margin-top: 5px;
+            @extend .transition-layouts;
+            @include respond('tab-land') {
+                display: none;
+            }
+        }
+        @include respond('phone-land') {
+            padding-left: 0;
+            padding-right: 0;
+            justify-content: center;
+        }
+        @extend .transition-layouts;
+    }
+}
+
+
+/************************** 
+    * Resize Full - Mini - 
+***************************/
+
+[data-sidebar-style="full"] {
+    .menu-toggle {
+        .nav-header {
+            width: 5rem;
+            .brand-logo {
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+                justify-content: center;
+                .brand-title {
+                    display: none;
+                }
+                @extend .transition-layouts;
+            }
+        }
+    }
+}
+
+[data-sidebar-style="mini"] .nav-header {
+    width: 6.25rem;
+    .brand-logo {
+        padding-left: 0;
+        padding-right: 0;
+        justify-content: center;
+        .brand-title {
+            display: none;
+        }
+        @extend .transition-layouts;
+    }
+}

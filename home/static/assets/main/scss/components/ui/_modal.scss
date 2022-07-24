@@ -1,0 +1,159 @@
+/************************** 
+* modal
+***************************/
+
+.modal-open {
+    overflow: hidden;
+    .modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: none;
+        width: 100%;
+        height: 100%;
+        outline: 0;
+        overflow-x: hidden;
+        overflow-y: auto;
+        .modal-dialog {
+            position: relative;
+            width: auto;
+            pointer-events: none;
+        }
+        .form-input {
+            width: 100%;
+        }
+    }
+}
+
+
+/************************** 
+* modal-content
+***************************/
+
+.modal-content {
+    border-radius: $border-radius;
+}
+
+
+/************************** 
+* modal-header
+***************************/
+
+.modal-header {
+    align-items: flex-start;
+    padding: $modal-header-padding;
+    border-bottom: $modal-header-border-width $border-style-solid $modal-header-border-color;
+    .modal-title {
+        display: flex;
+        align-items: center;
+        img {
+            margin-right: 10px;
+        }
+    }
+    .close {
+        padding: $modal-header-padding;
+        font-size: 30px;
+        font-weight: $font-100;
+        background: transparent;
+        border: none;
+        margin: -1rem -1rem -1rem auto;
+        float: right;
+        line-height: 1;
+        color: $default-color;
+        text-shadow: 0 1px 0 $white;
+        opacity: $opacity;
+    }
+}
+
+
+/************************** 
+* modal-body
+***************************/
+
+.modal-body {
+    padding: $modal-inner-padding;
+}
+
+
+/************************** 
+* modal-footer
+***************************/
+
+.modal-footer {
+    padding: $modal-inner-padding;
+    border-top: $modal-footer-border-width solid $modal-footer-border-color;
+    > :not(:first-child) {
+        margin-left: .25rem;
+    }
+    > :not(:last-child) {
+        margin-right: .25rem;
+    }
+}
+
+
+/************************** 
+* Modal Dialog Centered
+***************************/
+
+.modal-dialog-centered {
+    min-height: calc(100% - #{$modal-dialog-margin * 2});
+    &::before {
+        display: block;
+        height: calc(100vh - #{$modal-dialog-margin * 2});
+        content: "";
+    }
+    &.modal-dialog-scrollable {
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+        .modal-content {
+            max-height: none;
+        }
+        &::before {
+            content: none;
+        }
+    }
+}
+
+
+/************************** 
+* Modal Backdrop
+***************************/
+
+.modal-backdrop {
+    &.fade {
+        opacity: 0;
+    }
+    &.show {
+        opacity: $modal-backdrop-opacity;
+    }
+}
+
+
+/************************** 
+* Modal Dialog Scrollable
+***************************/
+
+.modal-dialog-scrollable {
+    display: flex;
+    max-height: calc(100% - #{$modal-dialog-margin * 2});
+    .modal-content {
+        max-height: calc(100vh - #{$modal-dialog-margin * 2});
+        overflow: hidden;
+    }
+    .modal-header,
+    .modal-footer {
+        flex-shrink: 0;
+    }
+    .modal-body {
+        overflow-y: auto;
+    }
+}
+
+.modal-scrollbar-measure {
+    position: absolute;
+    top: -9999px;
+    width: 50px;
+    height: 50px;
+    overflow: scroll;
+}

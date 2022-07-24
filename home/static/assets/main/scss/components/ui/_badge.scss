@@ -1,0 +1,64 @@
+/*****************************
+Badge
+*****************************/
+
+.badge {
+    display: inline-block;
+    font-size: 75%;
+    font-weight: $font-600;
+    text-align: $text-center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    border-radius: $border-radius !important;
+    opacity: 1;
+    min-width: 110px;
+    line-height: 1.5;
+    padding: 4px 10px;
+    border: $border-width $border-style-solid transparent;
+}
+
+
+/*****************************
+Badge Palettes
+*****************************/
+
+.badge-primary {
+    color: $white;
+    background-color: $badge-primary-bg;
+}
+
+.badge-secondary {
+    color: $white;
+    background-color: $badge-secondary-bg;
+}
+
+.badge-success {
+    color: $white;
+    background-color: $badge-success-bg;
+}
+
+.badge-danger {
+    color: $white;
+    background-color: $badge-danger-bg;
+}
+
+.badge-warning {
+    color: $white;
+    background-color: $badge-warning-bg;
+}
+
+.badge-info {
+    color: $white;
+    background-color: $badge-info-bg;
+}
+
+.badge-light {
+    color: $white;
+    background-color: $badge-light-bg;
+}
+
+.badge-dark {
+    color: $white;
+    background-color: $badge-dark-bg;
+}

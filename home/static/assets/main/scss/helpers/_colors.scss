@@ -1,0 +1,247 @@
+/************************** 
+* Main Color
+***************************/
+
+$primary: #7366ff;
+$secondary: #f73164;
+$success: #51bb25;
+$info: #a927f9;
+$warning: #f8d62b;
+$danger: #dc3545;
+$light: rgba(115, 102, 255, 0.06);
+$dark: #b1b1b1;
+$yellow: #ffcc40;
+$black: #000000;
+
+/************************** 
+* Main Color
+***************************/
+
+$background: #f8f8f8;
+$background-white: #ffffff;
+$default-color: #7e7e7e;
+$default-color-full: #2b2b2b;
+$default-color-opacity: rgba(43, 43, 43, 0.7);
+$scrollbar-bg: #dae2f3;
+$fixed-with-layout: 300px;
+$dark-color: #2c323f;
+
+/************************** 
+* Timeline
+***************************/
+
+$media-primary-color: $primary;
+$media-primary-bg: #f2d5f8;
+$media-info-bg: #f0f6fc;
+$media-info-color: $info;
+$media-success-bg: #c1f3e8;
+$media-success-color: $success;
+$media-danger-bg: #fee6ea;
+$media-danger-color: $danger;
+
+/*****************************
+Badge
+*****************************/
+
+$badge-primary-bg: $primary;
+$badge-secondary-bg: $secondary;
+$badge-success-bg: $success;
+$badge-danger-bg: $danger;
+$badge-warning-bg: $warning;
+$badge-info-bg: $info;
+$badge-light-bg: $light;
+$badge-dark-bg: $dark;
+
+/************************** 
+* Main Color
+***************************/
+
+$white: #ffffff;
+
+/************************** 
+* Border
+***************************/
+
+$border: 1px solid #d7dae3;
+$border-width: 1px;
+$border-color: #ecf3fa;
+$border-color-withe: #ffffff;
+$border-radius: 5px;
+$border-style-solid: solid;
+$btn-border-width: 1px;
+$border-table: #ecf3fa;
+
+/************************** 
+* Heading colors
+***************************/
+
+$headings-color: #3d4465;
+$color-primary :$primary;
+
+/************************** 
+* Button
+***************************/
+
+$primary-light: #f2d5f8;
+
+/************************** 
+* Top Head
+***************************/
+
+$cart-icon-bg: #f4f4f4;
+$notification-color: $yellow;
+$notification-bg: $yellow;
+
+/************************** 
+* Navbar
+***************************/
+
+$navbar-link: #7f7184;
+$navbar-link-icon: #aa97b0;
+$border-color-arrow: #828690;
+
+/*****************************
+Buttons
+*****************************/
+
+$btn-color: $white;
+$btn-primary: $primary;
+$btn-secondary: $secondary;
+$btn-success: $success;
+$btn-danger: $danger;
+$btn-warning: $warning;
+$btn-info: $info;
+$btn-light: $light;
+$btn-dark: $dark;
+
+/************************** 
+* breadcrumb
+***************************/
+
+$active-breadcrumb-link: #555555;
+
+/************************** 
+* Crad 
+***************************/
+
+$card-primary: $primary;
+$card-secondary: $secondary;
+$card-success: $success;
+$card-danger: $danger;
+$card-warning: $warning;
+$card-info: $info;
+$card-light: $light;
+$card-dark: $dark;
+
+/************************** 
+* Custome classes Bootstrap
+***************************/
+
+.bg-primary {
+    background-color: $primary!important;
+}
+
+.bg-success {
+    background-color: $success !important;
+}
+
+.bg-info {
+    background-color: $info !important;
+}
+
+.bg-warning {
+    background-color: $warning !important;
+}
+
+.bg-danger {
+    background-color: $danger !important;
+}
+
+.bg-secondary {
+    background-color: $secondary !important;
+}
+
+
+/************************** 
+* Calander Pallete 
+***************************/
+
+.bg-calander-1 {
+    background-color: #9e5fff;
+}
+
+.bg-calander-2 {
+    background-color: #00a9ff;
+}
+
+.bg-calander-3 {
+    background-color: #ff5583;
+}
+
+.bg-calander-4 {
+    background-color: #03bd9e;
+}
+
+.bg-calander-5 {
+    background-color: #bbdc00;
+}
+
+.bg-calander-6 {
+    background-color: #9d9d9d;
+}
+
+.bg-calander-7 {
+    background-color: #ffbb3b;
+}
+
+.bg-calander-8 {
+    background-color: #ff4040;
+}
+
+.bg-yellow {
+    background-color: #f39c12 !important;
+}
+
+.bg-aqua {
+    background-color: #04c1c4 !important;
+}
+
+.bg-light-blue {
+    background-color: #3c8dbc !important;
+}
+
+.bg-red {
+    background-color: #dd4b39 !important;
+}
+
+.text-aqua {
+    color: #008cd3 !important;
+}
+
+.text-light-blue {
+    color: #3c8dbc !important;
+}
+
+.text-teal {
+    color: #39cccc !important;
+}
+
+.text-yellow {
+    color: #f39c12 !important;
+}
+
+.text-blue {
+    color: #0077d3 !important;
+}
+
+.text-orange {
+    color: #ff851b !important;
+}
+
+.text-green {
+    color: #00a65a !important;
+}
+
+.text-lime {
+    color: #01ff70 !important;
+}

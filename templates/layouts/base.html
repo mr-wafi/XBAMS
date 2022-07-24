@@ -1,0 +1,827 @@
+{% load static %}
+{% load active_link_tags %}
+
+{% if request.user.is_superadmin %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %} {% endblock %}</title>
+    {% csrf_token %}
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" href="{% static 'assets/images/favicon-32x32.png' %}" />
+    <!-- Base Styling  -->
+    <link rel="stylesheet" href="{% static 'assets/main/css/fonts.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/main/css/style.css' %}" />
+    {% block head %}
+    <style>
+      @media (max-width: 768px) {
+        #sidebar {
+          margin-right: -250px;
+        }
+
+        #sidebar.active {
+          margin-left: 0;
+        }
+
+        #sidebarCollapse span {
+          display: none;
+        }
+      }
+    </style>
+    {% endblock %}
+  </head>
+
+  <body>
+    {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+      <script src="{% static 'assets/js/swal.js' %}"></script>
+      <script>
+        Swal.fire(
+          '{% if message.tags == "warning" %} Problem {% else %} Success {% endif %}',
+          "{{ message }}",
+          "{{ message.tags }}"
+        );
+      </script>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    <div id="main-wrapper" class="show">
+      <!-- start logo components -->
+      <div class="nav-header" style="background-color:white;">
+
+        <div class="brand-logo">
+          <h2 style="font-weight:600;color:orange;">XB AMS</h2>
+        </div>
+      </div>
+      <!-- End logo components -->
+      <!-- start section sidebar -->
+      <aside class="left-panel nicescroll-box" style="overflow-y: scroll; background-color:#f0f8ff; !important ">
+        <nav id="sidebar" class="navigation">
+          <ul class="list-unstyled main-menu">
+            {% url 'dashboard' as url %}
+            <li class="has-submenu {% if request.path == url %}active{% endif %}">
+              <a href="{{ url }}">
+                <i class="fas fa-th-large"></i>
+                <span class="nav-label">Dashboard</span>
+              </a>
+            </li>
+            {% url 'floor' as url %}
+            <li class="has-submenu {% if request.path == url %}active{% endif %}">
+              <a href="{{ url }}">
+                <i class="fas fa-clone"></i>
+                <span class="nav-label">Floors</span>
+              </a>
+            </li>
+            {% url 'unit' as url %}
+            <li class="has-submenu {% if request.path == url %}active{% endif %}">
+              <a href="{{ url }}">
+                <i class="fas fa-cubes"></i>
+                <span class="nav-label">Unit Information</span>
+              </a>
+            </li>
+            {% url 'tenant' as url %}
+            <li class="has-submenu {% if request.path == url %}active{% endif %}">
+              <a href="{{ url }}">
+                <i class="fas fa-users"></i>
+                <span class="nav-label">Tenant Information</span>
+              </a>
+            </li>
+
+            {% url 'add_employee' as url %}
+            <li class="has-submenu {% if request.path == url %}active{% endif %}">
+              <a href="{{ url }}">
+                <i class="fas fa-users"></i>
+                <span class="nav-label">Employee</span>
+              </a>
+            </li>
+            {% url 'employee_salary' as url %}
+            <li class="has-submenu {% if request.path == url %}active{% endif %}">
+              <a href="{{ url }}">
+                <i class="fas fa-user"></i>
+                <span class="nav-label">Employees Salary</span>
+              </a>
+            </li>
+            {% url 'rent' as url %}
+            <li class="has-submenu {% if request.path == url %}active{% endif %}">
+              <a href="{{ url }}">
+                <i class="fas fa-dollar-sign"></i>
+                <span class="nav-label">Rent Collection</span>
+              </a>
+            </li>
+            {% url 'rent_list' as url %}
+            <li class="has-submenu {% if request.path == url %}active{% endif %}">
+              <a href="{{ url }}">
+                <i class="fas fa-dollar-sign"></i>
+                <span class="nav-label">Rent List</span>
+              </a>
+            </li>
+            {% url 'maintenance' as url %}
+            <li class="has-submenu {% if request.path == url %}active{% endif %}">
+              <a href="{{ url }}">
+                <i class="fas fa-cut"></i>
+                <span class="nav-label">Maintenance Cost </span>
+              </a>
+            </li>
+            {% url 'management' as url %}
+            <li class="has-submenu {% if request.path == url %}active{% endif %}">
+              <a href="{{ url }}">
+                <i class="fas fa-user"></i>
+                <span class="nav-label">Management Committee</span>
+              </a>
+            </li>
+            {% url 'bill' as url %}
+            <li class="has-submenu {% if request.path == url %}active{% endif %}">
+              <a href="{{ url }}">
+                <i class="fas fa-money-check-alt"></i>
+                <span class="nav-label">Bill Deposit</span>
+              </a>
+            </li>
+            {% url 'complain' as url %}
+            <li class="has-submenu {% if request.path == url %}active{% endif %}">
+              <a href="{{ url }}">
+                <i class="fas fa-comments"></i>
+                <span class="nav-label">Complains</span>
+              </a>
+            </li>
+            {% url 'visitor' as url %}
+            <li class="has-submenu {% if request.path == url %}active{% endif %}">
+              <a href="{{ url }}">
+                <i class="fas fa-car"></i>
+                <span class="nav-label">Visitor</span>
+              </a>
+            </li>
+
+            <li class="has-submenu dropdown{% if url_name == '/home/floor' %} active{% endif %}">
+              <a href="#" class="has-arrow mm-collapsed">
+                <i class="fas fa-user-md"></i>
+                <span class="nav-label">Reports</span>
+              </a>
+
+              <ul class="list-unstyled mm-collapse">
+                <li class="{% active_link 'rental_report' 'active' %}">
+                  <a href="{% url 'rental_report' %}">Rental Reports</a></li>
+                <li class="active"><a href="{% url 'tenant_report' %}">Tenant Reports</a></li>
+                <li> <a href="{% url 'visitor_report' %}">Visitor Report</a> </li>
+                <li> <a href="{% url 'complain_report' %}">Complain Report</a> </li>
+                <li> <a href="{% url 'unit_report' %}">Unit Status Report</a> </li>
+                <li> <a href="{% url 'bill_report' %}">Bill Report</a> </li>
+                <li> <a href="{% url 'salary_report' %}">Salary Report</a> </li>
+              </ul>
+            </li>
+
+          </ul>
+        </nav>
+      </aside>
+      <!-- End section sidebar -->
+      <div class="header">
+        <header class="top-head container-fluid">
+          <div class="nav-control">
+            <div class="hamburger">
+              <span class="line"></span><span class="line"></span><span class="line"></span>
+            </div>
+
+          </div>
+          <div class="header-right">
+            <div class="fullscreen notification_dropdown">
+              <div class="full">
+                <a class="text-dark" href="#!" onclick="javascript:toggleFullScreen()">
+                  <i class="fas fa-expand"></i>
+                </a>
+              </div>
+            </div>
+            <div class="notification_dropdown">
+              <div class="cart-wrapper">
+                <div class="cart-icon">
+                  <a class="cart-control" href="#">
+                    <i class="fas fa-bell" style="color:darkblue;"></i>
+                    <div class="pulse-css"></div>
+                  </a>
+                </div>
+                <div class="cart-dropdown-form dropdown-container">
+                  <div class="form-content">
+                    <div class="widget-media main-scroll nicescroll-box">
+                      <ul class="timeline">
+                        <li>
+                          <h6 class="mb-0">Notitications</h6>
+                        </li>
+                        {% for i in ownerNoti %}
+                        <li>
+                          <a href="{% url 'view_owner_complain' i.complain_id %}">
+                            <div class="timeline-panel" {% if i.seen == 0 %} style="background-color:wheat;"
+                              {% endif %}>
+                              <div class="media-body">
+                                <h6 class="mb-1 ">{{ i.complain.title }}</h6>
+                                <small class="d-block">{{ i.complain_date }}</small>
+                              </div>
+                            </div>
+                        </li>
+                        </a>
+                        {% endfor %}
+
+                      </ul>
+                    </div>
+                    <a class="all-notification btn btn-primary" href="#">
+                      See all notifications
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="my-account-wrapper">
+              <div class="account-wrapper">
+                <div class="account-control">
+                  <a class="login header-profile" href="#" title="Sign in">
+                    <div class="header-info">
+                      <span>{{ request.user.full_name }}</span>
+                      <small>Admin</small>
+                    </div>
+
+                  </a>
+                  <div class="account-dropdown-form dropdown-container">
+                    <div class="form-content">
+                <a href="javascript:;" data-toggle="modal" data-target="#help_desk"
+                class="small-box-footer mb-0"><i class="far fa-user"></i>  Profile</a>
+                      <a href="{% url 'logout' %}">
+                        <i class="fas fa-sign-in-alt"></i>
+                        <span class="ml-2">Logout </span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+      </div>
+
+
+      <div id="help_desk" class="modal" tabindex="-1" role="dialog"
+      aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header green_header">
+            <button aria-label="Close" data-dismiss="modal" class="close"
+              type="button"><span aria-hidden="true"><i
+                  class="fa fa-close"></i></span></button>
+          </div>
+        
+          <div class="modal-body">
+
+            <form action="{% url 'update_account' request.user.id %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="box-body row">
+                   <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for=""><span class="errorStar">*</span>Name :</label>
+                        <input type="text" name="username" value="{{ Info.username }}" class="form-control" placeholder="Name">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for=""><span class="errorStar">*</span>Email :</label>
+                        <input type="text" name="email" value="{{ Info.email }}" class="form-control" placeholder="Email">
+                    </div>
+                  </div>
+                   <div class="row">
+                    <div class="form-group col-md-12">
+                        <label for=""><span class="errorStar">*</span>Contact :</label>
+                        <input type="text" name="phone_number" value="{{ Info.phone_number }}" class="form-control" placeholder="Phone Number">
+                    </div>
+                    
+                  </div>
+                  
+                </div>
+                <div class="float-end">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn badge-primary">Save</button>
+                </div>
+            </form>
+
+        </div>
+          
+        </div>
+      </div>
+    </div>
+
+      <style>
+        @media screen and (max-width: 600px) {
+          .ams {
+            visibility: hidden;
+            clear: both;
+            float: left;
+            margin: 10px auto 5px 20px;
+            width: 28%;
+            display: none;
+          }
+        }
+      </style>
+      <!-- End section header -->
+      <div class="content-body">
+        <div class="warper container-fluid">
+          {% block content %}
+          {% endblock content %}
+        </div>
+      </div>
+      <!-- start section footer -->
+      {% comment %}
+      <div class="footer">
+        <div class="copyright">
+          <p class="mb-0">
+            Copyright © Designed &amp; Developed by
+            <a href="uxign.com" target="_blank">Uxign</a> 2021
+          </p>
+        </div>
+      </div>
+      {% endcomment %}
+      <!-- End section footer -->
+    </div>
+    <!-- JQuery v3.5.1 -->
+    <script src="{% static 'assets/plugins/jquery/jquery.min.js' %}"></script>
+    <!-- Bootstrap -->
+    <script src="{% static 'assets/plugins/popper/popper.min.js' %}"></script>
+    <script src="{% static 'assets/plugins/bootstrap/js/bootstrap.js' %}"></script>
+    <!-- Main Custom JQuery -->
+    <script src="{% static 'assets/plugins/moment/moment.min.js' %}"></script>
+    <script src="{% static 'assets/js/toggleFullScreen.js' %}"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
+<script src="{% static 'assets/plugins/bootstrap/js/bootstrap.model.js' %}"></script>
+
+    {% block js %}
+    <script>
+      $(document).ready(function () {
+        $("#sidebarCollapse").on("click", function () {
+          $("#sidebar").toggleClass("active");
+        });
+      });
+    </script>
+
+
+    {% endblock %}
+  </body>
+
+</html>
+
+{% endif %}
+{% comment %} Employee stars here {% endcomment %}
+{% if request.user.user_type == 'Employee' %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {% comment %} <title>{% block title %} {% endblock %}</title> {% endcomment %}
+    {% csrf_token %}
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" href="{% static 'assets/images/favicon-32x32.png' %}" />
+    <!-- Base Styling  -->
+    <link rel="stylesheet" href="{% static 'assets/main/css/fonts.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/main/css/style.css' %}" />
+    {% comment %}
+    <link rel="stylesheet" href="{% static 'assets/plugins/bootstrap/css/bootstrap.min.css' %}" /> {% endcomment %}
+    {% comment %} {% block head %}
+    <style>
+      @media (max-width: 768px) {
+        #sidebar {
+          margin-right: -250px;
+        }
+
+        #sidebar.active {
+          margin-left: 0;
+        }
+
+        #sidebarCollapse span {
+          display: none;
+        }
+      }
+    </style>
+    {% endblock %}
+  </head> {% endcomment %}
+
+  <body>
+    {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+      <script src="{% static 'assets/js/swal.js' %}"></script>
+      <script>
+        Swal.fire(
+          '{% if message.tags == "warning" %} Problem {% else %} Success {% endif %}',
+          "{{ message }}",
+          "{{ message.tags }}"
+        );
+      </script>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    <div id="main-wrapper" class="show">
+      <!-- start logo components -->
+      <div class="nav-header">
+        <div class="brand-logo">
+          <h2 style="font-weight: 600">XB AMS</h2>
+        </div>
+      </div>
+      <!-- End logo components -->
+      <!-- start section sidebar -->
+      <aside class="left-panel nicescroll-box">
+        <nav id="sidebar" class="navigation">
+          <ul class="list-unstyled main-menu">
+            {% url 'e_dashboard' as url %}
+            <li class="has-submenu {% if request.path == url %}active{% endif %}">
+              <a href="{{ url }}">
+                <i class="fas fa-th-large"></i>
+                <span class="nav-label">Employee Dashboard</span>
+              </a>
+            </li>
+            {% url 'complain' as url %}
+            <li class="has-submenu {% if request.path == url %}active{% endif %}">
+              <a href="{{ url }}">
+                <i class="fas fa-building"></i>
+                <span class="nav-label">Complains</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+      <!-- End section sidebar -->
+      <div class="header">
+        <header class="top-head container-fluid">
+          <div class="nav-control">
+            <div class="hamburger">
+              <span class="line"></span>
+              <span class="line"></span>
+              <span class="line"></span>
+            </div>
+          </div>
+          <div class="header-right">
+            <div class="fullscreen notification_dropdown">
+              <div class="full">
+                <a class="text-dark" href="#!" onclick="javascript:toggleFullScreen()">
+                  <i class="fas fa-expand"></i>
+                  <a href="{% url 'e_logout' %}"> Logout</a>
+
+                </a>
+              </div>
+            </div>
+
+            <!-- Example single danger button -->
+            <div class="btn-group">
+              <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Notification
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">Separated link</a></li>
+              </ul>
+            </div>
+
+          </div>
+        </header>
+      </div>
+      <style>
+        @media screen and (max-width: 600px) {
+          .ams {
+            visibility: hidden;
+            clear: both;
+            float: left;
+            margin: 10px auto 5px 20px;
+            width: 28%;
+            display: none;
+          }
+        }
+      </style>
+      <!-- End section header -->
+      <div class="content-body">
+        <div class="warper container-fluid">
+
+
+          {% block employee %}
+
+          {% endblock employee %}
+        </div>
+      </div>
+      <!-- start section footer -->
+      {% comment %}
+      <div class="footer">
+        <div class="copyright">
+          <p class="mb-0">
+            Copyright © Designed &amp; Developed by
+            <a href="uxign.com" target="_blank">Uxign</a> 2021
+          </p>
+        </div>
+      </div>
+      {% endcomment %}
+      <!-- End section footer -->
+    </div>
+    <!-- JQuery v3.5.1 -->
+    <script src="{% static 'assets/plugins/jquery/jquery.min.js' %}"></script>
+    <!-- Bootstrap -->
+    <script src="{% static 'assets/plugins/bootstrap/js/bootstrap.js' %}"></script>
+    <script src="{% static 'assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+    <!-- Main Custom JQuery -->
+    <script src="{% static 'assets/js/toggleFullScreen.js' %}"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
+    {% block js_employee %}
+    <script>
+      $(document).ready(function () {
+        $("#sidebarCollapse").on("click", function () {
+          $("#sidebar").toggleClass("active");
+        });
+      });
+    </script>
+    {% endblock js_employee%}
+  </body>
+
+</html>
+{% endif %}
+
+{% if request.user.user_type == 'Tenant' %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {% comment %} <title>{% block title %} {% endblock %}</title> {% endcomment %}
+    {% csrf_token %}
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" href="{% static 'assets/images/favicon-32x32.png' %}" />
+    <!-- Base Styling  -->
+    <link rel="stylesheet" href="{% static 'assets/main/css/fonts.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/main/css/style.css' %}" />
+    {% comment %} {% block head %}
+    <style>
+      @media (max-width: 768px) {
+        #sidebar {
+          margin-right: -250px;
+        }
+
+        #sidebar.active {
+          margin-left: 0;
+        }
+
+        #sidebarCollapse span {
+          display: none;
+        }
+      }
+    </style>
+    {% endblock %}
+  </head> {% endcomment %}
+
+  <body>
+    {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+      <script src="{% static 'assets/js/swal.js' %}"></script>
+      <script>
+        Swal.fire(
+          '{% if message.tags == "warning" %} Problem {% else %} Success {% endif %}',
+          "{{ message }}",
+          "{{ message.tags }}"
+        );
+      </script>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    <div id="main-wrapper" class="show">
+      <!-- start logo components -->
+      <div class="nav-header">
+        <div class="brand-logo">
+          <h2 style="font-weight: 600">XB AMS</h2>
+        </div>
+      </div>
+      <!-- End logo components -->
+      <!-- start section sidebar -->
+      <aside class="left-panel nicescroll-box">
+        <nav id="sidebar" class="navigation">
+          <ul class="list-unstyled main-menu">
+            {% url 't_dashboard' as url %}
+            <li class="has-submenu {% if request.path == url %}active{% endif %}">
+              <a href="{{ url }}">
+                <i class="fas fa-th-large"></i>
+                <span class="nav-label">Tenant Dashboard</span>
+              </a>
+            </li>
+            {% url 'complain' as url %}
+            <li class="has-submenu {% if request.path == url %}active{% endif %}">
+              <a href="{{ url }}">
+                <i class="fas fa-building"></i>
+                <span class="nav-label">Complains</span>
+              </a>
+            </li>
+            {% url 'tenant_details' as url %}
+            <li class="has-submenu {% if request.path == url %}active{% endif %}">
+              <a href="{{ url }}">
+                <i class="fas fa-building"></i>
+                <span class="nav-label">Tenant Details</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+      <!-- End section sidebar -->
+      <div class="header">
+        <header class="top-head container-fluid">
+          <div class="nav-control">
+            <div class="hamburger">
+              <span class="line"></span>
+              <span class="line"></span>
+              <span class="line"></span>
+            </div>
+          </div>
+          <div class="header-right">
+            <div class="fullscreen notification_dropdown">
+              <div class="full">
+                <a class="text-dark" href="#!" onclick="javascript:toggleFullScreen()">
+                  <i class="fas fa-expand"></i>
+                </a>
+              </div>
+            </div>
+            <div class="notification_dropdown">
+              <div class="cart-wrapper">
+                <div class="cart-icon">
+                  <a class="cart-control" href="#">
+                    <i class="fas fa-bell" style="color:darkblue;"></i>
+                    <div class="pulse-css"></div>
+                  </a>
+                </div>
+                <div class="cart-dropdown-form dropdown-container">
+                  <div class="form-content">
+                    <div class="widget-media main-scroll nicescroll-box">
+                      <ul class="timeline">
+                        <li>
+                          <h6 class="mb-0">Notifications</h6>
+                        </li>
+                        {% for i in tNotify %}
+                        <li>
+                          <a href="{% url 'view_tenant_complain' i.complain_id %}">
+                            <div class="timeline-panel" {% if i.seen == 0 %} style="background-color:wheat;"
+                              {% endif %}>
+                              <div class="media-body">
+                                <h6 class="mb-1 ">{{ i.complain.title }}</h6>
+                                <small class="d-block">{{ i.complain_date }}</small>
+                              </div>
+                            </div>
+                        </li>
+                        </a>
+                        {% endfor %}
+
+                      </ul>
+                    </div>
+                    <a class="all-notification btn btn-primary" href="#">
+                      See all notifications
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="my-account-wrapper">
+              <div class="account-wrapper">
+                <div class="account-control">
+                  <a class="login header-profile" href="#" title="Sign in">
+                    <div class="header-info">
+                      <span>{{ request.user.full_name }}</span>
+                      <br>
+                      <strong>{{ request.user.user_type }}</strong>
+                    </div>
+
+                  </a>
+                  <div class="account-dropdown-form dropdown-container">
+                    <div class="form-content">
+                      
+
+                      <a href="javascript:;" data-toggle="modal" data-target="#help_desk"
+								        class="small-box-footer mb-0"><i class="far fa-user"></i>  Profile</a>
+                      <a href="{% url 't_logout' %}">
+                        <i class="fas fa-sign-in-alt"></i>
+                        <span class="ml-2">Logout </span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+      </div>
+
+
+      <div id="help_desk" class="modal" tabindex="-1" role="dialog"
+      aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header green_header">
+            <button aria-label="Close" data-dismiss="modal" class="close"
+              type="button"><span aria-hidden="true"><i
+                  class="fa fa-close"></i></span></button>
+          </div>
+        
+          <div class="modal-body">
+
+            <form action="{% url 'update_account' request.user.id %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="box-body row">
+                   <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for=""><span class="errorStar">*</span>Name :</label>
+                        <input type="text" name="username" value="{{ Info.username }}" class="form-control" placeholder="Name">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for=""><span class="errorStar">*</span>Email :</label>
+                        <input type="text" name="email" value="{{ Info.email }}" class="form-control" placeholder="Email">
+                    </div>
+                  </div>
+                   <div class="row">
+                    <div class="form-group col-md-12">
+                        <label for=""><span class="errorStar">*</span>Contact :</label>
+                        <input type="text" name="phone_number" value="{{ Info.phone_number }}" class="form-control" placeholder="Phone Number">
+                    </div>
+                    
+                  </div>
+                  
+                </div>
+                <div class="float-end">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn badge-primary">Save</button>
+                </div>
+            </form>
+
+        </div>
+          
+        </div>
+      </div>
+    </div>
+
+
+  
+
+
+
+
+    <style>
+      @media screen and (max-width: 600px) {
+        .ams {
+          visibility: hidden;
+          clear: both;
+          float: left;
+          margin: 10px auto 5px 20px;
+          width: 28%;
+          display: none;
+        }
+      }
+    </style>
+    <!-- End section header -->
+    <div class="content-body">
+      <div class="warper container-fluid">
+
+        {% block tenant %}
+
+        {% endblock tenant %}
+
+      </div>
+    </div>
+    <!-- start section footer -->
+    {% comment %}
+    <div class="footer">
+      <div class="copyright">
+        <p class="mb-0">
+          Copyright © Designed &amp; Developed by
+          <a href="uxign.com" target="_blank">Uxign</a> 2021
+        </p>
+      </div>
+    </div>
+    {% endcomment %}
+    <!-- End section footer -->
+    </div>
+    <!-- JQuery v3.5.1 -->
+    <script src="{% static 'assets/plugins/jquery/jquery.min.js' %}"></script>
+    <!-- Bootstrap -->
+    <script src="{% static 'assets/plugins/bootstrap/js/bootstrap.js' %}"></script>
+    <!-- Main Custom JQuery -->
+    <script src="{% static 'assets/js/toggleFullScreen.js' %}"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
+    {% block js_tenant %}
+    <script>
+      $(document).ready(function () {
+        $("#sidebarCollapse").on("click", function () {
+          $("#sidebar").toggleClass("active");
+        });
+      });
+    </script>
+    {% endblock js_tenant %}
+  </body>
+
+</html>
+{% endif %}

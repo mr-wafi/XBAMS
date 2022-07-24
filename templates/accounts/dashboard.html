@@ -1,0 +1,437 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% if request.user.is_superuser %}
+{% block content %}
+<div class="row page-titles mx-0">
+	<div class="col-lg-12 p-md-0">
+		{% comment %} <h4 class="text-primary">Good morning <span class="names">Dr Roberts</span></h4> {% endcomment %}
+		<h4 class="text-primary">Welcome <span class="names">Mr {{ request.user.full_name }}</span></h4>
+	</div>
+</div>
+
+
+<div class="new-patients main_container">
+	<div class="row">
+		<div class="col-sm-6 col-xl-3 col-lg-6">
+			<div class="widget card card-primary">
+				<div class="card-body">
+					<div class="media text-center">
+						<span>
+							<i class="fas fa-building fa-2x"></i>
+						</span>
+						<div class="media-body">
+							<span class="text-white">Total Floor</span>
+							<h3 class="mb-0 text-white">{{ floors }}</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 col-xl-3 col-lg-6">
+			<div class="widget card card-danger">
+				<div class="card-body">
+					<div class="media text-center">
+						<span>
+							<i class="fas fa-cubes fa-2x"></i>
+						</span>
+						<div class="media-body">
+							<span class="text-white">Total Units</span>
+							<h3 class="mb-0 text-white">{{ units }}</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 col-xl-3 col-lg-6">
+			<div class="widget card card-primary">
+				<div class="card-body">
+					<div class="media text-center">
+						<span>
+							<i class="fas fa-users fa-2x"></i>
+						</span>
+						<div class="media-body">
+							<span class="text-white">Total Tenants</span>
+							<h3 class="mb-0 text-white">{{ tenants }}</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 col-xl-3 col-lg-6">
+			<div class="widget card card-primary">
+				<div class="card-body">
+					<div class="media text-center">
+						<span>
+							<i class="fas fa-users fa-2x"></i>
+						</span>
+						<div class="media-body">
+							<span class="text-white">Total Employee</span>
+							<h3 class="mb-0 text-white">{{ employees }}</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 col-xl-3 col-lg-6">
+			<div class="widget card card-primary">
+				<div class="card-body">
+					<div class="media text-center">
+						<span>
+							<i class="fas fa-dollar-sign fa-2x"></i>
+						</span>
+						<div class="media-body">
+							<span class="text-white">Total Rent</span>
+							<h3 class="mb-0 text-white">$ {{ totalRent.total_rent__sum }}</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 col-xl-3 col-lg-6">
+			<div class="widget card card-primary">
+				<div class="card-body">
+					<div class="media text-center">
+						<span>
+							<i class="fas fa-cut fa-2x"></i>
+						</span>
+						<div class="media-body">
+							<span class="text-white">Total Maintenance</span>
+							<h3 class="mb-0 text-white">$ {{ mainten.amount__sum }}</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 col-xl-3 col-lg-6">
+			<div class="widget card card-primary">
+				<div class="card-body">
+					<div class="media text-center">
+						<span>
+							<i class="fas fa-users fa-2x"></i>
+						</span>
+						<div class="media-body">
+							<span class="text-white">Employees Salary</span>
+							<h3 class="mb-0 text-white">$ {{ totalSalary.salary_per_month__sum }}</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 col-xl-3 col-lg-6">
+			<div class="widget card card-primary">
+				<div class="card-body">
+					<div class="media text-center">
+						<span>
+							<i class="fas fa-comments fa-2x"></i>
+						</span>
+						<div class="media-body">
+							<span class="text-white">Total Complains</span>
+							<h3 class="mb-0 text-white">{{ complains }}</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="card shadow widget1">
+				<div class="card-header">
+					<h4 class="card-title">Monthly Deposit Bill Graph For Year 2022</h4>
+				</div>
+				<div class="card-body">
+					<canvas id="chart1" width="100%" height="15"></canvas>
+				</div>
+			</div>
+		</div>
+
+	
+	
+	</div>
+	<hr>
+	<div class="row">
+		<div class="col-lg-6 col-xs-12">
+			<div class="box box-success">
+				<div class="box-header with-border">
+					<h3 class="box-title">&nbsp;&nbsp;<i class="fa fa-comments" aria-hidden="true"></i> Last 5 Complains
+					</h3>
+				</div>
+				<!-- /.box-header -->
+				<div class="box-body" style="height:280px;">
+					<table class="table table-bordered table-striped dt-responsive">
+						<thead>
+							<tr>
+								<th>Title</th>
+								<th>Issue Date</th>
+								<th style="text-align:center;">Action</th>
+							</tr>
+						</thead>
+						<tbody>
+
+							{% for i in lastComplains %}
+							<tr>
+								<td>{{ i.title }}</td>
+								<td>{{ i.date }}</td>
+								<td align="center"><a class="btn btn-success ams_btn_special" data-toggle="tooltip"
+										href="javascript:;" onclick="$('#complain_view_36').modal('show');"
+										data-original-title="View Details"><i class="fa fa-eye"></i></a>
+									<div style="text-align:left;" id="complain_view_36" class="modal" tabindex="-1"
+										role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+										<div class="modal-dialog">
+											<div class="modal-content">
+												<div class="modal-header green_header">
+													<button aria-label="Close" data-dismiss="modal" class="close"
+														type="button"><span aria-hidden="true"><i
+																class="fa fa-close"></i></span></button>
+													<h3 class="modal-title">Complain Details</h3>
+												</div>
+												<div class="modal-body">
+													<h3 style="text-decoration:underline;">Details Infromation</h3>
+													<div class="row">
+														<div class="col-xs-6"> <b>Issue Date :</b> {{ i.date }}<br>
+															<b>Title :</b> {{ i.title }}<br>
+														</div>
+														<div class="col-xs-6"> <b>Description
+																:</b>{{ i.description }}<br>
+														</div>
+													</div>
+												</div>
+											</div>
+											<!-- /.modal-content -->
+										</div>
+									</div>
+								</td>
+							</tr>
+							{% endfor %}
+
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		
+
+		<div class="col-lg-6 col-xs-12">
+			<div class="box box-success">
+				<div class="box-header with-border">
+					<h3 class="box-title">&nbsp;&nbsp;<i class="fa fa-car" aria-hidden="true"></i> Last 5 Visitors</h3>
+				</div>
+				<!-- /.box-header -->
+				<div class="box-body" style="height:280px;">
+					<table class="table table-bordered table-striped dt-responsive">
+						<thead>
+							<tr>
+								<th>Date</th>
+								<th>Name</th>
+								<th style="text-align:center;">Action</th>
+							</tr>
+						</thead>
+						<tbody>
+
+							{% for i in lastVisitors %}
+							<tr>
+								<td>{{ i.entry_date }}</td>
+								<td>{{ i.name }}</td>
+								<td align="center"><a class="btn btn-success ams_btn_special" data-toggle="tooltip"
+										href="javascript:;" onclick="$('#visitor_view_17').modal('show');"
+										data-original-title="View Details"><i class="fa fa-eye"></i></a>
+									<div style="text-align:left;" id="visitor_view_17" class="modal" tabindex="-1"
+										role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+										<div class="modal-dialog">
+											<div class="modal-content">
+												<div class="modal-header green_header">
+													<button aria-label="Close" data-dismiss="modal" class="close"
+														type="button"><span aria-hidden="true"><i
+																class="fa fa-close"></i></span></button>
+													<h3 class="modal-title">Visitor Details</h3>
+												</div>
+												<div class="modal-body">
+													<h3 style="text-decoration:underline;">Details Infromation</h3>
+													<div class="row">
+														<div class="col-xs-6"> <b>Visit Date :</b> {{ i.entry_date }}
+															<br>
+															<b>Visitor Name :</b>{{ i.name }}<br>
+															<b>Mobile :</b>{{ i.number }}<br>
+															<b>Address :</b>{{ i.address }}<br></div>
+														<div class="col-xs-6"><b>Floor No :</b>{{ i.floor.name }}<br>
+															<b>Unit No :</b>{{ i.unit.unit_no }}<br>
+															<b>In-Time :</b>{{ i.in_time }}<br>
+															<b>Out-Time :</b>{{ i.out_time }}<br>
+														</div>
+													</div>
+												</div>
+											</div>
+											<!-- /.modal-content -->
+										</div>
+									</div>
+								</td>
+							</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+{% block js %}
+<!-- popper js -->
+<script src="{% static 'assets/plugins/popper/popper.min.js' %}"></script>
+
+<!-- Moment -->
+<script src="{% static 'assets/plugins/moment/moment.min.js' %}"></script>
+
+<!-- Date Range Picker -->
+<script src="{% static 'assets/plugins/daterangepicker/daterangepicker.min.js' %}"></script>
+
+<!-- Datatable -->
+<script src="{% static 'assets/plugins/datatables/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'assets/js/init-tdatatable.js' %}"></script>
+
+<!-- Chart js -->
+<script src="{% static 'assets/plugins/chart/chart/Chart.min.js' %}"></script>
+<script src="{% static 'assets/js/charts-custom.js' %}"></script>
+
+<script>
+var chartactivity = document.getElementById('chart1').getContext("2d");
+
+var gradientStroke = chartactivity.createLinearGradient(200, 0, 100, 0);
+gradientStroke.addColorStop(0, "rgba(58, 233, 245, 1)");
+gradientStroke.addColorStop(1, "rgba(18, 216, 227, 1)");
+
+var gradientStroke2 = chartactivity.createLinearGradient(200, 0, 100, 0);
+gradientStroke2.addColorStop(0, "rgba(255, 92, 203, 1)");
+gradientStroke2.addColorStop(1, "rgba(253, 133, 168, 1)");
+
+var gradientFill = chartactivity.createLinearGradient(0, 0, 0, 350);
+gradientFill.addColorStop(0, "rgba(128, 182, 244, 0.5)");
+gradientFill.addColorStop(1, "rgba(128, 182, 244, 0)");
+
+var gradientFill2 = chartactivity.createLinearGradient(0, 0, 0, 350);
+gradientFill2.addColorStop(0, "rgba(255, 91, 204, 0.5)");
+gradientFill2.addColorStop(1, "rgba(255, 91, 204, 0)");
+
+var ActivityChart = new Chart(chartactivity, {
+    type: 'line',
+
+    data: {
+		labels: [{% for i in totalBill %}
+				
+				{% if i.bill_month == "1" %}
+				"Jan", 
+				{% endif %}
+						 	
+				{% if i.bill_month == "2" %}
+				"Feb", 
+				{% endif %}
+						 	
+				{% if i.bill_month == "3" %}
+				"March", 
+				{% endif %}
+						 	
+				{% if i.bill_month == "4" %}
+				"April", 
+				{% endif %}
+						 	
+				{% if i.bill_month == "5" %}
+				"May", 
+				{% endif %}
+						 	
+				{% if i.bill_month == "6" %}
+				"June", 
+				{% endif %}
+						 	
+						 	
+				{% if i.bill_month == "7" %}
+				"July", 
+				{% endif %}
+						 	
+						 	
+				{% if i.bill_month == "8" %}
+				"August", 
+				{% endif %}
+						 	
+						 	
+				{% if i.bill_month == "9" %}
+				"September", 
+				{% endif %}
+						 	
+						 	
+				{% if i.bill_month == "10" %}
+				"October", 
+				{% endif %}
+						 	
+				{% if i.bill_month == "11" %}
+				"November", 
+				{% endif %}
+						 	
+				{% if i.bill_month == "12" %}
+				"December", 
+				{% endif %}
+						 	
+		 
+		 		{% endfor %}],
+
+        datasets: [{
+            label: "{{ i.bill_month }}",
+            borderColor: gradientStroke,
+            pointBorderColor: gradientStroke,
+            pointBackgroundColor: "rgba(255, 255, 255, 1)",
+            pointHoverBackgroundColor: "rgba(128, 182, 244, 1)",
+            pointHoverBorderColor: gradientStroke,
+            pointBorderWidth: 1,
+            pointHoverRadius: 3,
+            pointHoverBorderWidth: 1,
+            pointRadius: 3,
+            fill: true,
+            backgroundColor: gradientFill,
+            borderWidth: 2,
+			data: [{% for i in totalBill %} {{i.id}}, {% endfor %}],
+        
+            
+        }]
+    },
+    options: {
+        legend: {
+            position: "top",
+            labels: {
+                boxWidth: 15,
+                padding: 15
+            }
+        },
+        scales: {
+            yAxes: [{
+                ticks: {
+                    fontColor: "rgba(0,0,0,0.5)",
+                    fontStyle: "bold",
+                    beginAtZero: true,
+                    maxTicksLimit: 5,
+                    padding: 20
+                },
+                gridLines: {
+                    drawTicks: false,
+                    display: false
+                }
+
+            }],
+            xAxes: [{
+                gridLines: {
+                    zeroLineColor: "transparent"
+                },
+                ticks: {
+                    padding: 20,
+                    fontColor: "rgba(0,0,0,0.5)",
+                    fontStyle: "bold"
+                }
+            }]
+        }
+    }
+});
+</script>
+
+{% endblock js %}
+{% endblock content %}
+{% endif %}

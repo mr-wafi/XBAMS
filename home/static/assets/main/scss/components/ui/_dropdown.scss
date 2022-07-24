@@ -1,0 +1,117 @@
+/*****************************
+Dropdown Style 1
+*****************************/
+
+.btn-group-style-1 {
+    position: absolute;
+    right: 29px;
+    top: 27px;
+    .btn {
+        padding: 0;
+        background: transparent;
+        border: none;
+        i {
+            &:after {
+                display: none
+            }
+            &:before {
+                color: #59667a;
+            }
+        }
+    }
+    .dropdown-menu {
+        border: none;
+        border-radius: 5px;
+        -webkit-box-shadow: 0 0 20px rgba(89, 102, 122, 10%) !important;
+        box-shadow: 0 0 20px rgba(89, 102, 122, 10%) !important;
+        border: 1px solid $border-color;
+        padding-top: 0;
+        padding-bottom: 0;
+        .form-content {
+            a {
+                padding: 8px 24px;
+                font-size: 16px;
+                color: $default-color;
+                display: inherit;
+                font-weight: $font-400;
+                line-height: 1.5;
+                font-size: 14px;
+                border-top: $border-width $border-style-solid $border-color;
+                margin-left: 5px;
+                margin-right: 5px;
+                span {
+                    color: $dark-color;
+                }
+                &:first-child {
+                    border-top: 0;
+                }
+                &:hover {
+                    background-color: $background;
+                    span {
+                        color: $primary;
+                    }
+                }
+            }
+        }
+    }
+    .btn-content {
+        position: relative;
+    }
+}
+
+.btn-group-style-1 {
+    &.show>.btn-secondary {
+        &.dropdown-toggle {
+            color: #e7e7e7;
+            background-color: transparent;
+            border-color: transparent;
+        }
+    }
+    .dropdown-toggle {
+        &::after {
+            display: none;
+        }
+    }
+}
+
+
+/*****************************
+Dropdown
+*****************************/
+
+.dropdown {
+    .btn {
+        padding: 12px 25px;
+        max-height: 43px;
+        align-items: center;
+        display: flex;
+    }
+    .dropdown-menu {
+        -webkit-box-shadow: 0 0 20px rgba(89, 102, 122, 10%) !important;
+        box-shadow: 0 0 20px rgba(89, 102, 122, 10%) !important;
+        border: none;
+        li {
+            padding-left: 5px;
+            padding-right: 5px;
+            .dropdown-item {
+                padding: 8px 24px;
+                color: #2c323f;
+                display: inherit;
+                font-weight: $font-400;
+                line-height: 1.5;
+                font-size: 14px;
+                border-top: $border-width $border-style-solid $border-color;
+                &:focus,
+                &:hover {
+                    color: $primary;
+                    background-color: $background;
+                }
+            }
+            &:first-child {
+                a {
+                    border-top: none;
+                }
+            }
+        }
+    }
+}

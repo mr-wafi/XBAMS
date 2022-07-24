@@ -1,0 +1,66 @@
+
+{% extends 'layouts/base1.html' %}
+{% load static %}
+{% block content %}
+{% load mathfilters %}
+<section class="content">
+    <!-- Main content -->
+    <div id="printable">
+        <div align="center" style="margin:20px 50px 50px 50px;">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div>
+                        <h2>XB TOWER</h2>
+                    </div>
+                    <div>Kabul Afghanistan</div>
+                    <div>xbwafi@gmail.com</div>
+                    <div>0093788730001</div>
+                    <br>
+                        
+                    <div class="box box-success">
+                        <div class="box-header">
+                          <h3 style="text-decoration:underline;font-weight:bold;color:#000" class="box-title">Employee Salary Report</h3>
+                        </div>
+                        <div class="box-body">
+                          <div style="overflow:auto;">
+                          <table style="font-size:13px;" class="table sakotable table-bordered table-striped dt-responsive">
+                            <thead>
+                              <tr>
+                                <th>Issue Date</th>
+                                <th>Name</th>
+                                <th>Designation</th>
+                                <th>Salary Month</th>
+                                <th>Salary Year</th>
+                                <th>Salary</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                             </tbody>
+                            <tfoot>
+                                {% for i in total %}
+                              <tr>
+                                <th>{{ i.issue_date }}</th>
+                                <th>{{ i.employee.name }}</th>
+                                <th>{{ i.employee.designation }}</th>
+                                <th>{{ i.salary_month }}</th>
+                                <th>{{ i.salary_year }}</th>
+                                <th style="color:red;">$ {{ i.salary_per_month }}</th>
+                              </tr>
+                                {% endfor %}
+                            </tfoot>
+                          </table>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.row -->
+    <div align="center" style="position:fixed;top:0;right:0;margin:10px;"><a title="Print Information"
+            class="btn btn-success btn_save" onclick=window.print(this)><i class="fa fa-print"></i> </a></div>
+
+
+</section>
+
+{% endblock %}
