@@ -108,6 +108,11 @@ def tenant(request):
         if len(request.FILES) != 0:
             ten.image = request.FILES['image']
         ten.save()
+
+        Unit.objects.filter(id=ten.unit_id).update(
+            status='booked'
+        )
+
         messages.success(request, f' New Tenant Added successfully! ')
         return redirect('tenant')
     return render(request, 'tenant/tenant.html', context)
