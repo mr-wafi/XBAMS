@@ -276,7 +276,7 @@ def employee_ajax(request):
 
 @login_required
 def floor_ajax(request):
-    queryset = Unit.objects.filter(floor_id=request.POST.get('emp')).values()
+    queryset = Unit.objects.filter(floor_id=request.POST.get('emp'), status='available').values()
     return JsonResponse({'data':list(queryset)}, safe=False)
 
 @login_required
