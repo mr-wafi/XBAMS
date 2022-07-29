@@ -24,6 +24,7 @@ urlpatterns = [
     #all ajax calls
     path('employee-ajax', views.employee_ajax, name='employee_ajax'),
     path('floor-ajax', views.floor_ajax, name='floor_ajax'),
+    path('floor-ajax1', views.floor_ajax1, name='floor_ajax1'),
     path('unit-ajax', views.unit_ajax, name='unit_ajax'),
     path('status-ajax', views.status_ajax, name='status_ajax'),
     path('assign-ajax', views.assign_ajax, name='assign_ajax'),

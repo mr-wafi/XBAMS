@@ -280,6 +280,11 @@ def floor_ajax(request):
     return JsonResponse({'data':list(queryset)}, safe=False)
 
 @login_required
+def floor_ajax1(request):
+    queryset = Unit.objects.filter(floor_id=request.POST.get('emp')).values()
+    return JsonResponse({'data':list(queryset)}, safe=False)
+
+@login_required
 def unit_ajax(request):
     queryset = Tenant.objects.filter(unit_id=request.POST.get('emp')).values()
     return JsonResponse({"data": list(queryset)})
