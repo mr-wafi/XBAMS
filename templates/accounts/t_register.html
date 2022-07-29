@@ -1,0 +1,119 @@
+{% extends 'layouts/base1.html' %}
+{% load static %}
+{% block content %}
+<div class="container" style="max-width: 800px; margin-top: 20px">
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="doctor-info-content">
+				<ul class="nav nav-tabs" id="myTab" role="tablist">
+					<li class="nav-item col-md-12" role="presentation">
+						<button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home"
+							type="button" role="tab" aria-controls="home" aria-selected="false">
+							Tenant Registration Form
+						</button>
+					</li>
+				</ul>
+				<div class="tab-content" id="myTabContent">
+					<div class="tab-pane active show " id="home" role="tabpanel" aria-labelledby="home-tab">
+						<div class="row m-t-30 m-l-0 m-r-0">
+							<div class="card">
+								<div class="card-header">
+									<h4 class="card-title">Tenant Registration</h4>
+								</div>
+
+								<section class="section-content padding-y">
+
+									<!-- ============================ COMPONENT REGISTER   ================================= -->
+									<div class="card mx-auto">
+										<article class="card-body">
+
+											<form action="{% url 't_register' %}" method="POST">
+												{% csrf_token %}
+
+
+												<div class="form-row">
+													<div class="col form-group">
+														<label>First name</label>
+														{{ form.first_name }}
+													</div> <!-- form-group end.// -->
+													<div class="col form-group">
+														<label>Last name</label>
+														{{ form.last_name }}
+													</div> <!-- form-group end.// -->
+												</div> <!-- form-row end.// -->
+
+
+												<div class="form-row">
+													<div class="form-group col-md-6">
+														<label>Email Address</label>
+														{{form.email}}
+													</div> <!-- form-group end.// -->
+													<div class="form-group col-md-6">
+														<label>Phone Number</label>
+														{{form.phone_number}}
+													</div> <!-- form-group end.// -->
+												</div> <!-- form-row.// -->
+												<div class="form-row">
+													<div class="form-group col-md-6">
+														<label>Create password</label>
+														{{ form.password }}
+													</div> <!-- form-group end.// -->
+													<div class="form-group col-md-6">
+														<label>Repeat password</label>
+														{{form.confirm_password}}
+													</div> <!-- form-group end.// -->
+													<div class="form-group col-md-6">
+														<label>User Type</label>
+														{% comment %} {{form.user_type}} {% endcomment %}
+														<input type="text" name="user_type" class="form-control"
+															value="Tenant" readonly id="">
+													</div> <!-- form-group end.// -->
+													<div class="form-group col-md-6">
+														<label>Choose Tenant</label>
+														{{form.select_tenant }}
+													</div> <!-- form-group end.// -->
+												</div>
+
+												<div class="form-group">
+													<button type="submit" class="btn btn-primary btn-block"> Register
+													</button>
+												</div> <!-- form-group// -->
+
+												{% if form.email.errors %}
+												<div class="alert alert-danger" role="alert">
+													{{ form.email.errors }}
+												</div>
+												{% endif %}
+
+
+
+												{% if form.non_field_errors %}
+												<div class="alert alert-danger" role="alert">
+													{{ form.non_field_errors }}
+												</div>
+												{% endif %}
+
+
+											</form>
+										</article><!-- card-body.// -->
+									</div> <!-- card .// -->
+
+
+									<p class="text-center mt-4">Have an account? <a href="{% url 'login' %}">Log In</a>
+									</p>
+
+									<br><br>
+									<!-- ============================ COMPONENT REGISTER  END.// ================================= -->
+								</section>
+
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

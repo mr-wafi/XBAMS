@@ -1,63 +1,971 @@
-INFO 2022-07-24 09:58:27,885 autoreload 21358 140551942453056 /home/xbwafi/Desktop/django/AMS/accounts/views.py changed, reloading.
-INFO 2022-07-24 09:58:28,202 autoreload 21689 140682262378304 Watching for file changes with StatReloader
-INFO 2022-07-24 10:00:44,089 autoreload 21689 140682262378304 /home/xbwafi/Desktop/django/AMS/accounts/views.py changed, reloading.
-INFO 2022-07-24 10:00:44,384 autoreload 21832 140524845463360 Watching for file changes with StatReloader
-INFO 2022-07-24 10:01:02,770 autoreload 21832 140524845463360 /home/xbwafi/Desktop/django/AMS/home/views.py changed, reloading.
-INFO 2022-07-24 10:01:03,111 autoreload 21973 139713076819776 Watching for file changes with StatReloader
-INFO 2022-07-24 10:01:11,400 autoreload 21973 139713076819776 /home/xbwafi/Desktop/django/AMS/home/views.py changed, reloading.
-INFO 2022-07-24 10:01:11,734 autoreload 22035 140131044169536 Watching for file changes with StatReloader
-INFO 2022-07-24 10:04:57,636 autoreload 22035 140131044169536 /home/xbwafi/Desktop/django/AMS/home/views.py changed, reloading.
-INFO 2022-07-24 10:04:57,963 autoreload 22174 140290914379584 Watching for file changes with StatReloader
-INFO 2022-07-24 10:05:38,552 autoreload 22174 140290914379584 /home/xbwafi/Desktop/django/AMS/home/views.py changed, reloading.
-INFO 2022-07-24 10:05:38,865 autoreload 22264 140130553689920 Watching for file changes with StatReloader
-INFO 2022-07-24 10:05:47,177 autoreload 22264 140130553689920 /home/xbwafi/Desktop/django/AMS/home/views.py changed, reloading.
-INFO 2022-07-24 10:05:47,538 autoreload 22336 139861656196928 Watching for file changes with StatReloader
-INFO 2022-07-24 10:06:25,421 basehttp 22336 139861514434304 "GET /logout/ HTTP/1.1" 302 0
-INFO 2022-07-24 10:06:25,435 basehttp 22336 139861514434304 "GET / HTTP/1.1" 200 9015
-INFO 2022-07-24 10:06:36,700 autoreload 22465 140651284891456 Watching for file changes with StatReloader
-INFO 2022-07-24 10:06:41,072 basehttp 22465 140651210274560 "GET / HTTP/1.1" 200 8767
-WARNING 2022-07-24 10:06:41,496 log 22465 140651210274560 Not Found: /favicon.ico
-WARNING 2022-07-24 10:06:41,496 basehttp 22465 140651210274560 "GET /favicon.ico HTTP/1.1" 404 4482
-INFO 2022-07-24 10:06:43,174 basehttp 22465 140651210274560 "POST / HTTP/1.1" 302 0
-INFO 2022-07-24 10:06:43,215 basehttp 22465 140651210274560 "GET /dashboard/ HTTP/1.1" 200 32426
-INFO 2022-07-24 10:11:57,894 basehttp 22465 140651210274560 "GET /dashboard/ HTTP/1.1" 200 32156
-INFO 2022-07-24 10:12:07,597 basehttp 22465 140651210274560 "GET /dashboard/ HTTP/1.1" 200 32171
-INFO 2022-07-24 10:12:13,649 basehttp 22465 140651210274560 "GET /dashboard/ HTTP/1.1" 200 32171
-INFO 2022-07-24 10:12:29,778 basehttp 22465 140651210274560 "GET /dashboard/ HTTP/1.1" 200 32175
-WARNING 2022-07-24 10:12:37,981 log 22465 140651210274560 Not Found: /sm/f07d8d7b2652873f485707eab4f3d300bf1f6f3b42912e189c8933b1b9b3dfde.map
-WARNING 2022-07-24 10:12:37,984 basehttp 22465 140651210274560 "GET /sm/f07d8d7b2652873f485707eab4f3d300bf1f6f3b42912e189c8933b1b9b3dfde.map HTTP/1.1" 404 4662
-INFO 2022-07-24 10:12:37,986 basehttp 22465 140650985027328 "GET /static/assets/plugins/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 200 217145
-INFO 2022-07-24 10:12:37,986 basehttp 22465 140651199936256 "GET /static/assets/plugins/bootstrap/js/bootstrap.js.map HTTP/1.1" 200 289522
-WARNING 2022-07-24 10:12:37,994 log 22465 140651210274560 Not Found: /sm/f07d8d7b2652873f485707eab4f3d300bf1f6f3b42912e189c8933b1b9b3dfde.map
-WARNING 2022-07-24 10:12:37,994 basehttp 22465 140651210274560 "GET /sm/f07d8d7b2652873f485707eab4f3d300bf1f6f3b42912e189c8933b1b9b3dfde.map HTTP/1.1" 404 4662
-INFO 2022-07-24 10:12:38,023 basehttp 22465 140650985027328 "GET /static/assets/main/css/style.css.map HTTP/1.1" 200 43570
-INFO 2022-07-24 10:12:38,027 basehttp 22465 140651210274560 "GET /static/assets/plugins/bootstrap/css/bootstrap.min.css.map HTTP/1.1" 200 449111
-INFO 2022-07-24 10:13:04,135 basehttp 22465 140651210274560 "GET /dashboard/ HTTP/1.1" 200 32175
-INFO 2022-07-24 10:13:04,238 basehttp 22465 140651210274560 "GET /static/assets/main/css/style.css.map HTTP/1.1" 200 43570
-INFO 2022-07-24 10:13:04,243 basehttp 22465 140651210274560 "GET /static/assets/plugins/bootstrap/css/bootstrap.min.css.map HTTP/1.1" 200 449111
-WARNING 2022-07-24 10:13:04,278 log 22465 140651210274560 Not Found: /sm/f07d8d7b2652873f485707eab4f3d300bf1f6f3b42912e189c8933b1b9b3dfde.map
-WARNING 2022-07-24 10:13:04,279 basehttp 22465 140651210274560 "GET /sm/f07d8d7b2652873f485707eab4f3d300bf1f6f3b42912e189c8933b1b9b3dfde.map HTTP/1.1" 404 4662
-INFO 2022-07-24 10:13:04,315 basehttp 22465 140650985027328 "GET /static/assets/plugins/bootstrap/js/bootstrap.js.map HTTP/1.1" 200 289522
-WARNING 2022-07-24 10:13:04,336 log 22465 140650985027328 Not Found: /sm/f07d8d7b2652873f485707eab4f3d300bf1f6f3b42912e189c8933b1b9b3dfde.map
-WARNING 2022-07-24 10:13:04,337 basehttp 22465 140650985027328 "GET /sm/f07d8d7b2652873f485707eab4f3d300bf1f6f3b42912e189c8933b1b9b3dfde.map HTTP/1.1" 404 4662
-INFO 2022-07-24 10:13:04,337 basehttp 22465 140651210274560 "GET /static/assets/plugins/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 200 217145
-INFO 2022-07-24 10:13:09,743 basehttp 22465 140651210274560 "GET /logout/ HTTP/1.1" 302 0
-INFO 2022-07-24 10:13:09,752 basehttp 22465 140651210274560 "GET / HTTP/1.1" 200 9015
-INFO 2022-07-24 10:13:22,976 basehttp 22465 140651210274560 "GET /t-login HTTP/1.1" 301 0
-INFO 2022-07-24 10:13:22,987 basehttp 22465 140651210274560 "GET /t-login/ HTTP/1.1" 200 9485
-INFO 2022-07-24 10:17:24,919 basehttp 22465 140651210274560 "POST /t-login/ HTTP/1.1" 302 0
-INFO 2022-07-24 10:17:24,945 basehttp 22465 140651210274560 "GET /Tenant-dashboard/ HTTP/1.1" 200 12161
-INFO 2022-07-24 10:20:17,719 basehttp 22465 140651210274560 "GET /Tenant-dashboard/ HTTP/1.1" 200 14202
-INFO 2022-07-24 10:20:25,583 basehttp 22465 140651210274560 "GET /Tenant-dashboard/ HTTP/1.1" 200 14202
-INFO 2022-07-24 10:20:37,608 basehttp 22465 140651210274560 "GET /Tenant-dashboard/ HTTP/1.1" 200 14109
-INFO 2022-07-24 10:21:20,542 basehttp 22465 140651210274560 "GET /Tenant-dashboard/ HTTP/1.1" 200 14064
-INFO 2022-07-24 10:21:52,863 basehttp 22465 140651210274560 "GET /Tenant-dashboard/ HTTP/1.1" 200 14064
-INFO 2022-07-24 10:22:08,525 basehttp 22465 140651210274560 "GET /Tenant-dashboard/ HTTP/1.1" 200 14064
-INFO 2022-07-24 10:22:28,121 basehttp 22465 140651210274560 "GET /Tenant-dashboard/ HTTP/1.1" 200 14059
-INFO 2022-07-24 10:22:43,976 basehttp 22465 140651210274560 "GET /home/complain HTTP/1.1" 200 14104
-INFO 2022-07-24 10:22:46,578 basehttp 22465 140651210274560 "GET /Tenant-dashboard/tenant-details HTTP/1.1" 200 11841
-INFO 2022-07-24 10:22:46,604 basehttp 22465 140651210274560 "GET /media/tenant/fdfdf.jpg HTTP/1.1" 304 0
-INFO 2022-07-24 10:22:52,638 basehttp 22465 140651210274560 "GET /Tenant-dashboard/ HTTP/1.1" 200 14059
-INFO 2022-07-24 10:23:36,279 basehttp 22465 140651210274560 "GET /t-logout/ HTTP/1.1" 302 0
-INFO 2022-07-24 10:23:36,292 basehttp 22465 140651210274560 "GET /t-login/ HTTP/1.1" 200 9733
-INFO 2022-07-24 10:37:04,425 autoreload 25453 139888465319744 Watching for file changes with StatReloader
+INFO 2022-07-28 12:47:29,710 basehttp 35023 140237384705792 "GET /e-register/ HTTP/1.1" 200 10421
+INFO 2022-07-28 12:47:29,829 basehttp 35023 140237384705792 "GET /static/assets/plugins/bootstrap/js/bootstrap.js.map HTTP/1.1" 200 289522
+INFO 2022-07-28 12:47:29,861 basehttp 35023 140237393098496 "GET /static/assets/main/css/style.css.map HTTP/1.1" 200 43570
+INFO 2022-07-28 12:47:29,863 basehttp 35023 140237384705792 "GET /static/assets/plugins/bootstrap/css/bootstrap.min.css.map HTTP/1.1" 200 449111
+INFO 2022-07-28 12:47:31,719 basehttp 35023 140237384705792 "GET /static/assets/plugins/bootstrap/js/bootstrap.js.map HTTP/1.1" 200 289522
+INFO 2022-07-28 12:47:31,748 basehttp 35023 140237384705792 "GET /static/assets/main/css/style.css.map HTTP/1.1" 200 43570
+INFO 2022-07-28 12:47:31,750 basehttp 35023 140237393098496 "GET /static/assets/plugins/bootstrap/css/bootstrap.min.css.map HTTP/1.1" 200 449111
+INFO 2022-07-28 12:47:32,138 basehttp 35023 140237384705792 "GET /static/assets/plugins/bootstrap/css/bootstrap.min.css.map HTTP/1.1" 200 449111
+INFO 2022-07-28 12:47:32,140 basehttp 35023 140237393098496 "GET /static/assets/main/css/style.css.map HTTP/1.1" 200 43570
+INFO 2022-07-28 12:47:32,180 basehttp 35023 140237393098496 "GET /static/assets/plugins/bootstrap/js/bootstrap.js.map HTTP/1.1" 200 289522
+INFO 2022-07-28 12:47:33,528 basehttp 35023 140237393098496 "GET /t-register/ HTTP/1.1" 200 6334
+INFO 2022-07-28 12:47:33,630 basehttp 35023 140237384705792 "GET /static/assets/main/css/style.css.map HTTP/1.1" 200 43570
+INFO 2022-07-28 12:47:33,631 basehttp 35023 140237393098496 "GET /static/assets/plugins/bootstrap/css/bootstrap.min.css.map HTTP/1.1" 200 449111
+INFO 2022-07-28 12:47:33,672 basehttp 35023 140237393098496 "GET /static/assets/plugins/bootstrap/js/bootstrap.js.map HTTP/1.1" 200 289522
+INFO 2022-07-28 12:47:40,364 basehttp 35023 140237393098496 "POST /t-register/ HTTP/1.1" 302 0
+INFO 2022-07-28 12:47:40,391 basehttp 35023 140237393098496 "GET /t-register/ HTTP/1.1" 200 6582
+INFO 2022-07-28 12:47:40,512 basehttp 35023 140237384705792 "GET /static/assets/plugins/bootstrap/css/bootstrap.min.css.map HTTP/1.1" 200 449111
+INFO 2022-07-28 12:47:40,513 basehttp 35023 140237393098496 "GET /static/assets/main/css/style.css.map HTTP/1.1" 200 43570
+INFO 2022-07-28 12:47:40,548 basehttp 35023 140237384705792 "GET /static/assets/plugins/bootstrap/js/bootstrap.js.map HTTP/1.1" 200 289522
+INFO 2022-07-28 12:50:00,424 autoreload 35023 140237534906176 /home/xbwafi/Desktop/django/AMS/accounts/models.py changed, reloading.
+INFO 2022-07-28 12:50:00,726 autoreload 36246 140524600727360 Watching for file changes with StatReloader
+INFO 2022-07-28 12:50:29,026 autoreload 36558 139870020196160 Watching for file changes with StatReloader
+INFO 2022-07-28 12:51:42,109 autoreload 36558 139870020196160 /home/xbwafi/Desktop/django/AMS/accounts/models.py changed, reloading.
+INFO 2022-07-28 12:51:42,423 autoreload 36716 139975750166336 Watching for file changes with StatReloader
+INFO 2022-07-28 12:51:53,590 autoreload 36919 140453619664704 Watching for file changes with StatReloader
+INFO 2022-07-28 12:51:56,861 basehttp 36919 140453477910272 "GET /t-register/ HTTP/1.1" 200 6334
+INFO 2022-07-28 12:51:56,954 basehttp 36919 140453468731136 "GET /static/assets/main/css/style.css.map HTTP/1.1" 200 43570
+INFO 2022-07-28 12:51:56,955 basehttp 36919 140453477910272 "GET /static/assets/plugins/bootstrap/css/bootstrap.min.css.map HTTP/1.1" 200 449111
+INFO 2022-07-28 12:51:57,015 basehttp 36919 140453477910272 "GET /static/assets/plugins/bootstrap/js/bootstrap.js.map HTTP/1.1" 200 289522
+INFO 2022-07-28 12:53:19,932 autoreload 36919 140453619664704 /home/xbwafi/Desktop/django/AMS/accounts/forms.py changed, reloading.
+INFO 2022-07-28 12:53:20,240 autoreload 37051 140476680968000 Watching for file changes with StatReloader
+INFO 2022-07-28 12:54:05,738 basehttp 37051 140476539229952 "GET /t-register/ HTTP/1.1" 200 6336
+INFO 2022-07-28 12:54:07,722 basehttp 37051 140476539229952 "GET /t-register/ HTTP/1.1" 200 6336
+INFO 2022-07-28 12:54:15,531 basehttp 37051 140476539229952 "POST /t-register/ HTTP/1.1" 302 0
+INFO 2022-07-28 12:54:15,558 basehttp 37051 140476539229952 "GET /t-register/ HTTP/1.1" 200 6584
+INFO 2022-07-28 12:54:25,177 basehttp 37051 140476539229952 "GET /e-register/ HTTP/1.1" 200 10422
+INFO 2022-07-28 12:54:29,795 basehttp 37051 140476539229952 "POST /e-register/ HTTP/1.1" 200 10505
+INFO 2022-07-28 12:54:41,722 basehttp 37051 140476539229952 "POST /e-register/ HTTP/1.1" 200 10508
+INFO 2022-07-28 12:56:51,176 autoreload 37051 140476680968000 /home/xbwafi/Desktop/django/AMS/accounts/views.py changed, reloading.
+INFO 2022-07-28 12:56:51,503 autoreload 37340 140392779417408 Watching for file changes with StatReloader
+INFO 2022-07-28 12:56:58,160 basehttp 37340 140392704800512 "POST /e-register/ HTTP/1.1" 200 10508
+INFO 2022-07-28 12:57:05,708 basehttp 37340 140392704800512 "GET /t-register/ HTTP/1.1" 200 6336
+INFO 2022-07-28 12:57:10,840 basehttp 37340 140392704800512 "POST /t-register/ HTTP/1.1" 302 0
+INFO 2022-07-28 12:57:10,866 basehttp 37340 140392704800512 "GET /t-register/ HTTP/1.1" 200 6584
+INFO 2022-07-28 12:57:41,369 basehttp 37340 140392704800512 "GET /t-register/ HTTP/1.1" 200 6336
+INFO 2022-07-28 12:57:48,434 basehttp 37340 140392704800512 "POST /t-register/ HTTP/1.1" 302 0
+INFO 2022-07-28 12:57:48,459 basehttp 37340 140392704800512 "GET /t-register/ HTTP/1.1" 200 6584
+INFO 2022-07-28 12:58:22,519 basehttp 37340 140392704800512 "GET /t-register/ HTTP/1.1" 200 6336
+INFO 2022-07-28 12:58:25,631 basehttp 37340 140392704800512 "POST /e-register/ HTTP/1.1" 200 10508
+INFO 2022-07-28 12:58:28,466 basehttp 37340 140392704800512 "POST /e-register/ HTTP/1.1" 200 10508
+INFO 2022-07-28 12:58:35,900 basehttp 37340 140392704800512 "POST /e-register/ HTTP/1.1" 200 10508
+INFO 2022-07-28 12:58:35,920 basehttp 37340 140392704800512 "GET /static/assets/main/css/fonts.css HTTP/1.1" 200 917
+INFO 2022-07-28 12:58:35,933 basehttp 37340 140392464897792 "GET /static/assets/js/toggleFullScreen.js HTTP/1.1" 200 940
+INFO 2022-07-28 12:58:35,935 basehttp 37340 140392456505088 "GET /static/assets/js/main.js HTTP/1.1" 200 8268
+INFO 2022-07-28 12:58:35,937 basehttp 37340 140392481683200 "GET /static/assets/plugins/jquery/jquery.min.js HTTP/1.1" 200 72380
+INFO 2022-07-28 12:58:35,937 basehttp 37340 140392695359232 "GET /static/assets/main/css/style.css HTTP/1.1" 200 88820
+INFO 2022-07-28 12:58:35,938 basehttp 37340 140392473290496 "GET /static/assets/plugins/bootstrap/js/bootstrap.js HTTP/1.1" 200 148168
+INFO 2022-07-28 12:58:35,976 basehttp 37340 140392464897792 "GET /static/assets/fonts/simple-line-icons/css/simple-line-icons.css HTTP/1.1" 200 10621
+INFO 2022-07-28 12:58:35,978 basehttp 37340 140392473290496 "GET /static/assets/plugins/datatables/css/dataTables.bootstrap.min.css HTTP/1.1" 200 4356
+INFO 2022-07-28 12:58:35,979 basehttp 37340 140392456505088 "GET /static/assets/plugins/daterangepicker/daterangepicker.css HTTP/1.1" 200 8069
+INFO 2022-07-28 12:58:35,980 basehttp 37340 140392695359232 "GET /static/assets/fonts/fontawesome/css/all.min.css HTTP/1.1" 200 74967
+INFO 2022-07-28 12:58:35,980 basehttp 37340 140392704800512 "GET /static/assets/plugins/bootstrap/css/bootstrap.min.css HTTP/1.1" 200 162720
+WARNING 2022-07-28 12:58:36,057 log 37340 140392695359232 Not Found: /favicon.ico
+WARNING 2022-07-28 12:58:36,057 basehttp 37340 140392695359232 "GET /favicon.ico HTTP/1.1" 404 4663
+INFO 2022-07-28 12:58:38,208 basehttp 37340 140392695359232 "GET /e-register/ HTTP/1.1" 200 10422
+INFO 2022-07-28 12:58:42,767 basehttp 37340 140392695359232 "POST /e-register/ HTTP/1.1" 200 10509
+INFO 2022-07-28 12:58:51,014 autoreload 37694 140479011690304 Watching for file changes with StatReloader
+INFO 2022-07-28 12:58:56,177 basehttp 37694 140478937073408 "POST /e-register/ HTTP/1.1" 200 10514
+INFO 2022-07-28 12:59:14,536 autoreload 37694 140479011690304 /home/xbwafi/Desktop/django/AMS/accounts/views.py changed, reloading.
+INFO 2022-07-28 12:59:14,860 autoreload 37782 140220721682240 Watching for file changes with StatReloader
+INFO 2022-07-28 12:59:26,201 autoreload 37782 140220721682240 /home/xbwafi/Desktop/django/AMS/accounts/urls.py changed, reloading.
+INFO 2022-07-28 12:59:26,561 autoreload 37838 140680591886144 Watching for file changes with StatReloader
+WARNING 2022-07-28 12:59:29,888 log 37838 140680445818624 Not Found: /e-register/
+WARNING 2022-07-28 12:59:29,889 basehttp 37838 140680445818624 "POST /e-register/ HTTP/1.1" 404 4487
+INFO 2022-07-28 12:59:33,933 basehttp 37838 140680445818624 "GET /t-register/ HTTP/1.1" 200 6336
+INFO 2022-07-28 12:59:39,207 basehttp 37838 140680445818624 "POST /t-register/ HTTP/1.1" 302 0
+INFO 2022-07-28 12:59:39,227 basehttp 37838 140680445818624 "GET /t-register/ HTTP/1.1" 200 6584
+INFO 2022-07-28 13:11:58,948 autoreload 37838 140680591886144 /home/xbwafi/Desktop/django/AMS/accounts/views.py changed, reloading.
+INFO 2022-07-28 13:11:59,280 autoreload 38530 140087126124352 Watching for file changes with StatReloader
+INFO 2022-07-28 13:12:01,371 basehttp 38530 140086984390400 "GET /t-register/ HTTP/1.1" 200 6336
+INFO 2022-07-28 13:12:06,155 basehttp 38530 140086984390400 "POST /t-register/ HTTP/1.1" 302 0
+INFO 2022-07-28 13:12:06,184 basehttp 38530 140086984390400 "GET /t-register/ HTTP/1.1" 200 6584
+INFO 2022-07-28 13:12:57,390 autoreload 38530 140087126124352 /home/xbwafi/Desktop/django/AMS/accounts/views.py changed, reloading.
+INFO 2022-07-28 13:12:57,736 autoreload 38630 140259089397568 Watching for file changes with StatReloader
+INFO 2022-07-28 13:13:11,086 autoreload 38630 140259089397568 /home/xbwafi/Desktop/django/AMS/accounts/views.py changed, reloading.
+INFO 2022-07-28 13:13:11,393 autoreload 38683 139912976635712 Watching for file changes with StatReloader
+INFO 2022-07-28 13:13:12,719 basehttp 38683 139912834885376 "GET /t-register/ HTTP/1.1" 200 6336
+INFO 2022-07-28 13:13:17,005 basehttp 38683 139912834885376 "POST /t-register/ HTTP/1.1" 302 0
+INFO 2022-07-28 13:13:17,028 basehttp 38683 139912834885376 "GET /t-register/ HTTP/1.1" 200 6584
+INFO 2022-07-28 13:14:02,241 autoreload 38683 139912976635712 /home/xbwafi/Desktop/django/AMS/accounts/views.py changed, reloading.
+INFO 2022-07-28 13:14:02,610 autoreload 38791 139919695476544 Watching for file changes with StatReloader
+INFO 2022-07-28 13:14:03,854 basehttp 38791 139919554270976 "GET /t-register/ HTTP/1.1" 200 6336
+INFO 2022-07-28 13:14:08,585 basehttp 38791 139919554270976 "POST /t-register/ HTTP/1.1" 302 0
+INFO 2022-07-28 13:14:08,603 basehttp 38791 139919554270976 "GET /t-register/ HTTP/1.1" 200 6584
+INFO 2022-07-28 13:14:23,185 autoreload 38955 139883873769280 Watching for file changes with StatReloader
+INFO 2022-07-28 13:15:42,265 autoreload 38955 139883873769280 /home/xbwafi/Desktop/django/AMS/accounts/views.py changed, reloading.
+INFO 2022-07-28 13:15:42,574 autoreload 39044 140428133025600 Watching for file changes with StatReloader
+INFO 2022-07-28 13:15:54,907 autoreload 39044 140428133025600 /home/xbwafi/Desktop/django/AMS/accounts/views.py changed, reloading.
+INFO 2022-07-28 13:15:55,241 autoreload 39110 140327724074816 Watching for file changes with StatReloader
+INFO 2022-07-28 13:15:58,500 autoreload 39110 140327724074816 /home/xbwafi/Desktop/django/AMS/accounts/views.py changed, reloading.
+INFO 2022-07-28 13:15:58,869 autoreload 39143 140420235306816 Watching for file changes with StatReloader
+INFO 2022-07-28 13:15:59,632 basehttp 39143 140420161214208 "GET /t-register/ HTTP/1.1" 200 6336
+INFO 2022-07-28 13:16:04,602 basehttp 39143 140420161214208 "POST /t-register/ HTTP/1.1" 302 0
+INFO 2022-07-28 13:16:04,638 basehttp 39143 140420161214208 "GET /t-register/ HTTP/1.1" 200 6584
+INFO 2022-07-28 13:16:23,485 autoreload 39143 140420235306816 /home/xbwafi/Desktop/django/AMS/accounts/views.py changed, reloading.
+INFO 2022-07-28 13:16:23,818 autoreload 39200 139950904256320 Watching for file changes with StatReloader
+INFO 2022-07-28 13:16:25,366 basehttp 39200 139950762514176 "GET /t-register/ HTTP/1.1" 200 6336
+INFO 2022-07-28 13:16:25,600 basehttp 39200 139950762514176 "GET /t-register/ HTTP/1.1" 200 6336
+INFO 2022-07-28 13:16:25,771 basehttp 39200 139950762514176 "GET /t-register/ HTTP/1.1" 200 6336
+INFO 2022-07-28 13:16:25,877 basehttp 39200 139950762514176 "GET /t-register/ HTTP/1.1" 200 6336
+INFO 2022-07-28 13:16:32,426 basehttp 39200 139950762514176 "POST /t-register/ HTTP/1.1" 302 0
+INFO 2022-07-28 13:16:32,472 basehttp 39200 139950762514176 "GET /t-register/ HTTP/1.1" 200 6584
+INFO 2022-07-29 07:29:12,014 autoreload 3470 140612761212736 Watching for file changes with StatReloader
+INFO 2022-07-29 07:29:20,312 autoreload 4013 140109575276352 Watching for file changes with StatReloader
+INFO 2022-07-29 07:29:23,777 basehttp 4013 140109500659456 "GET / HTTP/1.1" 200 8767
+WARNING 2022-07-29 07:29:24,350 log 4013 140109500659456 Not Found: /favicon.ico
+WARNING 2022-07-29 07:29:24,351 basehttp 4013 140109500659456 "GET /favicon.ico HTTP/1.1" 404 4486
+INFO 2022-07-29 07:29:36,086 basehttp 4013 140109500659456 "GET /t-register/ HTTP/1.1" 200 6336
+INFO 2022-07-29 07:29:44,712 basehttp 4013 140109500659456 "POST /t-register/ HTTP/1.1" 302 0
+INFO 2022-07-29 07:29:44,734 basehttp 4013 140109500659456 "GET /t-register/ HTTP/1.1" 200 6584
+INFO 2022-07-29 07:30:10,007 autoreload 4013 140109575276352 /home/xbwafi/Desktop/django/AMS/accounts/views.py changed, reloading.
+INFO 2022-07-29 07:30:10,394 autoreload 4442 139731822315328 Watching for file changes with StatReloader
+INFO 2022-07-29 07:30:11,664 basehttp 4442 139731748222720 "GET /t-register/ HTTP/1.1" 200 6336
+INFO 2022-07-29 07:30:17,504 basehttp 4442 139731748222720 "POST /t-register/ HTTP/1.1" 302 0
+INFO 2022-07-29 07:30:17,557 basehttp 4442 139731748222720 "GET /t-register/ HTTP/1.1" 200 6584
+INFO 2022-07-29 07:31:45,799 autoreload 4442 139731822315328 /home/xbwafi/Desktop/django/AMS/accounts/views.py changed, reloading.
+INFO 2022-07-29 07:31:46,112 autoreload 4583 139965418325824 Watching for file changes with StatReloader
+INFO 2022-07-29 07:32:03,549 autoreload 4583 139965418325824 /home/xbwafi/Desktop/django/AMS/accounts/views.py changed, reloading.
+INFO 2022-07-29 07:32:03,873 autoreload 4638 140010606389056 Watching for file changes with StatReloader
+INFO 2022-07-29 07:32:06,257 basehttp 4638 140010531772160 "GET /t-register/ HTTP/1.1" 200 6336
+INFO 2022-07-29 07:32:15,578 basehttp 4638 140010531772160 "POST /t-register/ HTTP/1.1" 302 0
+INFO 2022-07-29 07:32:15,600 basehttp 4638 140010531772160 "GET /t-register/ HTTP/1.1" 200 6584
+INFO 2022-07-29 07:33:08,972 autoreload 4638 140010606389056 /home/xbwafi/Desktop/django/AMS/accounts/views.py changed, reloading.
+INFO 2022-07-29 07:33:09,306 autoreload 4749 140548507014976 Watching for file changes with StatReloader
+INFO 2022-07-29 07:33:11,327 basehttp 4749 140548365252352 "GET /t-register/ HTTP/1.1" 200 6336
+INFO 2022-07-29 07:33:16,327 basehttp 4749 140548365252352 "POST /t-register/ HTTP/1.1" 302 0
+INFO 2022-07-29 07:33:16,337 basehttp 4749 140548365252352 "GET /t-login/ HTTP/1.1" 200 9742
+INFO 2022-07-29 07:34:14,521 autoreload 4749 140548507014976 /home/xbwafi/Desktop/django/AMS/accounts/views.py changed, reloading.
+INFO 2022-07-29 07:34:14,856 autoreload 4954 140179677452096 Watching for file changes with StatReloader
+INFO 2022-07-29 07:35:57,308 autoreload 4954 140179677452096 /home/xbwafi/Desktop/django/AMS/accounts/views.py changed, reloading.
+INFO 2022-07-29 07:35:57,609 autoreload 5060 140001415116608 Watching for file changes with StatReloader
+WARNING 2022-07-29 07:36:07,373 log 5060 140001273341696 Not Found: /e-register/
+WARNING 2022-07-29 07:36:07,374 basehttp 5060 140001273341696 "GET /e-register/ HTTP/1.1" 404 4486
+INFO 2022-07-29 07:36:21,198 autoreload 5060 140001415116608 /home/xbwafi/Desktop/django/AMS/accounts/urls.py changed, reloading.
+INFO 2022-07-29 07:36:21,516 autoreload 5137 140443799934784 Watching for file changes with StatReloader
+INFO 2022-07-29 07:36:22,184 basehttp 5137 140443658725120 "GET /e-register/ HTTP/1.1" 200 10422
+INFO 2022-07-29 07:36:28,025 basehttp 5137 140443658725120 "POST /e-register/ HTTP/1.1" 200 10508
+INFO 2022-07-29 07:37:05,334 autoreload 5137 140443799934784 /home/xbwafi/Desktop/django/AMS/accounts/views.py changed, reloading.
+INFO 2022-07-29 07:37:05,692 autoreload 5231 139927610484544 Watching for file changes with StatReloader
+INFO 2022-07-29 07:37:07,738 basehttp 5231 139927468738304 "POST /e-register/ HTTP/1.1" 200 10508
+INFO 2022-07-29 07:37:13,949 basehttp 5231 139927468738304 "POST /e-register/ HTTP/1.1" 200 10511
+INFO 2022-07-29 07:37:25,691 basehttp 5231 139927468738304 "POST /e-register/ HTTP/1.1" 200 10511
+INFO 2022-07-29 07:37:25,711 basehttp 5231 139927468738304 "GET /static/assets/main/css/fonts.css HTTP/1.1" 200 917
+INFO 2022-07-29 07:37:25,721 basehttp 5231 139927434381056 "GET /static/assets/js/toggleFullScreen.js HTTP/1.1" 200 940
+INFO 2022-07-29 07:37:25,721 basehttp 5231 139927425988352 "GET /static/assets/js/main.js HTTP/1.1" 200 8268
+INFO 2022-07-29 07:37:25,725 basehttp 5231 139927451166464 "GET /static/assets/plugins/jquery/jquery.min.js HTTP/1.1" 200 72380
+INFO 2022-07-29 07:37:25,725 basehttp 5231 139927459559168 "GET /static/assets/main/css/style.css HTTP/1.1" 200 88820
+INFO 2022-07-29 07:37:25,726 basehttp 5231 139927442773760 "GET /static/assets/plugins/bootstrap/js/bootstrap.js HTTP/1.1" 200 148168
+INFO 2022-07-29 07:37:25,752 basehttp 5231 139927459559168 "GET /static/assets/plugins/datatables/css/dataTables.bootstrap.min.css HTTP/1.1" 200 4356
+INFO 2022-07-29 07:37:25,753 basehttp 5231 139927425988352 "GET /static/assets/plugins/daterangepicker/daterangepicker.css HTTP/1.1" 200 8069
+INFO 2022-07-29 07:37:25,754 basehttp 5231 139927468738304 "GET /static/assets/fonts/simple-line-icons/css/simple-line-icons.css HTTP/1.1" 200 10621
+INFO 2022-07-29 07:37:25,755 basehttp 5231 139927434381056 "GET /static/assets/fonts/fontawesome/css/all.min.css HTTP/1.1" 200 74967
+INFO 2022-07-29 07:37:25,755 basehttp 5231 139927442773760 "GET /static/assets/plugins/bootstrap/css/bootstrap.min.css HTTP/1.1" 200 162720
+WARNING 2022-07-29 07:37:25,933 log 5231 139927442773760 Not Found: /favicon.ico
+WARNING 2022-07-29 07:37:25,934 basehttp 5231 139927442773760 "GET /favicon.ico HTTP/1.1" 404 4663
+INFO 2022-07-29 07:37:28,906 basehttp 5231 139927442773760 "GET /e-register/ HTTP/1.1" 200 10422
+INFO 2022-07-29 07:37:29,421 basehttp 5231 139927442773760 "GET /t-login/ HTTP/1.1" 200 9485
+INFO 2022-07-29 07:37:30,570 basehttp 5231 139927442773760 "GET /t-login/ HTTP/1.1" 200 9485
+INFO 2022-07-29 07:37:32,065 basehttp 5231 139927442773760 "GET /e-register/ HTTP/1.1" 200 10422
+INFO 2022-07-29 07:37:32,656 basehttp 5231 139927442773760 "GET /e-register/ HTTP/1.1" 200 10422
+INFO 2022-07-29 07:37:32,781 basehttp 5231 139927442773760 "GET /e-register/ HTTP/1.1" 200 10422
+INFO 2022-07-29 07:37:32,951 basehttp 5231 139927442773760 "GET /e-register/ HTTP/1.1" 200 10422
+INFO 2022-07-29 07:37:33,060 basehttp 5231 139927442773760 "GET /e-register/ HTTP/1.1" 200 10422
+INFO 2022-07-29 07:37:33,161 basehttp 5231 139927442773760 "GET /e-register/ HTTP/1.1" 200 10422
+INFO 2022-07-29 07:37:37,494 basehttp 5231 139927442773760 "POST /e-register/ HTTP/1.1" 200 10511
+INFO 2022-07-29 07:37:52,650 autoreload 5231 139927610484544 /home/xbwafi/Desktop/django/AMS/accounts/views.py changed, reloading.
+INFO 2022-07-29 07:37:52,971 autoreload 5463 140324497205056 Watching for file changes with StatReloader
+INFO 2022-07-29 07:37:55,401 basehttp 5463 140324355454720 "POST /e-register/ HTTP/1.1" 200 10511
+INFO 2022-07-29 07:38:00,883 basehttp 5463 140324355454720 "POST /e-register/ HTTP/1.1" 200 10511
+INFO 2022-07-29 07:38:00,936 basehttp 5463 140324355454720 "GET /static/assets/main/css/fonts.css HTTP/1.1" 200 917
+INFO 2022-07-29 07:38:00,941 basehttp 5463 140324355454720 "GET /static/assets/plugins/bootstrap/js/bootstrap.js HTTP/1.1" 200 148168
+INFO 2022-07-29 07:38:00,942 basehttp 5463 140324337882880 "GET /static/assets/plugins/jquery/jquery.min.js HTTP/1.1" 200 72380
+INFO 2022-07-29 07:38:00,944 basehttp 5463 140324346275584 "GET /static/assets/main/css/style.css HTTP/1.1" 200 88820
+INFO 2022-07-29 07:38:00,946 basehttp 5463 140324329490176 "GET /static/assets/js/toggleFullScreen.js HTTP/1.1" 200 940
+INFO 2022-07-29 07:38:00,947 basehttp 5463 140324321097472 "GET /static/assets/js/main.js HTTP/1.1" 200 8268
+INFO 2022-07-29 07:38:00,968 basehttp 5463 140324321097472 "GET /static/assets/plugins/bootstrap/css/bootstrap.min.css HTTP/1.1" 200 162720
+INFO 2022-07-29 07:38:00,970 basehttp 5463 140324355454720 "GET /static/assets/plugins/daterangepicker/daterangepicker.css HTTP/1.1" 200 8069
+INFO 2022-07-29 07:38:00,974 basehttp 5463 140324329490176 "GET /static/assets/plugins/datatables/css/dataTables.bootstrap.min.css HTTP/1.1" 200 4356
+INFO 2022-07-29 07:38:00,977 basehttp 5463 140324312704768 "GET /static/assets/fonts/simple-line-icons/css/simple-line-icons.css HTTP/1.1" 200 10621
+INFO 2022-07-29 07:38:00,979 basehttp 5463 140324346275584 "GET /static/assets/fonts/fontawesome/css/all.min.css HTTP/1.1" 200 74967
+WARNING 2022-07-29 07:38:01,057 log 5463 140324312704768 Not Found: /favicon.ico
+WARNING 2022-07-29 07:38:01,057 basehttp 5463 140324312704768 "GET /favicon.ico HTTP/1.1" 404 4663
+INFO 2022-07-29 07:38:01,752 basehttp 5463 140324312704768 "POST /e-register/ HTTP/1.1" 200 10511
+INFO 2022-07-29 07:38:01,778 basehttp 5463 140324312704768 "GET /static/assets/main/css/fonts.css HTTP/1.1" 200 917
+INFO 2022-07-29 07:38:01,779 basehttp 5463 140324321097472 "GET /static/assets/js/main.js HTTP/1.1" 200 8268
+INFO 2022-07-29 07:38:01,779 basehttp 5463 140324355454720 "GET /static/assets/js/toggleFullScreen.js HTTP/1.1" 200 940
+INFO 2022-07-29 07:38:01,780 basehttp 5463 140324337882880 "GET /static/assets/plugins/jquery/jquery.min.js HTTP/1.1" 200 72380
+INFO 2022-07-29 07:38:01,781 basehttp 5463 140324329490176 "GET /static/assets/plugins/bootstrap/js/bootstrap.js HTTP/1.1" 200 148168
+INFO 2022-07-29 07:38:01,782 basehttp 5463 140324346275584 "GET /static/assets/main/css/style.css HTTP/1.1" 200 88820
+INFO 2022-07-29 07:38:01,798 basehttp 5463 140324337882880 "GET /static/assets/plugins/datatables/css/dataTables.bootstrap.min.css HTTP/1.1" 200 4356
+INFO 2022-07-29 07:38:01,799 basehttp 5463 140324329490176 "GET /static/assets/plugins/daterangepicker/daterangepicker.css HTTP/1.1" 200 8069
+INFO 2022-07-29 07:38:01,800 basehttp 5463 140324312704768 "GET /static/assets/fonts/simple-line-icons/css/simple-line-icons.css HTTP/1.1" 200 10621
+INFO 2022-07-29 07:38:01,800 basehttp 5463 140324355454720 "GET /static/assets/fonts/fontawesome/css/all.min.css HTTP/1.1" 200 74967
+INFO 2022-07-29 07:38:01,801 basehttp 5463 140324321097472 "GET /static/assets/plugins/bootstrap/css/bootstrap.min.css HTTP/1.1" 200 162720
+INFO 2022-07-29 07:38:01,863 basehttp 5463 140324355454720 "POST /e-register/ HTTP/1.1" 200 10511
+INFO 2022-07-29 07:38:01,904 basehttp 5463 140324329490176 "GET /static/assets/js/toggleFullScreen.js HTTP/1.1" 200 940
+INFO 2022-07-29 07:38:01,904 basehttp 5463 140324355454720 "GET /static/assets/main/css/fonts.css HTTP/1.1" 200 917
+INFO 2022-07-29 07:38:01,905 basehttp 5463 140324337882880 "GET /static/assets/js/main.js HTTP/1.1" 200 8268
+INFO 2022-07-29 07:38:01,906 basehttp 5463 140324346275584 "GET /static/assets/main/css/style.css HTTP/1.1" 200 88820
+INFO 2022-07-29 07:38:01,907 basehttp 5463 140324312704768 "GET /static/assets/plugins/bootstrap/js/bootstrap.js HTTP/1.1" 200 148168
+INFO 2022-07-29 07:38:01,907 basehttp 5463 140324321097472 "GET /static/assets/plugins/jquery/jquery.min.js HTTP/1.1" 200 72380
+INFO 2022-07-29 07:38:01,924 basehttp 5463 140324337882880 "GET /static/assets/plugins/daterangepicker/daterangepicker.css HTTP/1.1" 200 8069
+INFO 2022-07-29 07:38:01,925 basehttp 5463 140324329490176 "GET /static/assets/fonts/simple-line-icons/css/simple-line-icons.css HTTP/1.1" 200 10621
+INFO 2022-07-29 07:38:01,926 basehttp 5463 140324346275584 "GET /static/assets/plugins/datatables/css/dataTables.bootstrap.min.css HTTP/1.1" 200 4356
+INFO 2022-07-29 07:38:01,926 basehttp 5463 140324355454720 "GET /static/assets/fonts/fontawesome/css/all.min.css HTTP/1.1" 200 74967
+INFO 2022-07-29 07:38:01,927 basehttp 5463 140324312704768 "GET /static/assets/plugins/bootstrap/css/bootstrap.min.css HTTP/1.1" 200 162720
+WARNING 2022-07-29 07:38:02,046 log 5463 140324312704768 Not Found: /favicon.ico
+WARNING 2022-07-29 07:38:02,046 basehttp 5463 140324312704768 "GET /favicon.ico HTTP/1.1" 404 4663
+INFO 2022-07-29 07:38:02,192 basehttp 5463 140324312704768 "POST /e-register/ HTTP/1.1" 200 10511
+INFO 2022-07-29 07:38:02,244 basehttp 5463 140324312704768 "GET /static/assets/main/css/fonts.css HTTP/1.1" 200 917
+INFO 2022-07-29 07:38:02,248 basehttp 5463 140324337882880 "GET /static/assets/js/toggleFullScreen.js HTTP/1.1" 200 940
+INFO 2022-07-29 07:38:02,250 basehttp 5463 140324329490176 "GET /static/assets/main/css/style.css HTTP/1.1" 200 88820
+INFO 2022-07-29 07:38:02,251 basehttp 5463 140324346275584 "GET /static/assets/plugins/bootstrap/js/bootstrap.js HTTP/1.1" 200 148168
+INFO 2022-07-29 07:38:02,251 basehttp 5463 140324355454720 "GET /static/assets/plugins/jquery/jquery.min.js HTTP/1.1" 200 72380
+INFO 2022-07-29 07:38:02,252 basehttp 5463 140324321097472 "GET /static/assets/js/main.js HTTP/1.1" 200 8268
+INFO 2022-07-29 07:38:02,285 basehttp 5463 140324329490176 "GET /static/assets/plugins/daterangepicker/daterangepicker.css HTTP/1.1" 200 8069
+INFO 2022-07-29 07:38:02,286 basehttp 5463 140324312704768 "GET /static/assets/plugins/datatables/css/dataTables.bootstrap.min.css HTTP/1.1" 200 4356
+INFO 2022-07-29 07:38:02,290 basehttp 5463 140324329490176 "GET /static/assets/fonts/simple-line-icons/css/simple-line-icons.css HTTP/1.1" 200 10621
+INFO 2022-07-29 07:38:02,291 basehttp 5463 140324321097472 "GET /static/assets/fonts/fontawesome/css/all.min.css HTTP/1.1" 200 74967
+INFO 2022-07-29 07:38:02,295 basehttp 5463 140324346275584 "GET /static/assets/plugins/bootstrap/css/bootstrap.min.css HTTP/1.1" 200 162720
+INFO 2022-07-29 07:38:02,302 basehttp 5463 140324337882880 "POST /e-register/ HTTP/1.1" 200 10511
+INFO 2022-07-29 07:38:02,386 basehttp 5463 140324329490176 "GET /static/assets/js/toggleFullScreen.js HTTP/1.1" 200 940
+INFO 2022-07-29 07:38:02,387 basehttp 5463 140324312704768 "GET /static/assets/js/main.js HTTP/1.1" 200 8268
+INFO 2022-07-29 07:38:02,388 basehttp 5463 140324337882880 "GET /static/assets/main/css/fonts.css HTTP/1.1" 200 917
+INFO 2022-07-29 07:38:02,388 basehttp 5463 140324355454720 "GET /static/assets/plugins/bootstrap/js/bootstrap.js HTTP/1.1" 200 148168
+INFO 2022-07-29 07:38:02,389 basehttp 5463 140324346275584 "GET /static/assets/plugins/jquery/jquery.min.js HTTP/1.1" 200 72380
+INFO 2022-07-29 07:38:02,389 basehttp 5463 140324321097472 "GET /static/assets/main/css/style.css HTTP/1.1" 200 88820
+INFO 2022-07-29 07:38:02,404 basehttp 5463 140324355454720 "GET /static/assets/plugins/daterangepicker/daterangepicker.css HTTP/1.1" 200 8069
+INFO 2022-07-29 07:38:02,406 basehttp 5463 140324337882880 "GET /static/assets/plugins/datatables/css/dataTables.bootstrap.min.css HTTP/1.1" 200 4356
+INFO 2022-07-29 07:38:02,415 basehttp 5463 140324355454720 "GET /static/assets/fonts/fontawesome/css/all.min.css HTTP/1.1" 200 74967
+INFO 2022-07-29 07:38:02,416 basehttp 5463 140324337882880 "GET /static/assets/fonts/simple-line-icons/css/simple-line-icons.css HTTP/1.1" 200 10621
+INFO 2022-07-29 07:38:02,419 basehttp 5463 140324312704768 "GET /static/assets/plugins/bootstrap/css/bootstrap.min.css HTTP/1.1" 200 162720
+INFO 2022-07-29 07:38:02,427 basehttp 5463 140324329490176 "POST /e-register/ HTTP/1.1" 200 10511
+INFO 2022-07-29 07:38:02,499 basehttp 5463 140324329490176 "GET /static/assets/main/css/fonts.css HTTP/1.1" 200 917
+INFO 2022-07-29 07:38:02,500 basehttp 5463 140324346275584 "GET /static/assets/js/toggleFullScreen.js HTTP/1.1" 200 940
+INFO 2022-07-29 07:38:02,500 basehttp 5463 140324312704768 "GET /static/assets/js/main.js HTTP/1.1" 200 8268
+INFO 2022-07-29 07:38:02,501 basehttp 5463 140324337882880 "GET /static/assets/main/css/style.css HTTP/1.1" 200 88820
+INFO 2022-07-29 07:38:02,502 basehttp 5463 140324355454720 "GET /static/assets/plugins/jquery/jquery.min.js HTTP/1.1" 200 72380
+INFO 2022-07-29 07:38:02,502 basehttp 5463 140324321097472 "GET /static/assets/plugins/bootstrap/js/bootstrap.js HTTP/1.1" 200 148168
+INFO 2022-07-29 07:38:02,518 basehttp 5463 140324337882880 "GET /static/assets/plugins/datatables/css/dataTables.bootstrap.min.css HTTP/1.1" 200 4356
+INFO 2022-07-29 07:38:02,518 basehttp 5463 140324321097472 "GET /static/assets/plugins/daterangepicker/daterangepicker.css HTTP/1.1" 200 8069
+INFO 2022-07-29 07:38:02,519 basehttp 5463 140324346275584 "GET /static/assets/fonts/simple-line-icons/css/simple-line-icons.css HTTP/1.1" 200 10621
+INFO 2022-07-29 07:38:02,520 basehttp 5463 140324355454720 "GET /static/assets/fonts/fontawesome/css/all.min.css HTTP/1.1" 200 74967
+INFO 2022-07-29 07:38:02,520 basehttp 5463 140324312704768 "GET /static/assets/plugins/bootstrap/css/bootstrap.min.css HTTP/1.1" 200 162720
+WARNING 2022-07-29 07:38:02,648 log 5463 140324312704768 Not Found: /favicon.ico
+WARNING 2022-07-29 07:38:02,649 basehttp 5463 140324312704768 "GET /favicon.ico HTTP/1.1" 404 4663
+INFO 2022-07-29 07:38:09,382 autoreload 5615 140092108527424 Watching for file changes with StatReloader
+INFO 2022-07-29 07:38:10,675 basehttp 5615 140091966617344 "POST /e-register/ HTTP/1.1" 200 10511
+INFO 2022-07-29 07:38:10,702 basehttp 5615 140091966617344 "GET /static/assets/main/css/fonts.css HTTP/1.1" 200 917
+INFO 2022-07-29 07:38:10,709 basehttp 5615 140091932260096 "GET /static/assets/js/toggleFullScreen.js HTTP/1.1" 200 940
+INFO 2022-07-29 07:38:10,710 basehttp 5615 140091940652800 "GET /static/assets/plugins/bootstrap/js/bootstrap.js HTTP/1.1" 200 148168
+INFO 2022-07-29 07:38:10,711 basehttp 5615 140091949045504 "GET /static/assets/plugins/jquery/jquery.min.js HTTP/1.1" 200 72380
+INFO 2022-07-29 07:38:10,711 basehttp 5615 140091923867392 "GET /static/assets/js/main.js HTTP/1.1" 200 8268
+INFO 2022-07-29 07:38:10,712 basehttp 5615 140091957438208 "GET /static/assets/main/css/style.css HTTP/1.1" 200 88820
+INFO 2022-07-29 07:38:10,725 basehttp 5615 140091957438208 "GET /static/assets/plugins/datatables/css/dataTables.bootstrap.min.css HTTP/1.1" 200 4356
+INFO 2022-07-29 07:38:10,726 basehttp 5615 140091966617344 "GET /static/assets/fonts/simple-line-icons/css/simple-line-icons.css HTTP/1.1" 200 10621
+INFO 2022-07-29 07:38:10,727 basehttp 5615 140091932260096 "GET /static/assets/plugins/daterangepicker/daterangepicker.css HTTP/1.1" 200 8069
+INFO 2022-07-29 07:38:10,728 basehttp 5615 140091940652800 "GET /static/assets/fonts/fontawesome/css/all.min.css HTTP/1.1" 200 74967
+INFO 2022-07-29 07:38:10,728 basehttp 5615 140091923867392 "GET /static/assets/plugins/bootstrap/css/bootstrap.min.css HTTP/1.1" 200 162720
+WARNING 2022-07-29 07:38:10,813 log 5615 140091949045504 Not Found: /favicon.ico
+WARNING 2022-07-29 07:38:10,813 basehttp 5615 140091949045504 "GET /favicon.ico HTTP/1.1" 404 4663
+INFO 2022-07-29 07:38:11,529 basehttp 5615 140091949045504 "POST /e-register/ HTTP/1.1" 200 10511
+INFO 2022-07-29 07:38:22,987 autoreload 5748 139759983351616 Watching for file changes with StatReloader
+INFO 2022-07-29 07:38:26,061 basehttp 5748 139759841613568 "GET /e-register/ HTTP/1.1" 200 10422
+INFO 2022-07-29 07:38:26,711 basehttp 5748 139759841613568 "GET /e-register/ HTTP/1.1" 200 10422
+INFO 2022-07-29 07:38:26,952 basehttp 5748 139759841613568 "GET /e-register/ HTTP/1.1" 200 10422
+INFO 2022-07-29 07:38:27,060 basehttp 5748 139759841613568 "GET /e-register/ HTTP/1.1" 200 10422
+INFO 2022-07-29 07:38:27,222 basehttp 5748 139759841613568 "GET /e-register/ HTTP/1.1" 200 10422
+INFO 2022-07-29 07:38:27,332 basehttp 5748 139759841613568 "GET /e-register/ HTTP/1.1" 200 10422
+INFO 2022-07-29 07:38:27,454 basehttp 5748 139759841613568 "GET /e-register/ HTTP/1.1" 200 10422
+INFO 2022-07-29 07:38:27,578 basehttp 5748 139759841613568 "GET /e-register/ HTTP/1.1" 200 10422
+INFO 2022-07-29 07:38:33,694 basehttp 5748 139759841613568 "POST /e-register/ HTTP/1.1" 200 10508
+INFO 2022-07-29 07:40:02,824 basehttp 5748 139759841613568 "POST /e-register/ HTTP/1.1" 200 6902
+INFO 2022-07-29 07:40:10,456 basehttp 5748 139759841613568 "POST /e-register/ HTTP/1.1" 200 6903
+INFO 2022-07-29 07:40:14,360 basehttp 5748 139759841613568 "GET /e-register/ HTTP/1.1" 200 6817
+INFO 2022-07-29 07:40:17,429 basehttp 5748 139759841613568 "GET /t-login/ HTTP/1.1" 200 9485
+INFO 2022-07-29 07:40:18,673 basehttp 5748 139759841613568 "GET /e-register/ HTTP/1.1" 200 6817
+INFO 2022-07-29 07:40:19,192 basehttp 5748 139759841613568 "GET /e-register/ HTTP/1.1" 200 6817
+INFO 2022-07-29 07:40:25,532 basehttp 5748 139759841613568 "POST /e-register/ HTTP/1.1" 200 6899
+INFO 2022-07-29 07:41:34,493 autoreload 5748 139759983351616 /home/xbwafi/Desktop/django/AMS/accounts/views.py changed, reloading.
+INFO 2022-07-29 07:41:34,808 autoreload 6079 139636658554688 Watching for file changes with StatReloader
+INFO 2022-07-29 07:42:00,318 autoreload 6079 139636658554688 /home/xbwafi/Desktop/django/AMS/accounts/views.py changed, reloading.
+INFO 2022-07-29 07:42:00,625 autoreload 6137 140593782134592 Watching for file changes with StatReloader
+INFO 2022-07-29 07:42:15,034 autoreload 6137 140593782134592 /home/xbwafi/Desktop/django/AMS/accounts/views.py changed, reloading.
+INFO 2022-07-29 07:42:15,377 autoreload 6190 140076502202176 Watching for file changes with StatReloader
+INFO 2022-07-29 07:42:45,998 basehttp 6190 140076427585280 "POST /e-register/ HTTP/1.1" 200 6900
+INFO 2022-07-29 07:42:48,328 basehttp 6190 140076427585280 "GET /e-register/ HTTP/1.1" 200 6818
+INFO 2022-07-29 07:42:49,609 basehttp 6190 140076427585280 "GET /t-login/ HTTP/1.1" 200 9485
+INFO 2022-07-29 07:42:50,460 basehttp 6190 140076427585280 "GET /e-register/ HTTP/1.1" 200 6818
+INFO 2022-07-29 07:42:50,878 basehttp 6190 140076427585280 "GET /e-register/ HTTP/1.1" 200 6818
+INFO 2022-07-29 07:42:50,985 basehttp 6190 140076427585280 "GET /e-register/ HTTP/1.1" 200 6818
+INFO 2022-07-29 07:42:54,818 basehttp 6190 140076427585280 "POST /e-register/ HTTP/1.1" 200 6902
+INFO 2022-07-29 07:43:28,652 autoreload 6190 140076502202176 /home/xbwafi/Desktop/django/AMS/accounts/views.py changed, reloading.
+INFO 2022-07-29 07:43:29,021 autoreload 6357 139681389995840 Watching for file changes with StatReloader
+INFO 2022-07-29 07:43:38,365 autoreload 6357 139681389995840 /home/xbwafi/Desktop/django/AMS/accounts/views.py changed, reloading.
+INFO 2022-07-29 07:43:38,673 autoreload 6411 140093038167872 Watching for file changes with StatReloader
+INFO 2022-07-29 07:44:04,594 basehttp 6411 140092896421632 "GET /e-register/ HTTP/1.1" 200 6818
+INFO 2022-07-29 07:44:06,113 basehttp 6411 140092896421632 "GET /t-login/ HTTP/1.1" 200 9485
+INFO 2022-07-29 07:44:11,091 basehttp 6411 140092896421632 "GET /t-login/ HTTP/1.1" 200 9485
+INFO 2022-07-29 07:44:12,127 basehttp 6411 140092896421632 "GET /e-register/ HTTP/1.1" 200 6818
+INFO 2022-07-29 07:44:12,303 basehttp 6411 140092896421632 "GET /e-register/ HTTP/1.1" 200 6818
+INFO 2022-07-29 07:44:12,409 basehttp 6411 140092896421632 "GET /e-register/ HTTP/1.1" 200 6818
+INFO 2022-07-29 07:44:12,529 basehttp 6411 140092896421632 "GET /e-register/ HTTP/1.1" 200 6818
+INFO 2022-07-29 07:44:12,656 basehttp 6411 140092896421632 "GET /e-register/ HTTP/1.1" 200 6818
+INFO 2022-07-29 07:44:12,781 basehttp 6411 140092896421632 "GET /e-register/ HTTP/1.1" 200 6818
+INFO 2022-07-29 07:44:16,156 basehttp 6411 140092896421632 "GET /static/assets/plugins/bootstrap/js/bootstrap.js.map HTTP/1.1" 200 289522
+INFO 2022-07-29 07:44:16,184 basehttp 6411 140092887242496 "GET /static/assets/main/css/style.css.map HTTP/1.1" 200 43570
+INFO 2022-07-29 07:44:16,185 basehttp 6411 140092896421632 "GET /static/assets/plugins/bootstrap/css/bootstrap.min.css.map HTTP/1.1" 200 449111
+INFO 2022-07-29 07:44:18,955 basehttp 6411 140092896421632 "GET /e-register/ HTTP/1.1" 200 6818
+INFO 2022-07-29 07:44:18,971 basehttp 6411 140092896421632 "GET /static/assets/main/css/fonts.css HTTP/1.1" 200 917
+INFO 2022-07-29 07:44:18,975 basehttp 6411 140092853671680 "GET /static/assets/js/main.js HTTP/1.1" 200 8268
+INFO 2022-07-29 07:44:18,975 basehttp 6411 140092862064384 "GET /static/assets/js/toggleFullScreen.js HTTP/1.1" 200 940
+INFO 2022-07-29 07:44:18,976 basehttp 6411 140092887242496 "GET /static/assets/main/css/style.css HTTP/1.1" 200 88820
+INFO 2022-07-29 07:44:18,977 basehttp 6411 140092870457088 "GET /static/assets/plugins/bootstrap/js/bootstrap.js HTTP/1.1" 200 148168
+INFO 2022-07-29 07:44:18,978 basehttp 6411 140092878849792 "GET /static/assets/plugins/jquery/jquery.min.js HTTP/1.1" 200 72380
+INFO 2022-07-29 07:44:19,013 basehttp 6411 140092862064384 "GET /static/assets/plugins/daterangepicker/daterangepicker.css HTTP/1.1" 200 8069
+INFO 2022-07-29 07:44:19,013 basehttp 6411 140092853671680 "GET /static/assets/plugins/bootstrap/css/bootstrap.min.css HTTP/1.1" 200 162720
+INFO 2022-07-29 07:44:19,016 basehttp 6411 140092896421632 "GET /static/assets/fonts/simple-line-icons/css/simple-line-icons.css HTTP/1.1" 200 10621
+INFO 2022-07-29 07:44:19,017 basehttp 6411 140092870457088 "GET /static/assets/plugins/datatables/css/dataTables.bootstrap.min.css HTTP/1.1" 200 4356
+INFO 2022-07-29 07:44:19,017 basehttp 6411 140092887242496 "GET /static/assets/fonts/fontawesome/css/all.min.css HTTP/1.1" 200 74967
+INFO 2022-07-29 07:44:19,059 basehttp 6411 140092887242496 "GET /static/assets/plugins/bootstrap/css/bootstrap.min.css.map HTTP/1.1" 200 449111
+INFO 2022-07-29 07:44:19,089 basehttp 6411 140092887242496 "GET /static/assets/plugins/bootstrap/js/bootstrap.js.map HTTP/1.1" 200 289522
+INFO 2022-07-29 07:44:19,094 basehttp 6411 140092896421632 "GET /static/assets/main/css/style.css.map HTTP/1.1" 200 43570
+WARNING 2022-07-29 07:44:19,261 log 6411 140092887242496 Not Found: /favicon.ico
+WARNING 2022-07-29 07:44:19,261 basehttp 6411 140092887242496 "GET /favicon.ico HTTP/1.1" 404 4663
+INFO 2022-07-29 07:44:26,535 basehttp 6411 140092887242496 "POST /e-register/ HTTP/1.1" 200 6910
+INFO 2022-07-29 07:44:26,652 basehttp 6411 140092887242496 "GET /static/assets/plugins/bootstrap/css/bootstrap.min.css.map HTTP/1.1" 200 449111
+INFO 2022-07-29 07:44:26,654 basehttp 6411 140092896421632 "GET /static/assets/main/css/style.css.map HTTP/1.1" 200 43570
+INFO 2022-07-29 07:44:26,685 basehttp 6411 140092896421632 "GET /static/assets/plugins/bootstrap/js/bootstrap.js.map HTTP/1.1" 200 289522
+INFO 2022-07-29 07:45:14,190 autoreload 6411 140093038167872 /home/xbwafi/Desktop/django/AMS/accounts/views.py changed, reloading.
+INFO 2022-07-29 07:45:14,533 autoreload 6623 139936709592896 Watching for file changes with StatReloader
+INFO 2022-07-29 07:45:18,559 basehttp 6623 139936634976000 "GET /e-register/ HTTP/1.1" 200 6820
+INFO 2022-07-29 07:45:18,653 basehttp 6623 139936634976000 "GET /static/assets/main/css/style.css.map HTTP/1.1" 200 43570
+INFO 2022-07-29 07:45:18,654 basehttp 6623 139936626059008 "GET /static/assets/plugins/bootstrap/css/bootstrap.min.css.map HTTP/1.1" 200 449111
+INFO 2022-07-29 07:45:18,677 basehttp 6623 139936626059008 "GET /static/assets/plugins/bootstrap/js/bootstrap.js.map HTTP/1.1" 200 289522
+INFO 2022-07-29 07:45:19,274 basehttp 6623 139936634976000 "GET /e-register/ HTTP/1.1" 200 6820
+INFO 2022-07-29 07:45:19,365 basehttp 6623 139936626059008 "GET /static/assets/main/css/style.css.map HTTP/1.1" 200 43570
+INFO 2022-07-29 07:45:19,366 basehttp 6623 139936634976000 "GET /static/assets/plugins/bootstrap/css/bootstrap.min.css.map HTTP/1.1" 200 449111
+INFO 2022-07-29 07:45:19,390 basehttp 6623 139936634976000 "GET /static/assets/plugins/bootstrap/js/bootstrap.js.map HTTP/1.1" 200 289522
+INFO 2022-07-29 07:45:22,370 basehttp 6623 139936634976000 "GET /e-register/ HTTP/1.1" 200 6820
+INFO 2022-07-29 07:45:22,463 basehttp 6623 139936634976000 "GET /static/assets/main/css/style.css.map HTTP/1.1" 200 43570
+INFO 2022-07-29 07:45:22,464 basehttp 6623 139936626059008 "GET /static/assets/plugins/bootstrap/css/bootstrap.min.css.map HTTP/1.1" 200 449111
+INFO 2022-07-29 07:45:22,485 basehttp 6623 139936626059008 "GET /static/assets/plugins/bootstrap/js/bootstrap.js.map HTTP/1.1" 200 289522
+INFO 2022-07-29 07:45:27,409 basehttp 6623 139936634976000 "POST /e-register/ HTTP/1.1" 200 6903
+INFO 2022-07-29 07:45:27,508 basehttp 6623 139936634976000 "GET /static/assets/main/css/style.css.map HTTP/1.1" 200 43570
+INFO 2022-07-29 07:45:27,509 basehttp 6623 139936626059008 "GET /static/assets/plugins/bootstrap/css/bootstrap.min.css.map HTTP/1.1" 200 449111
+INFO 2022-07-29 07:45:27,527 basehttp 6623 139936626059008 "GET /static/assets/plugins/bootstrap/js/bootstrap.js.map HTTP/1.1" 200 289522
+INFO 2022-07-29 07:45:48,261 autoreload 6623 139936709592896 /home/xbwafi/Desktop/django/AMS/accounts/views.py changed, reloading.
+INFO 2022-07-29 07:45:48,572 autoreload 6724 140210122291008 Watching for file changes with StatReloader
+INFO 2022-07-29 07:45:51,636 basehttp 6724 140210047674112 "GET /e-register/ HTTP/1.1" 200 6820
+INFO 2022-07-29 07:45:51,724 basehttp 6724 140210038757120 "GET /static/assets/main/css/style.css.map HTTP/1.1" 200 43570
+INFO 2022-07-29 07:45:51,725 basehttp 6724 140210047674112 "GET /static/assets/plugins/bootstrap/css/bootstrap.min.css.map HTTP/1.1" 200 449111
+INFO 2022-07-29 07:45:51,746 basehttp 6724 140210047674112 "GET /static/assets/plugins/bootstrap/js/bootstrap.js.map HTTP/1.1" 200 289522
+INFO 2022-07-29 07:45:52,572 basehttp 6724 140210047674112 "GET /e-register/ HTTP/1.1" 200 6820
+INFO 2022-07-29 07:45:52,667 basehttp 6724 140210038757120 "GET /static/assets/main/css/style.css.map HTTP/1.1" 200 43570
+INFO 2022-07-29 07:45:52,668 basehttp 6724 140210047674112 "GET /static/assets/plugins/bootstrap/css/bootstrap.min.css.map HTTP/1.1" 200 449111
+INFO 2022-07-29 07:45:52,689 basehttp 6724 140210047674112 "GET /static/assets/plugins/bootstrap/js/bootstrap.js.map HTTP/1.1" 200 289522
+INFO 2022-07-29 07:45:58,779 basehttp 6724 140210038757120 "POST /e-register/ HTTP/1.1" 200 6905
+INFO 2022-07-29 07:45:58,898 basehttp 6724 140210038757120 "GET /static/assets/main/css/style.css.map HTTP/1.1" 200 43570
+INFO 2022-07-29 07:45:58,899 basehttp 6724 140210047674112 "GET /static/assets/plugins/bootstrap/css/bootstrap.min.css.map HTTP/1.1" 200 449111
+INFO 2022-07-29 07:45:58,918 basehttp 6724 140210047674112 "GET /static/assets/plugins/bootstrap/js/bootstrap.js.map HTTP/1.1" 200 289522
+INFO 2022-07-29 07:46:48,621 basehttp 6724 140210047674112 "GET /t-register/ HTTP/1.1" 200 6336
+INFO 2022-07-29 07:46:48,726 basehttp 6724 140210038757120 "GET /static/assets/main/css/style.css.map HTTP/1.1" 200 43570
+INFO 2022-07-29 07:46:48,727 basehttp 6724 140210047674112 "GET /static/assets/plugins/bootstrap/css/bootstrap.min.css.map HTTP/1.1" 200 449111
+INFO 2022-07-29 07:46:48,748 basehttp 6724 140210047674112 "GET /static/assets/plugins/bootstrap/js/bootstrap.js.map HTTP/1.1" 200 289522
+INFO 2022-07-29 07:46:54,319 basehttp 6724 140210047674112 "POST /t-register/ HTTP/1.1" 302 0
+INFO 2022-07-29 07:46:54,332 basehttp 6724 140210047674112 "GET /t-login/ HTTP/1.1" 200 9742
+INFO 2022-07-29 07:46:54,351 basehttp 6724 140210047674112 "GET /static/assets/js/swal.js HTTP/1.1" 200 68810
+INFO 2022-07-29 07:46:54,446 basehttp 6724 140210047674112 "GET /static/assets/plugins/bootstrap/css/bootstrap.min.css.map HTTP/1.1" 200 449111
+INFO 2022-07-29 07:46:54,450 basehttp 6724 140210038757120 "GET /static/assets/main/css/style.css.map HTTP/1.1" 200 43570
+INFO 2022-07-29 07:46:54,501 basehttp 6724 140210038757120 "GET /static/assets/plugins/bootstrap/js/bootstrap.js.map HTTP/1.1" 200 289522
+INFO 2022-07-29 07:48:33,078 autoreload 6724 140210122291008 /home/xbwafi/Desktop/django/AMS/accounts/views.py changed, reloading.
+INFO 2022-07-29 07:48:33,408 autoreload 7225 140440061986624 Watching for file changes with StatReloader
+INFO 2022-07-29 07:48:48,907 basehttp 7225 140439920219904 "GET /t-register/ HTTP/1.1" 200 6336
+INFO 2022-07-29 07:48:49,002 basehttp 7225 140439920219904 "GET /static/assets/plugins/bootstrap/css/bootstrap.min.css.map HTTP/1.1" 200 449111
+INFO 2022-07-29 07:48:49,005 basehttp 7225 140439911302912 "GET /static/assets/main/css/style.css.map HTTP/1.1" 200 43570
+INFO 2022-07-29 07:48:49,036 basehttp 7225 140439911302912 "GET /static/assets/plugins/bootstrap/js/bootstrap.js.map HTTP/1.1" 200 289522
+INFO 2022-07-29 07:48:49,890 basehttp 7225 140439911302912 "GET /t-register/ HTTP/1.1" 200 6336
+INFO 2022-07-29 07:48:49,980 basehttp 7225 140439920219904 "GET /static/assets/main/css/style.css.map HTTP/1.1" 200 43570
+INFO 2022-07-29 07:48:49,980 basehttp 7225 140439911302912 "GET /static/assets/plugins/bootstrap/css/bootstrap.min.css.map HTTP/1.1" 200 449111
+INFO 2022-07-29 07:48:50,012 basehttp 7225 140439911302912 "GET /static/assets/plugins/bootstrap/js/bootstrap.js.map HTTP/1.1" 200 289522
+INFO 2022-07-29 07:48:57,983 basehttp 7225 140439911302912 "POST /t-register/ HTTP/1.1" 302 0
+INFO 2022-07-29 07:48:57,996 basehttp 7225 140439911302912 "GET /t-login/ HTTP/1.1" 200 9742
+INFO 2022-07-29 07:48:58,127 basehttp 7225 140439911302912 "GET /static/assets/main/css/style.css.map HTTP/1.1" 200 43570
+INFO 2022-07-29 07:48:58,128 basehttp 7225 140439920219904 "GET /static/assets/plugins/bootstrap/css/bootstrap.min.css.map HTTP/1.1" 200 449111
+INFO 2022-07-29 07:48:58,164 basehttp 7225 140439920219904 "GET /static/assets/plugins/bootstrap/js/bootstrap.js.map HTTP/1.1" 200 289522
+INFO 2022-07-29 07:49:33,361 basehttp 7225 140439911302912 "GET /t-register/ HTTP/1.1" 200 6336
+INFO 2022-07-29 07:49:33,451 basehttp 7225 140439911302912 "GET /static/assets/main/css/style.css.map HTTP/1.1" 200 43570
+INFO 2022-07-29 07:49:33,452 basehttp 7225 140439920219904 "GET /static/assets/plugins/bootstrap/css/bootstrap.min.css.map HTTP/1.1" 200 449111
+INFO 2022-07-29 07:49:33,472 basehttp 7225 140439920219904 "GET /static/assets/plugins/bootstrap/js/bootstrap.js.map HTTP/1.1" 200 289522
+INFO 2022-07-29 07:49:34,188 basehttp 7225 140439911302912 "GET /t-register/ HTTP/1.1" 200 6336
+INFO 2022-07-29 07:49:34,276 basehttp 7225 140439920219904 "GET /static/assets/main/css/style.css.map HTTP/1.1" 200 43570
+INFO 2022-07-29 07:49:34,277 basehttp 7225 140439911302912 "GET /static/assets/plugins/bootstrap/css/bootstrap.min.css.map HTTP/1.1" 200 449111
+INFO 2022-07-29 07:49:34,299 basehttp 7225 140439911302912 "GET /static/assets/plugins/bootstrap/js/bootstrap.js.map HTTP/1.1" 200 289522
+INFO 2022-07-29 07:51:54,038 basehttp 7225 140439911302912 "GET /e-register/ HTTP/1.1" 200 7036
+INFO 2022-07-29 07:51:55,372 basehttp 7225 140439911302912 "GET /e-register/ HTTP/1.1" 200 7036
+INFO 2022-07-29 07:52:07,917 basehttp 7225 140439911302912 "POST /t-register/ HTTP/1.1" 200 6424
+INFO 2022-07-29 07:52:23,178 basehttp 7225 140439911302912 "GET /e-register/ HTTP/1.1" 200 7036
+INFO 2022-07-29 07:52:56,446 basehttp 7225 140439911302912 "GET /e-register/ HTTP/1.1" 200 7066
+INFO 2022-07-29 07:52:57,048 basehttp 7225 140439911302912 "GET /e-register/ HTTP/1.1" 200 7066
+INFO 2022-07-29 07:52:57,165 basehttp 7225 140439911302912 "GET /e-register/ HTTP/1.1" 200 7066
+INFO 2022-07-29 07:52:57,405 basehttp 7225 140439911302912 "GET /e-register/ HTTP/1.1" 200 7066
+INFO 2022-07-29 07:52:57,573 basehttp 7225 140439911302912 "GET /e-register/ HTTP/1.1" 200 7066
+INFO 2022-07-29 07:53:40,749 autoreload 7225 140440061986624 /home/xbwafi/Desktop/django/AMS/accounts/views.py changed, reloading.
+INFO 2022-07-29 07:53:41,109 autoreload 7544 140310619232064 Watching for file changes with StatReloader
+INFO 2022-07-29 07:53:43,387 basehttp 7544 140310474651392 "GET /e-register/ HTTP/1.1" 200 7066
+INFO 2022-07-29 07:53:49,807 basehttp 7544 140310474651392 "POST /e-register/ HTTP/1.1" 200 7149
+INFO 2022-07-29 07:54:55,336 basehttp 7544 140310474651392 "GET /e-register/ HTTP/1.1" 200 6820
+INFO 2022-07-29 07:54:56,559 basehttp 7544 140310474651392 "GET /e-register/ HTTP/1.1" 200 6820
+INFO 2022-07-29 07:54:57,613 basehttp 7544 140310474651392 "GET /e-register/ HTTP/1.1" 200 6820
+INFO 2022-07-29 07:55:01,883 basehttp 7544 140310474651392 "POST /e-register/ HTTP/1.1" 200 6910
+INFO 2022-07-29 07:55:35,798 autoreload 7544 140310619232064 /home/xbwafi/Desktop/django/AMS/accounts/views.py changed, reloading.
+INFO 2022-07-29 07:55:36,110 autoreload 7732 139867390818112 Watching for file changes with StatReloader
+INFO 2022-07-29 07:56:55,143 autoreload 7732 139867390818112 /home/xbwafi/Desktop/django/AMS/accounts/views.py changed, reloading.
+INFO 2022-07-29 07:56:55,514 autoreload 7801 140452377241408 Watching for file changes with StatReloader
+INFO 2022-07-29 07:56:58,983 basehttp 7801 140452302624512 "GET /e-register/ HTTP/1.1" 200 6820
+INFO 2022-07-29 07:56:59,600 basehttp 7801 140452302624512 "GET /e-register/ HTTP/1.1" 200 6820
+INFO 2022-07-29 07:57:02,123 basehttp 7801 140452302624512 "GET /e-register/ HTTP/1.1" 200 6820
+INFO 2022-07-29 07:57:03,901 basehttp 7801 140452302624512 "GET /e-register/ HTTP/1.1" 200 6820
+INFO 2022-07-29 07:57:04,113 basehttp 7801 140452302624512 "GET /e-register/ HTTP/1.1" 200 6820
+INFO 2022-07-29 07:57:04,385 basehttp 7801 140452302624512 "GET /e-register/ HTTP/1.1" 200 6820
+INFO 2022-07-29 07:57:04,512 basehttp 7801 140452302624512 "GET /e-register/ HTTP/1.1" 200 6820
+INFO 2022-07-29 07:57:04,671 basehttp 7801 140452302624512 "GET /e-register/ HTTP/1.1" 200 6820
+INFO 2022-07-29 07:57:04,792 basehttp 7801 140452302624512 "GET /e-register/ HTTP/1.1" 200 6820
+INFO 2022-07-29 07:57:04,936 basehttp 7801 140452302624512 "GET /e-register/ HTTP/1.1" 200 6820
+INFO 2022-07-29 07:57:08,982 basehttp 7801 140452302624512 "POST /e-register/ HTTP/1.1" 200 7160
+INFO 2022-07-29 07:57:45,381 autoreload 7801 140452377241408 /home/xbwafi/Desktop/django/AMS/accounts/views.py changed, reloading.
+INFO 2022-07-29 07:57:45,698 autoreload 8018 139779199883072 Watching for file changes with StatReloader
+INFO 2022-07-29 07:58:57,445 basehttp 8018 139779125266176 "GET /e-register/ HTTP/1.1" 200 7163
+INFO 2022-07-29 07:58:57,901 basehttp 8018 139779125266176 "GET /e-register/ HTTP/1.1" 200 7163
+INFO 2022-07-29 07:59:10,222 basehttp 8018 139779125266176 "GET /e-register/ HTTP/1.1" 200 7162
+INFO 2022-07-29 07:59:16,500 basehttp 8018 139779125266176 "POST /e-register/ HTTP/1.1" 302 0
+INFO 2022-07-29 07:59:16,513 basehttp 8018 139779125266176 "GET /e-login/ HTTP/1.1" 200 9746
+INFO 2022-07-29 07:59:49,522 autoreload 8018 139779199883072 /home/xbwafi/Desktop/django/AMS/accounts/views.py changed, reloading.
+INFO 2022-07-29 07:59:49,842 autoreload 8195 140667025266496 Watching for file changes with StatReloader
+INFO 2022-07-29 07:59:53,355 basehttp 8195 140666883532544 "GET /e-register/ HTTP/1.1" 200 7162
+INFO 2022-07-29 07:59:55,792 basehttp 8195 140666883532544 "GET /t-login/ HTTP/1.1" 200 9485
+INFO 2022-07-29 07:59:58,851 basehttp 8195 140666883532544 "GET /t-register/ HTTP/1.1" 200 6336
+INFO 2022-07-29 08:00:10,763 basehttp 8195 140666883532544 "GET /e-register/ HTTP/1.1" 200 7162
+ERROR 2022-07-29 08:00:16,578 log 8195 140666883532544 Internal Server Error: /e-register/
+Traceback (most recent call last):
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xbwafi/Desktop/django/AMS/accounts/views.py", line 107, in e_register
+    user.save()
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/contrib/auth/base_user.py", line 68, in save
+    super().save(*args, **kwargs)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/models/base.py", line 806, in save
+    self.save_base(
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/models/base.py", line 857, in save_base
+    updated = self._save_table(
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/models/base.py", line 970, in _save_table
+    updated = self._do_update(
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/models/base.py", line 1034, in _do_update
+    return filtered._update(values) > 0
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/models/query.py", line 885, in _update
+    return query.get_compiler(self.db).execute_sql(CURSOR)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1783, in execute_sql
+    cursor = super().execute_sql(result_type)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1348, in execute_sql
+    sql, params = self.as_sql()
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/backends/mysql/compiler.py", line 50, in as_sql
+    update_query, update_params = super().as_sql()
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1749, in as_sql
+    val = field.get_db_prep_save(val, connection=self.connection)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/models/fields/related.py", line 1126, in get_db_prep_save
+    return self.target_field.get_db_prep_save(value, connection=connection)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 910, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 2669, in get_db_prep_value
+    value = connection.ops.validate_autopk_value(value)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/backends/mysql/operations.py", line 249, in validate_autopk_value
+    raise ValueError(
+ValueError: The database backend does not accept 0 as a value for AutoField.
+ERROR 2022-07-29 08:00:16,580 basehttp 8195 140666883532544 "POST /e-register/ HTTP/1.1" 500 138328
+INFO 2022-07-29 08:00:31,708 autoreload 8195 140667025266496 /home/xbwafi/Desktop/django/AMS/accounts/views.py changed, reloading.
+INFO 2022-07-29 08:00:32,033 autoreload 8272 139644929603392 Watching for file changes with StatReloader
+INFO 2022-07-29 08:00:32,899 basehttp 8272 139644855510784 "POST /e-register/ HTTP/1.1" 200 7734
+INFO 2022-07-29 08:00:38,779 basehttp 8272 139644855510784 "GET /e-register/ HTTP/1.1" 200 7162
+INFO 2022-07-29 08:00:52,083 basehttp 8272 139644855510784 "GET /e-register/ HTTP/1.1" 200 7162
+ERROR 2022-07-29 08:01:07,680 log 8272 139644855510784 Internal Server Error: /e-register/
+Traceback (most recent call last):
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1988, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'null'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xbwafi/Desktop/django/AMS/accounts/views.py", line 107, in e_register
+    user.save()
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/contrib/auth/base_user.py", line 68, in save
+    super().save(*args, **kwargs)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/models/base.py", line 806, in save
+    self.save_base(
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/models/base.py", line 857, in save_base
+    updated = self._save_table(
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/models/base.py", line 970, in _save_table
+    updated = self._do_update(
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/models/base.py", line 1034, in _do_update
+    return filtered._update(values) > 0
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/models/query.py", line 885, in _update
+    return query.get_compiler(self.db).execute_sql(CURSOR)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1783, in execute_sql
+    cursor = super().execute_sql(result_type)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1348, in execute_sql
+    sql, params = self.as_sql()
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/backends/mysql/compiler.py", line 50, in as_sql
+    update_query, update_params = super().as_sql()
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1749, in as_sql
+    val = field.get_db_prep_save(val, connection=self.connection)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/models/fields/related.py", line 1126, in get_db_prep_save
+    return self.target_field.get_db_prep_save(value, connection=connection)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 910, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 2668, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1990, in get_prep_value
+    raise e.__class__(
+ValueError: Field 'id' expected a number but got 'null'.
+ERROR 2022-07-29 08:01:07,682 basehttp 8272 139644855510784 "POST /e-register/ HTTP/1.1" 500 142896
+INFO 2022-07-29 08:01:46,355 autoreload 8272 139644929603392 /home/xbwafi/Desktop/django/AMS/accounts/views.py changed, reloading.
+INFO 2022-07-29 08:01:46,667 autoreload 8372 139906363647808 Watching for file changes with StatReloader
+INFO 2022-07-29 08:01:55,915 basehttp 8372 139906289030912 "GET /e-register/ HTTP/1.1" 200 7162
+INFO 2022-07-29 08:01:56,727 basehttp 8372 139906289030912 "GET /e-register/ HTTP/1.1" 200 7162
+INFO 2022-07-29 08:01:56,865 basehttp 8372 139906289030912 "GET /e-register/ HTTP/1.1" 200 7162
+INFO 2022-07-29 08:01:56,990 basehttp 8372 139906289030912 "GET /e-register/ HTTP/1.1" 200 7162
+INFO 2022-07-29 08:01:57,118 basehttp 8372 139906289030912 "GET /e-register/ HTTP/1.1" 200 7162
+INFO 2022-07-29 08:01:57,240 basehttp 8372 139906289030912 "GET /e-register/ HTTP/1.1" 200 7162
+INFO 2022-07-29 08:01:57,350 basehttp 8372 139906289030912 "GET /e-register/ HTTP/1.1" 200 7162
+INFO 2022-07-29 08:01:57,620 basehttp 8372 139906289030912 "GET /e-register/ HTTP/1.1" 200 7162
+ERROR 2022-07-29 08:02:01,946 log 8372 139906289030912 Internal Server Error: /e-register/
+Traceback (most recent call last):
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/backends/mysql/base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 148, in execute
+    result = self._query(query)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 310, in _query
+    conn.query(q)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/pymysql/connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/pymysql/connections.py", line 775, in _read_query_result
+    result.read()
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/pymysql/connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/pymysql/connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1452, 'Cannot add or update a child row: a foreign key constraint fails (`ams`.`accounts_account`, CONSTRAINT `accounts_account_tenant_id_a28a6b83_fk_home_tenant_id` FOREIGN KEY (`tenant_id`) REFERENCES `home_tenant` (`id`))')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xbwafi/Desktop/django/AMS/accounts/views.py", line 107, in e_register
+    user.save()
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/contrib/auth/base_user.py", line 68, in save
+    super().save(*args, **kwargs)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/models/base.py", line 806, in save
+    self.save_base(
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/models/base.py", line 857, in save_base
+    updated = self._save_table(
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/models/base.py", line 970, in _save_table
+    updated = self._do_update(
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/models/base.py", line 1034, in _do_update
+    return filtered._update(values) > 0
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/models/query.py", line 885, in _update
+    return query.get_compiler(self.db).execute_sql(CURSOR)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1783, in execute_sql
+    cursor = super().execute_sql(result_type)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1361, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/backends/mysql/base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 148, in execute
+    result = self._query(query)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 310, in _query
+    conn.query(q)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/pymysql/connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/pymysql/connections.py", line 775, in _read_query_result
+    result.read()
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/pymysql/connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/pymysql/connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.IntegrityError: (1452, 'Cannot add or update a child row: a foreign key constraint fails (`ams`.`accounts_account`, CONSTRAINT `accounts_account_tenant_id_a28a6b83_fk_home_tenant_id` FOREIGN KEY (`tenant_id`) REFERENCES `home_tenant` (`id`))')
+ERROR 2022-07-29 08:02:01,949 basehttp 8372 139906289030912 "POST /e-register/ HTTP/1.1" 500 230745
+INFO 2022-07-29 08:02:17,124 basehttp 8372 139906289030912 "GET /e-register/ HTTP/1.1" 200 7162
+INFO 2022-07-29 08:02:45,743 autoreload 8372 139906363647808 /home/xbwafi/Desktop/django/AMS/accounts/views.py changed, reloading.
+INFO 2022-07-29 08:02:46,060 autoreload 8473 139926702982976 Watching for file changes with StatReloader
+INFO 2022-07-29 08:02:51,947 basehttp 8473 139926628366080 "GET /e-register/ HTTP/1.1" 200 7162
+ERROR 2022-07-29 08:02:55,942 log 8473 139926628366080 Internal Server Error: /e-register/
+Traceback (most recent call last):
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xbwafi/Desktop/django/AMS/accounts/views.py", line 107, in e_register
+    user.save()
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/contrib/auth/base_user.py", line 68, in save
+    super().save(*args, **kwargs)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/models/base.py", line 806, in save
+    self.save_base(
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/models/base.py", line 857, in save_base
+    updated = self._save_table(
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/models/base.py", line 970, in _save_table
+    updated = self._do_update(
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/models/base.py", line 1034, in _do_update
+    return filtered._update(values) > 0
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/models/query.py", line 885, in _update
+    return query.get_compiler(self.db).execute_sql(CURSOR)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1783, in execute_sql
+    cursor = super().execute_sql(result_type)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1348, in execute_sql
+    sql, params = self.as_sql()
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/backends/mysql/compiler.py", line 50, in as_sql
+    update_query, update_params = super().as_sql()
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1749, in as_sql
+    val = field.get_db_prep_save(val, connection=self.connection)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/models/fields/related.py", line 1126, in get_db_prep_save
+    return self.target_field.get_db_prep_save(value, connection=connection)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 910, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 2669, in get_db_prep_value
+    value = connection.ops.validate_autopk_value(value)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/backends/mysql/operations.py", line 249, in validate_autopk_value
+    raise ValueError(
+ValueError: The database backend does not accept 0 as a value for AutoField.
+ERROR 2022-07-29 08:02:55,945 basehttp 8473 139926628366080 "POST /e-register/ HTTP/1.1" 500 138483
+INFO 2022-07-29 08:37:51,450 autoreload 8473 139926702982976 /home/xbwafi/Desktop/django/AMS/accounts/models.py changed, reloading.
+INFO 2022-07-29 08:37:51,790 autoreload 14640 140286685218624 Watching for file changes with StatReloader
+INFO 2022-07-29 08:38:01,564 autoreload 15090 139787425511232 Watching for file changes with StatReloader
+INFO 2022-07-29 08:38:28,036 autoreload 15090 139787425511232 /home/xbwafi/Desktop/django/AMS/accounts/views.py changed, reloading.
+INFO 2022-07-29 08:38:28,378 autoreload 15483 139999971546944 Watching for file changes with StatReloader
+INFO 2022-07-29 08:38:33,131 basehttp 15483 139999827719936 "GET /e-register/ HTTP/1.1" 200 7162
+ERROR 2022-07-29 08:38:37,705 log 15483 139999827719936 Internal Server Error: /e-register/
+Traceback (most recent call last):
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1988, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'null'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xbwafi/Desktop/django/AMS/accounts/views.py", line 102, in e_register
+    user = Account.objects.create_user(first_name=first_name, last_name=last_name, email=email, username=username, password=password)
+  File "/home/xbwafi/Desktop/django/AMS/accounts/models.py", line 27, in create_user
+    user.save(using=self._db)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/contrib/auth/base_user.py", line 68, in save
+    super().save(*args, **kwargs)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/models/base.py", line 806, in save
+    self.save_base(
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/models/base.py", line 857, in save_base
+    updated = self._save_table(
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/models/base.py", line 1000, in _save_table
+    results = self._do_insert(
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/models/base.py", line 1041, in _do_insert
+    return manager._insert(
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/models/query.py", line 1434, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1620, in execute_sql
+    for sql, params in self.as_sql():
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1547, in as_sql
+    value_rows = [
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1548, in <listcomp>
+    [
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1549, in <listcomp>
+    self.prepare_value(field, self.pre_save_val(field, obj))
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1487, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/models/fields/related.py", line 1126, in get_db_prep_save
+    return self.target_field.get_db_prep_save(value, connection=connection)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 910, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 2668, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1990, in get_prep_value
+    raise e.__class__(
+ValueError: Field 'id' expected a number but got 'null'.
+ERROR 2022-07-29 08:38:37,707 basehttp 15483 139999827719936 "POST /e-register/ HTTP/1.1" 500 156320
+INFO 2022-07-29 08:38:44,665 basehttp 15483 139999827719936 "GET /e-register/ HTTP/1.1" 200 7162
+INFO 2022-07-29 08:42:07,183 autoreload 15483 139999971546944 /home/xbwafi/Desktop/django/AMS/accounts/models.py changed, reloading.
+INFO 2022-07-29 08:42:07,508 autoreload 15901 140177644394304 Watching for file changes with StatReloader
+INFO 2022-07-29 08:42:15,237 autoreload 16065 139868306720576 Watching for file changes with StatReloader
+INFO 2022-07-29 08:42:20,083 basehttp 16065 139868160128768 "GET /e-register/ HTTP/1.1" 200 7162
+INFO 2022-07-29 08:42:26,876 basehttp 16065 139868160128768 "POST /e-register/ HTTP/1.1" 302 0
+INFO 2022-07-29 08:42:26,888 basehttp 16065 139868160128768 "GET /e-login/ HTTP/1.1" 200 9746
+INFO 2022-07-29 08:42:51,060 basehttp 16065 139868160128768 "GET /e-register/ HTTP/1.1" 200 6786
+INFO 2022-07-29 08:42:51,876 basehttp 16065 139868160128768 "GET /e-register/ HTTP/1.1" 200 6786
+INFO 2022-07-29 08:42:53,102 basehttp 16065 139868160128768 "GET /e-register/ HTTP/1.1" 200 6786
+INFO 2022-07-29 08:42:53,217 basehttp 16065 139868160128768 "GET /e-register/ HTTP/1.1" 200 6786
+INFO 2022-07-29 08:42:53,393 basehttp 16065 139868160128768 "GET /e-register/ HTTP/1.1" 200 6786
+INFO 2022-07-29 08:42:53,516 basehttp 16065 139868160128768 "GET /e-register/ HTTP/1.1" 200 6786
+INFO 2022-07-29 08:42:53,687 basehttp 16065 139868160128768 "GET /e-register/ HTTP/1.1" 200 6786
+INFO 2022-07-29 08:42:57,263 basehttp 16065 139868160128768 "POST /e-register/ HTTP/1.1" 200 7124
+INFO 2022-07-29 08:44:08,998 autoreload 16065 139868306720576 /home/xbwafi/Desktop/django/AMS/accounts/forms.py changed, reloading.
+INFO 2022-07-29 08:44:09,319 autoreload 16235 140149955958592 Watching for file changes with StatReloader
+INFO 2022-07-29 08:44:28,752 autoreload 16235 140149955958592 /home/xbwafi/Desktop/django/AMS/accounts/views.py changed, reloading.
+INFO 2022-07-29 08:44:29,115 autoreload 16295 139826667558720 Watching for file changes with StatReloader
+INFO 2022-07-29 08:45:24,969 autoreload 16295 139826667558720 /home/xbwafi/Desktop/django/AMS/accounts/forms.py changed, reloading.
+INFO 2022-07-29 08:45:25,313 autoreload 16366 140674874980160 Watching for file changes with StatReloader
+INFO 2022-07-29 08:45:52,895 autoreload 16366 140674874980160 /home/xbwafi/Desktop/django/AMS/accounts/views.py changed, reloading.
+INFO 2022-07-29 08:45:53,212 autoreload 16437 139741166090048 Watching for file changes with StatReloader
+INFO 2022-07-29 08:45:56,630 basehttp 16437 139741091473152 "GET /e-register/ HTTP/1.1" 200 6786
+INFO 2022-07-29 08:45:57,214 basehttp 16437 139741091473152 "GET /e-register/ HTTP/1.1" 200 6786
+INFO 2022-07-29 08:45:57,767 basehttp 16437 139741091473152 "GET /e-register/ HTTP/1.1" 200 6786
+INFO 2022-07-29 08:45:57,879 basehttp 16437 139741091473152 "GET /e-register/ HTTP/1.1" 200 6786
+INFO 2022-07-29 08:45:58,129 basehttp 16437 139741091473152 "GET /e-register/ HTTP/1.1" 200 6786
+INFO 2022-07-29 08:45:58,341 basehttp 16437 139741091473152 "GET /e-register/ HTTP/1.1" 200 6786
+ERROR 2022-07-29 08:46:02,849 log 16437 139741091473152 Internal Server Error: /e-register/
+Traceback (most recent call last):
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xbwafi/Desktop/django/AMS/accounts/views.py", line 93, in e_register
+    form = RegistrationForm1(request.POST)
+  File "/home/xbwafi/Desktop/django/AMS/accounts/forms.py", line 82, in __init__
+    super(RegistrationForm, self).__init__(*args, **kwargs)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+ERROR 2022-07-29 08:46:02,849 basehttp 16437 139741091473152 "POST /e-register/ HTTP/1.1" 500 71786
+INFO 2022-07-29 08:46:46,212 autoreload 16437 139741166090048 /home/xbwafi/Desktop/django/AMS/accounts/views.py changed, reloading.
+INFO 2022-07-29 08:46:46,523 autoreload 16589 140612118447936 Watching for file changes with StatReloader
+ERROR 2022-07-29 08:46:50,895 log 16589 140611976713984 Internal Server Error: /e-register/
+Traceback (most recent call last):
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xbwafi/Desktop/django/AMS/accounts/views.py", line 112, in e_register
+    form = RegistrationForm1()
+  File "/home/xbwafi/Desktop/django/AMS/accounts/forms.py", line 82, in __init__
+    super(RegistrationForm, self).__init__(*args, **kwargs)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+ERROR 2022-07-29 08:46:50,896 basehttp 16589 140611976713984 "GET /e-register/ HTTP/1.1" 500 69451
+ERROR 2022-07-29 08:46:51,141 log 16589 140611976713984 Internal Server Error: /e-register/
+Traceback (most recent call last):
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xbwafi/Desktop/django/AMS/accounts/views.py", line 112, in e_register
+    form = RegistrationForm1()
+  File "/home/xbwafi/Desktop/django/AMS/accounts/forms.py", line 82, in __init__
+    super(RegistrationForm, self).__init__(*args, **kwargs)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+ERROR 2022-07-29 08:46:51,141 basehttp 16589 140611976713984 "GET /e-register/ HTTP/1.1" 500 69451
+ERROR 2022-07-29 08:46:51,418 log 16589 140611976713984 Internal Server Error: /e-register/
+Traceback (most recent call last):
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xbwafi/Desktop/django/AMS/accounts/views.py", line 112, in e_register
+    form = RegistrationForm1()
+  File "/home/xbwafi/Desktop/django/AMS/accounts/forms.py", line 82, in __init__
+    super(RegistrationForm, self).__init__(*args, **kwargs)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+ERROR 2022-07-29 08:46:51,419 basehttp 16589 140611976713984 "GET /e-register/ HTTP/1.1" 500 69451
+INFO 2022-07-29 08:46:59,954 basehttp 16589 140611976713984 "GET / HTTP/1.1" 200 8767
+ERROR 2022-07-29 08:47:04,035 log 16589 140611976713984 Internal Server Error: /e-register/
+Traceback (most recent call last):
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xbwafi/Desktop/django/AMS/accounts/views.py", line 112, in e_register
+    form = RegistrationForm1()
+  File "/home/xbwafi/Desktop/django/AMS/accounts/forms.py", line 82, in __init__
+    super(RegistrationForm, self).__init__(*args, **kwargs)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+ERROR 2022-07-29 08:47:04,035 basehttp 16589 140611976713984 "GET /e-register/ HTTP/1.1" 500 69451
+ERROR 2022-07-29 08:47:10,684 log 16589 140611976713984 Internal Server Error: /e-register/
+Traceback (most recent call last):
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xbwafi/Desktop/django/AMS/accounts/views.py", line 112, in e_register
+    form = RegistrationForm1()
+  File "/home/xbwafi/Desktop/django/AMS/accounts/forms.py", line 82, in __init__
+    super(RegistrationForm, self).__init__(*args, **kwargs)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+ERROR 2022-07-29 08:47:10,684 basehttp 16589 140611976713984 "GET /e-register/ HTTP/1.1" 500 69314
+INFO 2022-07-29 08:47:19,909 autoreload 16758 139721944831808 Watching for file changes with StatReloader
+ERROR 2022-07-29 08:47:22,443 log 16758 139721795696384 Internal Server Error: /e-register/
+Traceback (most recent call last):
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xbwafi/Desktop/django/AMS/accounts/views.py", line 112, in e_register
+    form = RegistrationForm1()
+  File "/home/xbwafi/Desktop/django/AMS/accounts/forms.py", line 82, in __init__
+    super(RegistrationForm, self).__init__(*args, **kwargs)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+ERROR 2022-07-29 08:47:22,444 basehttp 16758 139721795696384 "GET /e-register/ HTTP/1.1" 500 69451
+ERROR 2022-07-29 08:47:33,341 log 16758 139721795696384 Internal Server Error: /e-register/
+Traceback (most recent call last):
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xbwafi/Desktop/django/AMS/accounts/views.py", line 112, in e_register
+    form = RegistrationForm1()
+  File "/home/xbwafi/Desktop/django/AMS/accounts/forms.py", line 82, in __init__
+    super(RegistrationForm, self).__init__(*args, **kwargs)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+ERROR 2022-07-29 08:47:33,342 basehttp 16758 139721795696384 "GET /e-register/ HTTP/1.1" 500 69579
+WARNING 2022-07-29 08:47:33,479 log 16758 139721795696384 Not Found: /favicon.ico
+WARNING 2022-07-29 08:47:33,479 basehttp 16758 139721795696384 "GET /favicon.ico HTTP/1.1" 404 4663
+ERROR 2022-07-29 08:47:33,836 log 16758 139721795696384 Internal Server Error: /e-register/
+Traceback (most recent call last):
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xbwafi/Desktop/django/AMS/accounts/views.py", line 112, in e_register
+    form = RegistrationForm1()
+  File "/home/xbwafi/Desktop/django/AMS/accounts/forms.py", line 82, in __init__
+    super(RegistrationForm, self).__init__(*args, **kwargs)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+ERROR 2022-07-29 08:47:33,836 basehttp 16758 139721795696384 "GET /e-register/ HTTP/1.1" 500 69579
+WARNING 2022-07-29 08:47:33,976 log 16758 139721795696384 Not Found: /favicon.ico
+WARNING 2022-07-29 08:47:33,983 basehttp 16758 139721795696384 "GET /favicon.ico HTTP/1.1" 404 4663
+ERROR 2022-07-29 08:47:33,999 log 16758 139721787303680 Internal Server Error: /e-register/
+Traceback (most recent call last):
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xbwafi/Desktop/django/AMS/accounts/views.py", line 112, in e_register
+    form = RegistrationForm1()
+  File "/home/xbwafi/Desktop/django/AMS/accounts/forms.py", line 82, in __init__
+    super(RegistrationForm, self).__init__(*args, **kwargs)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+ERROR 2022-07-29 08:47:33,999 basehttp 16758 139721787303680 "GET /e-register/ HTTP/1.1" 500 69579
+ERROR 2022-07-29 08:47:34,130 log 16758 139721787303680 Internal Server Error: /e-register/
+Traceback (most recent call last):
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xbwafi/Desktop/django/AMS/accounts/views.py", line 112, in e_register
+    form = RegistrationForm1()
+  File "/home/xbwafi/Desktop/django/AMS/accounts/forms.py", line 82, in __init__
+    super(RegistrationForm, self).__init__(*args, **kwargs)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+ERROR 2022-07-29 08:47:34,131 basehttp 16758 139721787303680 "GET /e-register/ HTTP/1.1" 500 69579
+WARNING 2022-07-29 08:47:34,141 log 16758 139721787303680 Not Found: /favicon.ico
+ERROR 2022-07-29 08:47:34,243 log 16758 139721795696384 Internal Server Error: /e-register/
+Traceback (most recent call last):
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xbwafi/Desktop/django/AMS/accounts/views.py", line 112, in e_register
+    form = RegistrationForm1()
+  File "/home/xbwafi/Desktop/django/AMS/accounts/forms.py", line 82, in __init__
+    super(RegistrationForm, self).__init__(*args, **kwargs)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+ERROR 2022-07-29 08:47:34,243 basehttp 16758 139721795696384 "GET /e-register/ HTTP/1.1" 500 69579
+ERROR 2022-07-29 08:47:34,383 log 16758 139721795696384 Internal Server Error: /e-register/
+Traceback (most recent call last):
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xbwafi/Desktop/django/AMS/accounts/views.py", line 112, in e_register
+    form = RegistrationForm1()
+  File "/home/xbwafi/Desktop/django/AMS/accounts/forms.py", line 82, in __init__
+    super(RegistrationForm, self).__init__(*args, **kwargs)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+WARNING 2022-07-29 08:47:34,387 log 16758 139721787303680 Not Found: /favicon.ico
+WARNING 2022-07-29 08:47:34,388 basehttp 16758 139721787303680 "GET /favicon.ico HTTP/1.1" 404 4663
+ERROR 2022-07-29 08:47:34,388 basehttp 16758 139721795696384 "GET /e-register/ HTTP/1.1" 500 69579
+ERROR 2022-07-29 08:47:34,486 log 16758 139721795696384 Internal Server Error: /e-register/
+Traceback (most recent call last):
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xbwafi/Desktop/django/AMS/accounts/views.py", line 112, in e_register
+    form = RegistrationForm1()
+  File "/home/xbwafi/Desktop/django/AMS/accounts/forms.py", line 82, in __init__
+    super(RegistrationForm, self).__init__(*args, **kwargs)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+ERROR 2022-07-29 08:47:34,487 basehttp 16758 139721795696384 "GET /e-register/ HTTP/1.1" 500 69579
+WARNING 2022-07-29 08:47:34,518 log 16758 139721795696384 Not Found: /favicon.ico
+WARNING 2022-07-29 08:47:34,518 basehttp 16758 139721795696384 "GET /favicon.ico HTTP/1.1" 404 4663
+WARNING 2022-07-29 08:47:34,626 log 16758 139721795696384 Not Found: /favicon.ico
+WARNING 2022-07-29 08:47:34,626 basehttp 16758 139721795696384 "GET /favicon.ico HTTP/1.1" 404 4663
+ERROR 2022-07-29 08:47:34,683 log 16758 139721795696384 Internal Server Error: /e-register/
+Traceback (most recent call last):
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/xbwafi/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xbwafi/Desktop/django/AMS/accounts/views.py", line 112, in e_register
+    form = RegistrationForm1()
+  File "/home/xbwafi/Desktop/django/AMS/accounts/forms.py", line 82, in __init__
+    super(RegistrationForm, self).__init__(*args, **kwargs)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+ERROR 2022-07-29 08:47:34,684 basehttp 16758 139721795696384 "GET /e-register/ HTTP/1.1" 500 69579
+WARNING 2022-07-29 08:47:34,781 log 16758 139721795696384 Not Found: /favicon.ico
+WARNING 2022-07-29 08:47:34,781 basehttp 16758 139721795696384 "GET /favicon.ico HTTP/1.1" 404 4663
+INFO 2022-07-29 08:48:32,079 autoreload 16758 139721944831808 /home/xbwafi/Desktop/django/AMS/accounts/forms.py changed, reloading.
+INFO 2022-07-29 08:48:32,550 autoreload 17002 140217267259200 Watching for file changes with StatReloader
+INFO 2022-07-29 08:48:51,103 autoreload 17002 140217267259200 /home/xbwafi/Desktop/django/AMS/accounts/forms.py changed, reloading.
+INFO 2022-07-29 08:48:51,437 autoreload 17060 139908381329216 Watching for file changes with StatReloader
+INFO 2022-07-29 08:48:53,964 basehttp 17060 139908306712320 "GET /e-register/ HTTP/1.1" 200 6786
+INFO 2022-07-29 08:48:55,900 basehttp 17060 139908306712320 "GET /e-register/ HTTP/1.1" 200 6786
+INFO 2022-07-29 08:49:00,092 basehttp 17060 139908306712320 "POST /e-register/ HTTP/1.1" 302 0
+INFO 2022-07-29 08:49:00,105 basehttp 17060 139908306712320 "GET /e-login/ HTTP/1.1" 200 9750
+INFO 2022-07-29 08:49:33,743 basehttp 17060 139908306712320 "GET /e-register/ HTTP/1.1" 200 6786
+INFO 2022-07-29 08:50:03,839 basehttp 17060 139908306712320 "GET /e-register/ HTTP/1.1" 200 6702
+INFO 2022-07-29 08:50:27,731 basehttp 17060 139908306712320 "GET /e-register/ HTTP/1.1" 200 6702
+INFO 2022-07-29 08:50:34,916 basehttp 17060 139908306712320 "GET /t-register/ HTTP/1.1" 200 6337
+INFO 2022-07-29 08:50:45,798 basehttp 17060 139908306712320 "GET /e-register/ HTTP/1.1" 200 6702
+INFO 2022-07-29 08:51:21,528 basehttp 17060 139908306712320 "GET /e-register/ HTTP/1.1" 200 6702
+INFO 2022-07-29 08:51:24,516 basehttp 17060 139908306712320 "GET /t-register/ HTTP/1.1" 200 6344
+INFO 2022-07-29 08:51:25,392 basehttp 17060 139908306712320 "GET /t-register/ HTTP/1.1" 200 6344
+INFO 2022-07-29 08:51:25,905 basehttp 17060 139908306712320 "GET /t-register/ HTTP/1.1" 200 6344
+INFO 2022-07-29 08:52:03,642 basehttp 17060 139908306712320 "GET /t-register/ HTTP/1.1" 200 6337

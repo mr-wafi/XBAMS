@@ -1,7 +1,7 @@
 from turtle import back
 from django.shortcuts import render, redirect, get_object_or_404
 from home.views import tenant
-from .forms import RegistrationForm, UserForm, UserProfileForm
+from .forms import *
 from .models import Account, UserProfile
 from django.contrib import messages, auth
 from django.contrib.auth.decorators import login_required
@@ -10,52 +10,110 @@ from django.contrib.auth.hashers import make_password
 from django.db.models import Sum
 
 
-def register(request):
-    if request.user.is_authenticated:
-        return redirect('dashboard')
+# def register(request):
+#     if request.user.is_authenticated:
+#         return redirect('dashboard')
+#     else:
+#         if request.method == 'POST':
+#             form = RegistrationForm(request.POST)
+#             if form.is_valid():
+#                 if Account.user_type == 'Employee':
+#                     first_name = form.cleaned_data['first_name']
+#                     last_name = form.cleaned_data['last_name']
+#                     phone_number = form.cleaned_data['phone_number']
+#                     model_choice = form.cleaned_data['model_choice']
+#                     user_type = form.cleaned_data['user_type']
+#                     email = form.cleaned_data['email']
+#                     password = form.cleaned_data['password']
+#                     username = email.split("@")[0]
+#                     user = Account.objects.create_user(first_name=first_name, last_name=last_name, email=email, username=username, password=password)
+#                     user.phone_number = phone_number
+#                     user.user_type = user_type
+#                     user.tenant_id = model_choice
+#                     user.save()
+#                     messages.success(request, f'User successfully registered')
+#                     return redirect('login')
+#                 elif Account.user_type == 'Tenant':
+#                     first_name = form.cleaned_data['first_name']
+#                     last_name = form.cleaned_data['last_name']
+#                     phone_number = form.cleaned_data['phone_number']
+#                     user_type = form.cleaned_data['user_type']
+#                     model_choice = form.cleaned_data['model_choice']
+#                     email = form.cleaned_data['email']
+#                     password = form.cleaned_data['password']
+#                     username = email.split("@")[0]
+#                     user = Account.objects.create_user(first_name=first_name, last_name=last_name, email=email, username=username, password=password)
+#                     user.phone_number = phone_number
+#                     user.user_type = user_type
+#                     user.tenant_id = model_choice
+#                     user.save()
+#                     messages.success(request, f'User successfully registered')
+#                     return redirect('login')
+#                 else:
+#                     return redirect('register')
+#         else:
+#             form = RegistrationForm()
+#         context = {
+#             'form': form,
+#         }
+#     return render(request, 'accounts/register.html', context)
+
+def t_register(request):
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
         if form.is_valid():
-            if Account.user_type == 'Employee':
-                first_name = form.cleaned_data['first_name']
-                last_name = form.cleaned_data['last_name']
-                phone_number = form.cleaned_data['phone_number']
-                model_choice = form.cleaned_data['model_choice']
-                user_type = form.cleaned_data['user_type']
-                email = form.cleaned_data['email']
-                password = form.cleaned_data['password']
-                username = email.split("@")[0]
-                user = Account.objects.create_user(first_name=first_name, last_name=last_name, email=email, username=username, password=password)
-                user.phone_number = phone_number
-                user.user_type = user_type
-                user.tenant_id = model_choice
-                user.save()
-                messages.success(request, f'User successfully registered')
-                return redirect('login')
-            elif Account.user_type == 'Tenant':
-                first_name = form.cleaned_data['first_name']
-                last_name = form.cleaned_data['last_name']
-                phone_number = form.cleaned_data['phone_number']
-                user_type = form.cleaned_data['user_type']
-                model_choice = form.cleaned_data['model_choice']
-                email = form.cleaned_data['email']
-                password = form.cleaned_data['password']
-                username = email.split("@")[0]
-                user = Account.objects.create_user(first_name=first_name, last_name=last_name, email=email, username=username, password=password)
-                user.phone_number = phone_number
-                user.user_type = user_type
-                user.tenant_id = model_choice
-                user.save()
-                messages.success(request, f'User successfully registered')
-                return redirect('login')
-            else:
-                return redirect('register')
+            first_name = form.cleaned_data['first_name']
+            last_name = form.cleaned_data['last_name']
+            phone_number = form.cleaned_data['phone_number']
+            user_type = request.POST['user_type'] #form.cleaned_data['user_type']
+            select_tenant = form.cleaned_data['select_tenant']
+            email = form.cleaned_data['email']
+            password = form.cleaned_data['password']
+            username = email.split("@")[0]
+            user = Account.objects.create_user(first_name=first_name, last_name=last_name, email=email, username=username, password=password)
+            user.phone_number = phone_number
+            user.user_type = user_type
+            user.tenant_id = select_tenant 
+            user.save()
+            print(user.save())
+            messages.success(request, f'User successfully registered')
+            return redirect('t_login')
+        else:
+            print('something went wrong')
     else:
         form = RegistrationForm()
     context = {
         'form': form,
     }
-    return render(request, 'accounts/register.html', context)
+    return render(request, 'accounts/t_register.html', context)
+
+
+def e_register(request):
+    if request.method == 'POST':
+        form = RegistrationForm1(request.POST)
+        if form.is_valid():
+            first_name = form.cleaned_data['first_name']
+            last_name = form.cleaned_data['last_name']
+            phone_number = form.cleaned_data['phone_number']
+            user_type = request.POST['user_type'] #form.cleaned_data['user_type']
+            email = form.cleaned_data['email']
+            password = form.cleaned_data['password']
+            username = email.split("@")[0]
+            user = Account.objects.create_user(first_name=first_name, last_name=last_name, email=email, username=username, password=password)
+            user.phone_number = phone_number
+            user.user_type = user_type
+            user.save()
+            print(user.save())
+            messages.success(request, f'Employee successfully registered')
+            return redirect('e_login')
+        else:
+            messages.warning(request, f'there is some problem')
+    else:
+        form = RegistrationForm1()
+    context = {
+        'form': form,
+    }
+    return render(request, 'accounts/e_register.html', context)
 
 
 def login(request):

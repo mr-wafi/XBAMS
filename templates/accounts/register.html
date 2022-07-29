@@ -67,8 +67,9 @@
 															{{form.confirm_password}}
 														</div> <!-- form-group end.// -->
 														<div class="form-group col-md-12">
-															<label>Choose User Type</label>
-															{{form.user_type}}
+															<label>User Type</label>
+															{% comment %} {{form.user_type}} {% endcomment %}
+															<input type="text" class="form-control" name="user_type" value="Employee" readonly id="">
 															<input type="hidden" name="model_choice" value="0" id="">
 														</div> <!-- form-group end.// -->
 														
@@ -156,8 +157,9 @@
 															{{form.confirm_password}}
 														</div> <!-- form-group end.// -->
 														<div class="form-group col-md-6">
-															<label>Choose User Type</label>
-															{{form.user_type}}
+															<label>User Type</label>
+															{% comment %} {{form.user_type}} {% endcomment %}
+															<input type="text" name="user_type" class="form-control" value="Tenant" readonly id="">
 														</div> <!-- form-group end.// -->
 														<div class="form-group col-md-6">
 															<label>Choose Tenant</label>
